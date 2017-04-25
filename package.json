@@ -5,11 +5,15 @@
   "dependencies": {
     "js-cookie": "^2.1.4",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-google-login": "^2.8.9",
+    "react-router-dom": "^4.1.1",
+    "semantic-ui-react": "^0.68.2"
   },
   "devDependencies": {
     "node-sass": "^4.5.2",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "semantic-ui": "^2.2.10"
   },
   "scripts": {
     "build-css": "node-sass src/assets/style -o src/assets/style",
