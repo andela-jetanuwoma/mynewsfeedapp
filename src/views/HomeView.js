@@ -1,8 +1,7 @@
 import React from 'react';
 import   GoogleLogin  from 'react-google-login';
 import site_logo from '../assets/images/rss.png';
-import { Button, Icon } from 'semantic-ui-react'
-import { hashHistory } from 'react-router';
+import { Button } from 'semantic-ui-react'
 import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory({
