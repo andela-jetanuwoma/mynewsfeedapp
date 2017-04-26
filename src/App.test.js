@@ -9,9 +9,10 @@ it('renders without crashing', () => {
 });
 
 const uservalue = {name:"jude peter",email:"wapjude@gmail.com",imageUrl:"some_picture.jpg"};
+User.Login(uservalue);
 
 it('should log user in when values is supplied and store it',()=>{ 
-	User.Login(uservalue);
+	
 	expect(User.isLoggedIn()).toBe(true);
 	
 });
@@ -32,15 +33,15 @@ it('should log user out and remove all user details', () => {
 	expect(User.logOut()).toBe(true);
 });
 it('should be undefined for user name',()=>{
-	expect(User.name).toBe(undefined);
+	expect(User.name).toBe("");
 });
 
 it('should be undefined for user email',()=>{
-	expect(User.email).toBe(undefined);
+	expect(User.email).toBe("");
 });
 
 it('should be undefined for user imageUrl',()=>{
-	expect(User.imageUrl).toBe(undefined);
+	expect(User.imageUrl).toBe("");
 });
 
 
