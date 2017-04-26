@@ -19,7 +19,9 @@ const HomeView = React.createClass({
 },
 
     componentWillMount(){
-      //console.log(this.props.user)
+      if(this.props.user.isLoggedIn()){
+        history.push('/discover');
+      }
     },
    render(){
     

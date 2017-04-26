@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './controllers/App';
 import User from './models/user';
+import NewsArticle from './models/news';
+import NewsSources from './models/sources';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -43,6 +45,44 @@ it('should be undefined for user email',()=>{
 it('should be undefined for user imageUrl',()=>{
 	expect(User.imageUrl).toBe("");
 });
+//test for news sources
+const sources = new NewsSources();
+sources.add("abc-news","The ABC of all kiddo news","Want to learn how to read here you go",["top"]);
+sources.add("tech-crunch","technology saga",["top","latest"]);
+
+it('should return total number of nsources as 3',()=>{
+	expect(sources.total()).toEqual(2);
+});
+
+it('should return The ABC of all kiddo news as the first source name',() => {
+   expect(sources.get()[0].header).toEqual("The ABC of all kiddo news");
+});
+//test for news news article
+const articles = new NewsArticle();
+articles.add("obasanjo join barcelona","in his quest for medal obasanjo joins barcelona and team up with suarez","sport","goal.com","image.jpg");
+articles.add("Messi is pregnant","The news came in after he's two goals against madrid, though the mother of the child is still missing","sport","goal.com","image.jpg");
+articles.add("Bayo displaces Mark","the new andela faciltator out ran the facebook ceo in 200 meter race though news source is yet to be confirm","tech","unconfirm","bayo.jpg");
+
+it('should return total number of news as 3',()=>{
+	expect(articles.total()).toEqual(3);
+});
+
+it('should return obasanjo join barcelona as the first news title',() => {
+   expect(articles.get()[0].header).toEqual("obasanjo join barcelona");
+});
+
+it('should return Messi is pregnant as the second news title',() => {
+   expect(articles.get()[1].header).toEqual("Messi is pregnant");
+});
+
+it('should return total number of news that has `a` in its title as 3',() => {
+	expect(articles.search('a').length).toBe(3);
+});
+
+it('should retun 1 for total number of search using obasanjo as search case', ()=>{
+	expect(articles.search('obasanjo').length).toBe(1);
+});
+
 
 
 
