@@ -42,6 +42,7 @@ const HomeView = React.createClass({
               <h1>World Most Powerful News Headlines</h1>
               <h2>Read news from over 70 news sources accross the world!</h2>
             </header>
+            
              <GoogleLogin
     clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
     buttonText="Login"

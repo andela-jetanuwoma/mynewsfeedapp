@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './controllers/App';
 import User from './models/user';
+import API from './models/API';
 import NewsArticle from './models/news';
 import NewsSources from './models/sources';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-});
+
+
 
 const uservalue = {name:"jude peter",email:"wapjude@gmail.com",imageUrl:"some_picture.jpg"};
 User.Login(uservalue);
@@ -82,6 +81,8 @@ it('should return total number of news that has `a` in its title as 3',() => {
 it('should retun 1 for total number of search using obasanjo as search case', ()=>{
 	expect(articles.search('obasanjo').length).toBe(1);
 });
+
+
 
 
 
