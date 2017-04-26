@@ -11,7 +11,7 @@ class User {
   }
 
   isLoggedIn(){
-   return !(this.userDetails === undefined);
+   return (this.userDetails !== undefined);
   }
 
   assignUserValues(){
