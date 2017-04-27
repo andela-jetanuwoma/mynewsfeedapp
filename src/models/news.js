@@ -14,6 +14,10 @@ class NewsArticle {
 		});
 	}
 
+	total() {
+	  return this.news.length;
+	}
+
 	search(title) {
 	 const re = new RegExp(_.escapeRegExp(title), 'i');
 	 const isMatch = (result) => {
@@ -23,7 +27,7 @@ class NewsArticle {
 	}
 
 	get() {
-	  return this.news.length;
+	  return this.news;
 	}
 }
 
