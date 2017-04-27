@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
+
 class User {
-  constructor(){
+  constructor() {
     this.userDetails = Cookies.get('mynewsapp') === undefined ? undefined : JSON.parse(Cookies.get('mynewsapp'));
     this.isLogin = this.isLoggedIn();
     this.favorites ='';
@@ -10,12 +11,12 @@ class User {
     this.assignUserValues();
   }
 
-  isLoggedIn(){
+  isLoggedIn() {
    return (this.userDetails !== undefined);
   }
 
-  assignUserValues(){
-    if(this.isLogin){
+  assignUserValues() {
+    if (this.isLogin) {
       this.favorites = this.userDetails.favorites;
       this.name = this.userDetails.name;
       this.email = this.userDetails.email;
@@ -23,14 +24,13 @@ class User {
     }
   }
 
-  destroyUserValues(){
+  destroyUserValues() {
     this.name = "";
     this.email = "";
     this.imageUrl = "";
   }
   
-  Login(context){
-
+  Login(context) {
     Cookies.set('mynewsapp',{name:context.name,email:context.email,imageUrl:context.imageUrl});
     this.userDetails = JSON.parse(Cookies.get('mynewsapp'));
     this.isLogin = true;
@@ -38,7 +38,7 @@ class User {
 
   }
 
-  addFavorites(newItem){
+  addFavorites(newItem) {
     let exists = false;
     this.favorites.forEach((item)=>{
       if(item === newItem){
@@ -46,8 +46,8 @@ class User {
         return;
       }
     });
-    if(!exists){
-      if(this.isLogin){
+    if (!exists) {
+      if (this.isLogin) {
         this.favorites.push(newItem);
         let userobj = {
           name: this.name,
@@ -60,15 +60,16 @@ class User {
     }
   }
 
-  removeFavourite(item,index){
-     this.favorites.splice(index,1);
+  removeFavourite(item,index) {
+    this.favorites.splice(index,1);
   }
 
-  logOut(){
+  logOut() {
     this.isLogin = false;
     Cookies.remove('mynewsapp');
     this.destroyUserValues();
     return true;
   }
 }
+
 export default new User();

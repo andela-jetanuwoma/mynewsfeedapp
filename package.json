@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "flux": "^3.1.2",
     "js-cookie": "^2.1.4",
+    "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
     "react-router-dom": "^4.1.1",
+    "request": "^2.81.0",
     "semantic-ui-react": "^0.68.2"
   },
   "devDependencies": {
