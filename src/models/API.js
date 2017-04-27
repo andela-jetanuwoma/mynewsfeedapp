@@ -6,7 +6,7 @@ class API {
   }
 
   addQuery(type, value) {
-    this.linkString += `&${type}=${value}`;
+    this.link += `&${type}=${value}`;
   }
 
   clearQuery() {

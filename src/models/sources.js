@@ -7,7 +7,7 @@ class NewsSources {
 
   add(id, name, desc, sort) {
     this.sources.push({
-      href: `/articles/${id}?sort${sort}`,
+      href: `/articles/${id}?sort=${sort}`,
       header: name,
       description: desc,
       title: name,
