@@ -20,9 +20,9 @@ class NewsArticle {
   }
 
   search(title) {
-    const re = new RegExp(_.escapeRegExp(title), 'i');
-    const isMatch = (result) => { re.test(result.header); };
-    return _.filter(this.news, isMatch);
+		const re = new RegExp(_.escapeRegExp(title), 'i');
+      const isMatch = (result) => { return re.test(result.header) };
+      return _.filter(this.news, isMatch);
   }
 
   get() {

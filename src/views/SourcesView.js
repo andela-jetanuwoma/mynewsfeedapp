@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import { Segment, Menu, Image, Icon, Header, Card, Search, Dropdown } from 'semantic-ui-react';
 import NewsSourcesStore from '../stores/NewsSourcesStore';
 import AppActions from '../actions/AppActions';
+import User from '../models/user';
 import '../App.css';
 
 const history = createHistory({
@@ -31,8 +32,7 @@ class SourcesView extends Component {
 
 
   componentWillMount() {
-    const { user } = this.props;
-    if (!user.isLogin) {
+    if (!User.isLogin) {
       history.push('/');
     }
   }
@@ -91,10 +91,9 @@ class SourcesView extends Component {
       value,
        results,
      } = this.state;
-    const { user } = this.props;
     const trigger = (
       <span>
-        <Image avatar src={user.imageUrl} /> {user.name}
+        <Image avatar src={User.imageUrl} /> {User.name}
       </span>
     );
     return (

@@ -6,16 +6,13 @@ import API from './models/API';
 import NewsArticle from './models/news';
 import NewsSources from './models/sources';
 
-
-
-
 const uservalue = {name:"jude peter",email:"wapjude@gmail.com",imageUrl:"some_picture.jpg"};
 User.Login(uservalue);
 
-it('should log user in when values is supplied and store it',()=>{ 
-	
+it('should log user in when values is supplied and store it',()=>{
+
 	expect(User.isLoggedIn()).toBe(true);
-	
+
 });
 
 it('should return jude peter as the name of the logged in user',() => {
@@ -81,9 +78,3 @@ it('should return total number of news that has `a` in its title as 3',() => {
 it('should retun 1 for total number of search using obasanjo as search case', ()=>{
 	expect(articles.search('obasanjo').length).toBe(1);
 });
-
-
-
-
-
-
