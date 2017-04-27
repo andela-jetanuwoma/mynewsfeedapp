@@ -1,7 +1,7 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import { EventEmitter } from 'events';
-import AppConstants from '../constants/AppConstants';
 import assign from 'object-assign';
+import { EventEmitter } from 'events';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import AppConstants from '../constants/AppConstants';
 
 const CHANGE_EVENT = 'change';
 const NewsSourcesStore = assign({}, EventEmitter.prototype, {
@@ -15,11 +15,11 @@ const NewsSourcesStore = assign({}, EventEmitter.prototype, {
   },
 
   addChangeListener(callback) {
-    this.on(CHANGE_EVENT,callback);
+    this.on(CHANGE_EVENT, callback);
   },
 
   removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT,callback);
+    this.removeListener(CHANGE_EVENT, callback);
   },
 
 });
