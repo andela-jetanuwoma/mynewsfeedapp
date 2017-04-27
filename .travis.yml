@@ -1,5 +1,10 @@
 language: node_js
 node_js:
- - 6.10.1
- after_success:
+  - 6.10.1
+  - 6.10.2
+before_script:
+  - npm install
+script:
+  - npm test
+after_success:
   - npm run coverage
