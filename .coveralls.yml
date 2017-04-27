@@ -1,3 +1,2 @@
-language: node_js
-node_js:
- - 6.10.1
+service_name: travis-pro
+repo_token: SE4tinOHx3aWKBhPpSIZc7CbfyHyikXj9
