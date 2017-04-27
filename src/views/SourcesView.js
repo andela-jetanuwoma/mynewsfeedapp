@@ -1,89 +1,99 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash'
-import '../App.css';
+import createHistory from 'history/createBrowserHistory';
 import {Segment, Menu, Image, Icon, Header, Card, Search, Dropdown} from 'semantic-ui-react'
 import NewsSourcesStore from '../stores/NewsSourcesStore';
 import AppActions from '../actions/AppActions';
-import createHistory from 'history/createBrowserHistory';
+import '../App.css';
 
 const history = createHistory({ 
   forceRefresh: true
 }) 
+const options = [
+        { 
+          key: 'sign-out',
+          text: 'Sign Out',
+          icon: 'sign out',
+          href: '/logout',
+         },
+      ]
 
-class  SourcesView extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      activepage: 'discover'}
+class SourcesView extends Component {
+  constructor(props) {
+    super(props)
+      this.state = {
+        activepage: "discover"
+      }
+      this.onChange = this.onChange.bind(this);
+      this.handleSearchChange = this.handleSearchChange.bind(this);
   }
-   getItemsState() {
-	  return {
-	  	sources:NewsSourcesStore.getAll(),
-	    visibility:false,
-	    activepage: 'discover',
-	  };
-   }
 
-     componentWillMount(){
-       const {user} = this.props;
-       if(!user.isLogin){
-        history.push('/');
-       }
-     }
-	
-     _onChange = () =>{
-     	
-     	this.setState(this.getItemsState());
+  getItemsState() {
+    return {
+      sources: NewsSourcesStore.getAll(),
+      activepage: 'discover',
+    }
+  }
 
-     }
+  componentWillMount() {
+    const { user } = this.props;
+    if (!user.isLogin) {
+      history.push('/');
+    }
+  }
 
-	  toggleVisibility = () => this.setState({ visibility: !this.state.visibility });
+  onChange() {
+    this.setState(this.getItemsState);
+  }
 
+  resetComponent() {
+    this.setState({
+      isLoading: false,
+      results: [],
+      value:'',
+    })
+  }
 
-	  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' });
-
-
-    handleSearchChange = (e, value) => {
-    this.setState({ isLoading: true, value })
-
-      setTimeout(() => {
-      if (this.state.value.length < 1) return this.resetComponent()
-
-        const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-        const isMatch = (result) => re.test(result.header)
-
+  handleSearchChange(e,value) {
+    this.setState({
+      isLoading: true,
+      value: value,
+    });
+    setTimeout(()=>{
+      if (this.state.value.length < 1) return this.resetComponent();
+      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
+      const isMatch = (result) => re.test(result.header);
       this.setState({
         isLoading: false,
         results: _.filter(this.state.sources, isMatch),
       })
-    }, 500);
+    },500);
   }
 
-	componentDidMount = ()=>{
+  componentDidMount(){
+    NewsSourcesStore.addChangeListener(this.onChange);
+  }
 
-         NewsSourcesStore.addChangeListener(this._onChange);
+  componentWillUnMount(){
+    NewsSourcesStore.removeChangeListener(this.onChange);
+  }
 
-     }
-
-     componentWillUnMount = ()=>{
-         NewsSourcesStore.removeChangeListener(this._onChange);
-     }
-
-	render(){
-		const { activepage, isLoading, value, results } = this.state;
-    const {user} = this.props;
+  render(){
+    const { 
+      activepage, 
+      isLoading,
+      value,
+       results,
+     } = this.state;
+    const { user } = this.props;
     const trigger = (
       <span>
         <Image avatar src={user.imageUrl} /> {user.name}
       </span>
      )
-
-      const options = [
-        { key: 'sign-out', text: 'Sign Out', icon: 'sign out', href: '/logout' },
-      ]
-		return (
-<div onLoad={ AppActions.getSources() }>
- 
+    return (
+    <div>
+     <div onLoad={ AppActions.getSources() }>
            <Menu pointing>
                  <Menu.Item name={activepage} active={activepage === 'discover'} />
                   <Menu.Item name='Feeds' active={activepage === 'feeds'} />
@@ -93,7 +103,6 @@ class  SourcesView extends Component{
                   </Menu.Item>
             </Menu.Menu>
         </Menu>
-
             <Segment basic>
                <div className="container">
                <Header as='h2' icon>
@@ -102,9 +111,6 @@ class  SourcesView extends Component{
            <Header.Subheader>
               </Header.Subheader>
            </Header>
-
-          
-        
           <Search
             className="container"
             loading={isLoading}
@@ -114,18 +120,14 @@ class  SourcesView extends Component{
             value={value}
             fluid
           ></Search>
-        
-        
-           <Card.Group itemsPerRow={4} className="container" items={this.state.sources} />
+          <Card.Group itemsPerRow={4} className="container" items={this.state.sources} />
                </div>
-            </Segment>
-
-
-       
+            </Segment>       
       </div>
-			);
-	}
+   </div>
+    )
+  }
+  
 }
-
 
 export default SourcesView;

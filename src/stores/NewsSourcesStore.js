@@ -3,61 +3,37 @@ import { EventEmitter } from 'events';
 import AppConstants from '../constants/AppConstants';
 import assign from 'object-assign';
 
-var CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change';
+const NewsSourcesStore = assign({}, EventEmitter.prototype, {
+  sources: [],
+  getAll() {
+    return this.sources;
+  },
 
-let NewsSourcesStore = assign({}, EventEmitter.prototype, {
+  emitChange() {
+    this.emit(CHANGE_EVENT);
+  },
 
-    // Actual collection of model data
-    sources: [],
+  addChangeListener(callback) {
+    this.on(CHANGE_EVENT,callback);
+  },
 
-    // Accessor method we'll use later
-    getAll() {
-        return this.sources;
-    },
+  removeChangeListener(callback) {
+    this.removeListener(CHANGE_EVENT,callback);
+  },
 
-	emitChange(){
-		this.emit(CHANGE_EVENT);
-	},
-	
-	/**
-   * @param {function} callback
-   */
-	addChangeListener(callback) {
-		this.on( CHANGE_EVENT, callback);
-	},
+});
+AppDispatcher.register((payload) => {
+  switch (payload.eventName) {
+    case AppConstants.GET_SOURCES:
+      NewsSourcesStore.sources = payload.newItem;
+      NewsSourcesStore.emitChange();
+      break;
+    default:
+      break;
+  }
 
-  /**
-   * @param {function} callback
-   */
-	removeChangeListener(callback) {
-		this.removeListener(CHANGE_EVENT, callback);
-	}
+  return true;
 });
 
-AppDispatcher.register( function( payload ) {
-
-    switch( payload.eventName ) {
-
-        case AppConstants.GET_SOURCES:
-         
-            // We get to mutate data!
-            
-            
-            NewsSourcesStore.sources = payload.newItem;;
-			
-			      // Tell the world we changed!
-            //NewsStore.trigger(CHANGE_EVENT);
-			      NewsSourcesStore.emitChange();
-			
-            break;
-        default:
-        
-        break;
-
-    }
-
-    return true; // Needed for Flux promise resolution
-
-}); 
-
-module.exports = NewsSourcesStore;
+export default NewsSourcesStore;
