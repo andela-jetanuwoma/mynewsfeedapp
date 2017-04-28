@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import createHistory from 'history/createBrowserHistory';
-import { Segment, Menu, Image, Icon, Header, Card, Search, Dropdown } from 'semantic-ui-react';
+import { Segment, Image, Icon, Header, Card, Search, Grid } from 'semantic-ui-react';
 import NewsSourcesStore from '../stores/NewsSourcesStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
-import '../App.css';
+import AppBar from './templates/AppBar';
+import SideBar from './templates/SideBar';
 
 const history = createHistory({
   forceRefresh: true,
@@ -35,6 +36,7 @@ class SourcesView extends Component {
     if (!User.isLogin) {
       history.push('/');
     }
+    AppActions.getSources();
   }
 
   componentDidMount() {
@@ -86,7 +88,6 @@ class SourcesView extends Component {
 
   render() {
     const {
-      activepage,
       isLoading,
       value,
        results,
@@ -98,34 +99,29 @@ class SourcesView extends Component {
     );
     return (
       <div>
-        <div onLoad={AppActions.getSources()}>
-          <Menu pointing>
-            <Menu.Item name={activepage} active={activepage === 'discover'} />
-            <Menu.Item name="Feeds" active={activepage === 'feeds'} />
-            <Menu.Menu position="right">
-              <Menu.Item>
-                <Dropdown trigger={trigger} options={options} pointing="top left" icon={null} />
-              </Menu.Item>
-            </Menu.Menu>
-          </Menu>
-          <Segment basic>
-            <div className="container">
-              <Header as="h2" icon>
-                <Icon name="rss" color="teal" />
-            News Sources
-           </Header>
-              <Search
-                className="container"
-                loading={isLoading}
-                onResultSelect={this.handleResultSelect}
-                onSearchChange={this.handleSearchChange}
-                results={results}
-                value={value}
-                fluid
-              />
-              <Card.Group itemsPerRow={4} className="container" items={this.state.sources} />
-            </div>
-          </Segment>
+        <div>
+          <AppBar trigger={trigger} options={options} />
+          <Grid>
+            <SideBar />
+            <Grid.Column width={12} className="middleColumn">
+              <div className="main">
+                <p className="contentType">
+                  <Icon name="rss" color="teal" />
+                  Choose The News Sources Want To Read
+               </p>
+                <Search
+                  className="container"
+                  loading={isLoading}
+                  onResultSelect={this.handleResultSelect}
+                  onSearchChange={this.handleSearchChange}
+                  results={results}
+                  value={value}
+                  fluid
+                />
+                <Card.Group itemsPerRow={4} className="container" items={this.state.sources} />
+              </div>
+            </Grid.Column>
+          </Grid>
         </div>
       </div>
     );

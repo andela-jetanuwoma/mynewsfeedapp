@@ -75,12 +75,17 @@ body {
 }
 
 .site_description header h2{
-  padding:10px;
-  font-weight:300;
-  background:#fff;
-  color:#000;
-  width:65%;
-  margin-bottom: 30px;
+  header{
+    h2 {
+      padding:10px;
+      font-weight:300;
+      background:#fff;
+      color:#000;
+      width:65%;
+      margin-bottom: 30px;
+    }
+
+  }
 
 }
 .footer_text{
@@ -115,4 +120,26 @@ body {
 }
 .sortas{
   margin-top:80px;
+}
+$sidebar_color: #EFEFEF;
+
+.leftColumn{
+background: #{$sidebar_color};
+min-height: 700px;
+padding: 10px;
+   .favHolder{
+     margin-top: 20px;
+     padding: 10px;
+   }
+}
+
+.main{
+  padding: 40px;
+  .contentType{
+  color: #757575;
+  font:{
+    size:2.25rem;
+    weight: 300px;
+  }
+}
 }

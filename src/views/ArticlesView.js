@@ -14,6 +14,7 @@ import '../App.css';
 import NewsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
+import AppBar from './templates/AppBar';
 
 
 const history = createHistory({
@@ -58,7 +59,6 @@ class ArticlesView extends Component {
     if (!User.isLogin) {
       history.push('/');
     }
-    console.log(this.props.match.params.id);
     AppActions.getNews(this.props.match.params.id);
   }
 
