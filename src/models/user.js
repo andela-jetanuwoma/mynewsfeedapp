@@ -1,10 +1,10 @@
 import Cookies from 'js-cookie';
+import Favourites from './Favourites';
 
 class User {
   constructor() {
     this.userDetails = Cookies.get('mynewsapp') === undefined ? undefined : JSON.parse(Cookies.get('mynewsapp'));
     this.isLogin = this.isLoggedIn();
-    this.favorites = '';
     this.name = '';
     this.imageUrl = '';
     this.email = '';
@@ -17,7 +17,6 @@ class User {
 
   assignUserValues() {
     if (this.isLogin) {
-      this.favorites = this.userDetails.favorites;
       this.name = this.userDetails.name;
       this.email = this.userDetails.email;
       this.imageUrl = this.userDetails.imageUrl;
@@ -32,34 +31,12 @@ class User {
 
   Login(context) {
     Cookies.set('mynewsapp', { name: context.name, email: context.email, imageUrl: context.imageUrl });
+    if (Cookies.get(context.email) === undefined) {
+      Cookies.set(context.email, {});
+    }
     this.userDetails = JSON.parse(Cookies.get('mynewsapp'));
     this.isLogin = true;
     this.assignUserValues();
-  }
-
-  addFavorites(newItem) {
-    let exists = false;
-    this.favorites.forEach((item) => {
-      if (item === newItem) {
-        exists = true;
-      }
-    });
-    if (!exists) {
-      if (this.isLogin) {
-        this.favorites.push(newItem);
-        const userobj = {
-          name: this.name,
-          email: this.email,
-          imageUrl: this.imageUrl,
-          favorites: this.favorites,
-        };
-        Cookies.set('mynewsapp', userobj);
-      }
-    }
-  }
-
-  removeFavourite(item, index) {
-    this.favorites.splice(index, 1);
   }
 
   logOut() {
@@ -67,6 +44,10 @@ class User {
     Cookies.remove('mynewsapp');
     this.destroyUserValues();
     return true;
+  }
+
+  favourites() {
+    return new Favourites(this.email);
   }
 }
 

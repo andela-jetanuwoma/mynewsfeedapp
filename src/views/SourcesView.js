@@ -77,7 +77,7 @@ class SourcesView extends Component {
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = (result) => { re.test(result.header); };
+      const isMatch = (result) => { return re.test(result.header); };
       this.setState({
         isLoading: false,
         results: _.filter(this.state.sources, isMatch),
@@ -107,10 +107,9 @@ class SourcesView extends Component {
               <div className="main">
                 <p className="contentType">
                   <Icon name="rss" color="teal" />
-                  Choose The News Sources Want To Read
+                  Choose The News Source Want To Read
                </p>
                 <Search
-                  className="container"
                   loading={isLoading}
                   onResultSelect={this.handleResultSelect}
                   onSearchChange={this.handleSearchChange}

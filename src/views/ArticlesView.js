@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Sidebar,
   Segment,
-  Menu,
   Image,
   Icon,
   Header,
@@ -15,7 +13,7 @@ import NewsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
-
+import SideBar from './templates/SideBar';
 
 const history = createHistory({
   forceRefresh: true,
@@ -101,45 +99,23 @@ class ArticlesView extends Component {
     const sorttypes = buildSortTypes(this.props.location.search);
     return (
       <div>
-
-        <Sidebar.Pushable as={Segment}>
-          <Sidebar.Pusher>
-            <Menu pointing>
-              <Menu.Item name={activepage} active={true} />
-              <Menu.Menu position="right">
-                <Menu.Item>
-                  <Dropdown trigger={trigger} options={options} pointing="top left" icon={null} />
-                </Menu.Item>
-              </Menu.Menu>
-            </Menu>
-            <Segment basic>
-              <div className="container">
-                <Grid>
-                  <Grid.Column width={4}>
-                    <Header as="h2" icon>
-                      <Icon name="rss" color="teal" />
-                         News Feeds
-
-                     </Header>
-                  </Grid.Column>
-                  <Grid.Column width={4}>
-                    <Dropdown
-                      fluid
-                      selection
-                      className="sortas"
-                      options={sorttypes}
-                      placeholder="Sort By"
-                      onChange={this.handleChange}
-                    />
-                  </Grid.Column >
-                </Grid>
-
-                <Card.Group itemsPerRow={4} className="container" items={this.state.news} />
-              </div>
-            </Segment>
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
-
+        <AppBar trigger={trigger} options={options} />
+        <Grid>
+          <SideBar />
+          <Grid.Column width={12} className="middleColumn">
+            <div className="main">
+              <p className="contentType">
+                <span className="news_name">ABC News</span>
+                <Dropdown
+                  options={sorttypes}
+                  onChange={this.handleChange}
+                  inline
+                />
+              </p>
+              <Card.Group itemsPerRow={3} className="container" items={this.state.news} />
+            </div>
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }
