@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import _ from 'lodash';
+import User from './user';
 
 class Collections {
   constructor(email) {
@@ -10,7 +11,9 @@ class Collections {
        // Incase if account has been created before the feature was added
       Cookies.set(this.email, {});
     } else {
-      this.copyToDb();
+      if (User.isLoggedIn()) {
+        this.copyToDb();
+      }
     }
   }
   copyToDb() {

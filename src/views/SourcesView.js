@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import createHistory from 'history/createBrowserHistory';
-import { Segment, Image, Icon, Header, Card, Search, Grid } from 'semantic-ui-react';
+import { Image, Icon, Search, Grid } from 'semantic-ui-react';
 import NewsSourcesStore from '../stores/NewsSourcesStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
 import SourceItem from './templates/SourceItem';
+
 const history = createHistory({
   forceRefresh: true,
 });
@@ -122,9 +123,9 @@ class SourcesView extends Component {
                 />
 
                 <Grid className="sources">
-                {this.state.sources.map((source, index) => {
-                  return (<SourceItem source={source} />)
-                })}
+                  {this.state.sources.map((source, index) => {
+                    return (<SourceItem source={source} key={index} />)
+                  })}
                 </Grid>
               </div>
             </Grid.Column>

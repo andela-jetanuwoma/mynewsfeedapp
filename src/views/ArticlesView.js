@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Segment,
   Image,
-  Icon,
-  Header,
   Card,
   Grid,
   Dropdown } from 'semantic-ui-react';
@@ -90,7 +87,6 @@ class ArticlesView extends Component {
   }
 
   render() {
-    const { activepage } = this.state;
     const trigger = (
       <span>
         <Image avatar src={User.imageUrl} /> {User.name}

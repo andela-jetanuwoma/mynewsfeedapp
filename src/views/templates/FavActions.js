@@ -42,8 +42,12 @@ class FavActions extends Component {
     })
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Select onChange={this.onChange} name='collections' label="Choose A Collection" options={options} placeholder="Select Existing" />
-        <Form.Input   type='hidden' value={id} />
+        <Form.Select
+          onChange={this.onChange}
+          name="collections" label="Choose A Collection"
+          options={options} placeholder="Select Existing"
+        />
+        <Form.Input type="hidden" value={id} />
         <Form.Button>Submit</Form.Button>
       </Form>
     );

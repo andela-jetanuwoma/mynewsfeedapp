@@ -26,7 +26,6 @@ const FavouritesStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register((payload) => {
   switch (payload.eventName) {
     case AppConstants.GET_FAVOURITES:
-    console.log('i am here');
       FavouritesStore.emitChange();
       break;
     default:
