@@ -75,5 +75,3 @@ it('should return total number of news that has `a` in its title as 3', () => {
 it('should retun 1 for total number of search using obasanjo as search case', () => {
     expect(articles.search('obasanjo').length).toBe(1);
 });
-
-//console.log(User.favourites());

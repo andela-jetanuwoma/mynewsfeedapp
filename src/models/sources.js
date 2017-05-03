@@ -11,6 +11,7 @@ class NewsSources {
       header: name,
       description: desc,
       title: name,
+      id: id,
     });
   }
 

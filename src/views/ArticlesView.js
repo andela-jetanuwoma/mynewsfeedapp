@@ -46,7 +46,7 @@ class ArticlesView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      favourites: User.favourites(),
     };
     this.onChange = this.onChange.bind(this);
     this.getItemsState = this.getItemsState.bind(this);
@@ -97,11 +97,12 @@ class ArticlesView extends Component {
       </span>
     );
     const sorttypes = buildSortTypes(this.props.location.search);
+    const { favourites } = this.state;
     return (
       <div>
         <AppBar trigger={trigger} options={options} />
         <Grid>
-          <SideBar />
+          <SideBar favourites={favourites} />
           <Grid.Column width={12} className="middleColumn">
             <div className="main">
               <p className="contentType">

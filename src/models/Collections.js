@@ -1,21 +1,32 @@
 import Cookies from 'js-cookie';
+import _ from 'lodash';
 
 class Collections {
   constructor(email) {
     this.email = email;
-    if (Cookies.get(this.email) === undefined) {
+    this.db = new Map();
+    this.existing = Cookies.get(this.email);
+    if (this.existing === undefined) {
        // Incase if account has been created before the feature was added
       Cookies.set(this.email, {});
+    } else {
+      this.copyToDb();
     }
-    this.db = new Map(Cookies.get(this.email));
   }
-
+  copyToDb() {
+    const db = JSON.parse(this.existing);
+    const collections = Object.keys(db);
+    collections.forEach((item) => {
+      this.db.set(item, db[item]);
+    });
+    this.existing = db;
+  }
   hasCollection(name) {
     return this.db.has(name);
   }
 
   getCollections() {
-    return this.db.keys();
+    return Object.keys(this.fetchAll());
   }
 
   getCollection(name) {
@@ -25,23 +36,29 @@ class Collections {
   addCollection(name) {
     if (!this.hasCollection(name)) {
       this.db.set(name, []);
-      return true;
-    }
-    return false;
-  }
-
-  updateCollection(name, values = {}) {
-    if (this.hasCollection(name)) {
-      this.getCollection(name).push(values);
       this.updateDB();
       return true;
     }
     return false;
   }
 
+  deleteCollection(name) {
+    if (this.hasCollection(name)) {
+      this.db.delete(name);
+      this.updateDB();
+    }
+  }
+
   updateDB() {
-    Cookies.set(this.user.email, this.db);
-    this.user.favorites = this.db;
+    const val = {};
+    this.db.forEach((value, key) => {
+      val[key] = value;
+    });
+    Cookies.set(this.email, val);
+    this.existing = val;
+  }
+  fetchAll() {
+    return this.existing;
   }
 
   toString() {

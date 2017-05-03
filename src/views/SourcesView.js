@@ -7,7 +7,7 @@ import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
-
+import SourceItem from './templates/SourceItem';
 const history = createHistory({
   forceRefresh: true,
 });
@@ -25,6 +25,7 @@ class SourcesView extends Component {
     super(props);
     this.state = {
       activepage: 'discover',
+      sources: NewsSourcesStore.getAll(),
     };
     this.onChange = this.onChange.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -92,6 +93,7 @@ class SourcesView extends Component {
       value,
        results,
      } = this.state;
+    const { favourites } = this.props;
     const trigger = (
       <span>
         <Image avatar src={User.imageUrl} /> {User.name}
@@ -102,7 +104,7 @@ class SourcesView extends Component {
         <div>
           <AppBar trigger={trigger} options={options} />
           <Grid>
-            <SideBar />
+            <SideBar favourites={favourites} />
             <Grid.Column width={12} className="middleColumn">
               <div className="main">
                 <p className="contentType">
@@ -116,8 +118,14 @@ class SourcesView extends Component {
                   results={results}
                   value={value}
                   fluid
+                  className="search_sources"
                 />
-                <Card.Group itemsPerRow={4} className="container" items={this.state.sources} />
+
+                <Grid className="sources">
+                {this.state.sources.map((source, index) => {
+                  return (<SourceItem source={source} />)
+                })}
+                </Grid>
               </div>
             </Grid.Column>
           </Grid>

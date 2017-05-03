@@ -1,26 +1,65 @@
 import React from 'react';
-import { Grid, Menu, Icon } from 'semantic-ui-react';
+import _ from 'lodash';
+import { Grid, Icon, List } from 'semantic-ui-react';
+import FavouritesStore from '../../stores/FavouritesStore';
+import User from '../../models/user';
 
 class SideBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      favourites: User.favourites(),
+    };
+    this.onChange = this.onChange.bind(this);
+    this.getItemsState = this.getItemsState.bind(this);
+  }
+
+  componentDidMount() {
+    FavouritesStore.addChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.getItemsState();
+  }
+
+  getItemsState() {
+    this.setState({ favourites: User.favourites() });
+  }
+
+  componentWillUnMount() {
+    FavouritesStore.removeChangeListener(this.onChange);
+  }
+
   render() {
+    const { favourites } = this.state;
     return (
       <Grid.Column width={4} className="leftColumn">
         <div className="favHolder">
           <h3>Favourites</h3>
-          <Menu vertical fluid>
-            <Menu.Item name="inbox">
-              <Icon disabled name="trash" color="red" size="large" />
-                Abc News
-            </Menu.Item>
-            <Menu.Item name="spam" >
-              <Icon disabled name="trash" color="red" size="large" />
-                The Sport Tycoon
-            </Menu.Item>
-            <Menu.Item name="updates">
-              <Icon disabled name="trash" color="red" size="large" />
-                Some rubbish news you save
-            </Menu.Item>
-          </Menu>
+          <List>
+            {favourites.getCollections().map((value, index) => {
+              return (
+                <List.Item>
+                  <List.Icon name="bookmark" />
+                  <List.Content>
+                  <List.Header>{value}</List.Header>
+                    <List.List>
+                      {favourites.fetchAll()[value].map((fav, i) => {
+                         return (
+                            <List.Item>
+                             <List.Icon name="pin" />
+                             <List.Content>
+                              <List.Header>{fav.title}</List.Header>
+                             </List.Content>
+                            </List.Item>
+                        )
+                      })}
+                    </List.List>
+                  </List.Content>
+                </List.Item>
+              )
+            })}
+          </List>
         </div>
       </Grid.Column>
     );
