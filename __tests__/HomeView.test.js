@@ -4,12 +4,15 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon'
 import expect from 'expect';
 import HomeView from '../src/views/HomeView';
+import App from '../src/controllers/App';
 import Logout from '../src/views/Logout';
 
 const home = shallow(<HomeView />);
 it('renders without crashing', () => {
   shallow(<HomeView />);
 });
+
+
 
 describe('Home View component',() => {
 
@@ -27,5 +30,20 @@ describe('if component will mount function exists',() => {
   it('componentWillMount exists', () => {
     expect(HomeView.prototype.componentWillMount.calledOnce).toExist;
   });
+
+})
+
+it('renders without crashing', () => {
+  shallow(<App />);
+});
+
+sinon.spy(App.prototype, 'render');
+
+describe('if render function exists',() => {
+  it('render exists', () => {
+    expect(App.prototype.render.calledOnce).toExist;
+  });
+
+
 
 })

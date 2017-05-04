@@ -42,7 +42,7 @@ class Favourites extends Collections {
 
   removeFavourite(name, sourceId) {
     if (this.hasCollection(name)) {
-      const index = this.favAt(this.getCollection(name), sourceId);
+      const index = this.favAt(this.fetchAll()[name], sourceId);
       if (index !== -1) {
         this.getCollection(name).splice(index, 1);
         this.updateDB();
@@ -56,7 +56,7 @@ class Favourites extends Collections {
     let index = 0;
     let charAt = -1;
     arr.forEach((item) => {
-      if (item.title === val) {
+      if (item.id === val) {
         charAt = index;
       }
       index += 1;
