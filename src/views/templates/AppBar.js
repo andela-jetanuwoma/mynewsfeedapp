@@ -5,7 +5,7 @@ class AppBar extends React.Component {
   render() {
     return (
       <Menu pointing inverted>
-        <Menu.Item name="NewsFeed" active={true} />
+        <Menu.Item name="NewsFeed" href="/discover" active={true} />
         <Menu.Menu position="right">
           <Menu.Item>
             <Dropdown

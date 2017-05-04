@@ -75,19 +75,17 @@ body {
 }
 
 .site_description header h2{
-  header{
-    h2 {
+
       padding:10px;
       font-weight:300;
       background:#fff;
       color:#000;
       width:65%;
       margin-bottom: 30px;
-    }
+
 
   }
 
-}
 .footer_text{
   font-size:12px;
   margin-top:20px;
@@ -150,4 +148,7 @@ padding: 10px;
 .search_sources{
   margin-bottom: 30px;
   height: 50px;
+}
+.sharebtn{
+  float: left;
 }

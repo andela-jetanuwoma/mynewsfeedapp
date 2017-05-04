@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1493828594049" clover="3.2.0">
-  <project timestamp="1493828594049" name="All files">
-    <metrics statements="275" coveredstatements="80" conditionals="43" coveredconditionals="6" methods="102" coveredmethods="26" elements="420" coveredelements="112" complexity="0" loc="275" ncloc="275" packages="9" files="23" classes="23">
+<coverage generated="1493892691942" clover="3.2.0">
+  <project timestamp="1493892691942" name="All files">
+    <metrics statements="339" coveredstatements="65" conditionals="55" coveredconditionals="4" methods="125" coveredmethods="17" elements="519" coveredelements="86" complexity="0" loc="339" ncloc="339" packages="9" files="24" classes="24">
       <package name="src">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/index.js">
@@ -10,31 +10,44 @@
         </file>
       </package>
       <package name="src.actions">
-        <metrics statements="22" coveredstatements="1" conditionals="7" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="35" coveredstatements="1" conditionals="9" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <file name="AppActions.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/actions/AppActions.js">
-          <metrics statements="22" coveredstatements="1" conditionals="7" coveredconditionals="0" methods="6" coveredmethods="0"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
+          <metrics statements="35" coveredstatements="1" conditionals="9" coveredconditionals="0" methods="10" coveredmethods="0"/>
+          <line num="9" count="1" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
-          <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="15" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="14" count="0" type="stmt"/>
           <line num="16" count="0" type="stmt"/>
           <line num="17" count="0" type="stmt"/>
-          <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="19" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="20" count="0" type="stmt"/>
           <line num="21" count="0" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="38" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
           <line num="39" count="0" type="stmt"/>
           <line num="40" count="0" type="stmt"/>
-          <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="42" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="43" count="0" type="stmt"/>
           <line num="44" count="0" type="stmt"/>
           <line num="45" count="0" type="stmt"/>
-          <line num="51" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="66" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
+          <line num="80" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.constants">
@@ -48,13 +61,13 @@
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <file name="App.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/controllers/App.js">
           <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-          <line num="12" count="0" type="stmt"/>
           <line num="13" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
           <line num="18" count="0" type="stmt"/>
-          <line num="21" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
           <line num="22" count="0" type="stmt"/>
-          <line num="24" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.dispatcher">
@@ -65,7 +78,7 @@
         </file>
       </package>
       <package name="src.models">
-        <metrics statements="102" coveredstatements="61" conditionals="22" coveredconditionals="6" methods="42" coveredmethods="26"/>
+        <metrics statements="109" coveredstatements="38" conditionals="26" coveredconditionals="4" methods="44" coveredmethods="17"/>
         <file name="API.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/models/API.js">
           <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
           <line num="3" count="1" type="stmt"/>
@@ -76,41 +89,42 @@
           <line num="17" count="0" type="stmt"/>
         </file>
         <file name="Collections.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/models/Collections.js">
-          <metrics statements="29" coveredstatements="20" conditionals="6" coveredconditionals="2" methods="12" coveredmethods="7"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="7" count="1" type="stmt"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
+          <metrics statements="30" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="12" coveredmethods="0"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="15" count="0" type="stmt"/>
           <line num="20" count="0" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="38" count="1" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
-          <line num="40" count="1" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="41" count="0" type="stmt"/>
           <line num="42" count="0" type="stmt"/>
-          <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="53" count="1" type="stmt"/>
-          <line num="54" count="1" type="stmt"/>
-          <line num="55" count="1" type="stmt"/>
-          <line num="57" count="1" type="stmt"/>
-          <line num="58" count="1" type="stmt"/>
-          <line num="61" count="1" type="stmt"/>
-          <line num="65" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="57" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="60" count="0" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
         </file>
         <file name="Favourites.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/models/Favourites.js">
-          <metrics statements="28" coveredstatements="2" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="1"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="7" count="1" type="stmt"/>
+          <metrics statements="34" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="9" coveredmethods="0"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
           <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="13" count="0" type="stmt"/>
@@ -123,20 +137,26 @@
           <line num="26" count="0" type="stmt"/>
           <line num="27" count="0" type="stmt"/>
           <line num="28" count="0" type="stmt"/>
-          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="33" count="0" type="stmt"/>
-          <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="34" count="0" type="stmt"/>
           <line num="35" count="0" type="stmt"/>
-          <line num="36" count="0" type="stmt"/>
+          <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="37" count="0" type="stmt"/>
           <line num="40" count="0" type="stmt"/>
-          <line num="44" count="0" type="stmt"/>
+          <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="45" count="0" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
-          <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="47" count="0" type="stmt"/>
           <line num="48" count="0" type="stmt"/>
-          <line num="50" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
           <line num="52" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="57" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="59" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="60" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
         </file>
         <file name="news.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/models/news.js">
           <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
@@ -159,7 +179,7 @@
           <line num="29" count="1" type="stmt"/>
         </file>
         <file name="user.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/models/user.js">
-          <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="4" methods="7" coveredmethods="7"/>
+          <metrics statements="25" coveredstatements="24" conditionals="6" coveredconditionals="4" methods="7" coveredmethods="6"/>
           <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="7" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
@@ -184,7 +204,7 @@
           <line num="44" count="1" type="stmt"/>
           <line num="45" count="1" type="stmt"/>
           <line num="46" count="1" type="stmt"/>
-          <line num="50" count="1" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.stores">
@@ -239,38 +259,68 @@
         </file>
       </package>
       <package name="src.views">
-        <metrics statements="66" coveredstatements="7" conditionals="8" coveredconditionals="0" methods="27" coveredmethods="0"/>
+        <metrics statements="93" coveredstatements="10" conditionals="10" coveredconditionals="0" methods="39" coveredmethods="0"/>
         <file name="ArticlesView.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/ArticlesView.js">
-          <metrics statements="29" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0"/>
+          <metrics statements="29" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="12" coveredmethods="0"/>
+          <line num="15" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="30" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
           <line num="31" count="0" type="stmt"/>
           <line num="32" count="0" type="stmt"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="34" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="42" count="0" type="stmt"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
           <line num="51" count="0" type="stmt"/>
-          <line num="52" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="56" count="0" type="stmt"/>
           <line num="58" count="0" type="stmt"/>
-          <line num="60" count="0" type="stmt"/>
-          <line num="64" count="0" type="stmt"/>
-          <line num="69" count="0" type="stmt"/>
-          <line num="73" count="0" type="stmt"/>
-          <line num="81" count="0" type="stmt"/>
-          <line num="85" count="0" type="stmt"/>
-          <line num="89" count="0" type="stmt"/>
-          <line num="93" count="0" type="stmt"/>
-          <line num="95" count="0" type="stmt"/>
-          <line num="99" count="0" type="stmt"/>
-          <line num="100" count="0" type="stmt"/>
-          <line num="101" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="79" count="0" type="stmt"/>
+          <line num="83" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
+          <line num="92" count="0" type="stmt"/>
+          <line num="96" count="0" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
+          <line num="98" count="0" type="stmt"/>
+          <line num="115" count="0" type="stmt"/>
+        </file>
+        <file name="CollectionView.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/CollectionView.js">
+          <metrics statements="27" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+          <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="79" count="0" type="stmt"/>
+          <line num="83" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
+          <line num="92" count="0" type="stmt"/>
+          <line num="96" count="0" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
         </file>
         <file name="HomeView.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/HomeView.js">
           <metrics statements="6" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -284,49 +334,59 @@
         <file name="Logout.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/Logout.js">
           <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
           <line num="10" count="0" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
         </file>
         <file name="SourcesView.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/SourcesView.js">
           <metrics statements="27" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="0"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="25" count="0" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
           <line num="26" count="0" type="stmt"/>
-          <line num="30" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
           <line num="31" count="0" type="stmt"/>
           <line num="32" count="0" type="stmt"/>
-          <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="38" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="44" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
-          <line num="54" count="0" type="stmt"/>
-          <line num="61" count="0" type="stmt"/>
-          <line num="65" count="0" type="stmt"/>
-          <line num="73" count="0" type="stmt"/>
-          <line num="78" count="0" type="stmt"/>
-          <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="80" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="66" count="0" type="stmt"/>
+          <line num="74" count="0" type="stmt"/>
+          <line num="79" count="0" type="stmt"/>
+          <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="81" count="0" type="stmt"/>
           <line num="82" count="0" type="stmt"/>
-          <line num="86" count="0" type="stmt"/>
-          <line num="95" count="0" type="stmt"/>
+          <line num="83" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
           <line num="96" count="0" type="stmt"/>
-          <line num="98" count="0" type="stmt"/>
-          <line num="102" count="0" type="stmt"/>
-          <line num="126" count="0" type="stmt"/>
+          <line num="97" count="0" type="stmt"/>
+          <line num="99" count="0" type="stmt"/>
+          <line num="103" count="0" type="stmt"/>
+          <line num="127" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.views.templates">
-        <metrics statements="36" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="19" coveredmethods="0"/>
+        <metrics statements="53" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="24" coveredmethods="0"/>
         <file name="AppBar.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/templates/AppBar.js">
           <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="6" count="0" type="stmt"/>
         </file>
+        <file name="ArticleItem.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/templates/ArticleItem.js">
+          <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+        </file>
         <file name="FavActions.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/templates/FavActions.js">
-          <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+          <metrics statements="19" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="0"/>
           <line num="9" count="0" type="stmt"/>
           <line num="10" count="0" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
@@ -337,7 +397,7 @@
           <line num="24" count="0" type="stmt"/>
           <line num="25" count="0" type="stmt"/>
           <line num="26" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
+          <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="28" count="0" type="stmt"/>
           <line num="34" count="0" type="stmt"/>
           <line num="37" count="0" type="stmt"/>
@@ -346,11 +406,6 @@
           <line num="40" count="0" type="stmt"/>
           <line num="41" count="0" type="stmt"/>
           <line num="43" count="0" type="stmt"/>
-        </file>
-        <file name="Favourites.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/templates/Favourites.js">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
         </file>
         <file name="SideBar.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/templates/SideBar.js">
           <metrics statements="12" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
@@ -368,9 +423,21 @@
           <line num="48" count="0" type="stmt"/>
         </file>
         <file name="SourceItem.js" path="/Users/andeladeveloper/Documents/mynewsfeedapp/src/views/templates/SourceItem.js">
-          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="8" count="0" type="stmt"/>
+          <metrics statements="14" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="0"/>
           <line num="9" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
         </file>
       </package>
     </metrics>

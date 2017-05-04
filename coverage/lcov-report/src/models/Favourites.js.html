@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.9% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/29</span>
+        <span class='fraction'>0/35</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/10</span>
+        <span class='fraction'>0/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">7.14% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/28</span>
+        <span class='fraction'>0/34</span>
       </div>
     </div>
   </div>
@@ -99,13 +99,25 @@
 54
 55
 56
-57</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,6 +138,18 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,9 +183,9 @@
 import Collections from './Collections';
 &nbsp;
 class Favourites extends Collections {
-  constructor(email) {
-    super(email);
-    this.email = email;
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(email) {
+<span class="cstat-no" title="statement not covered" >    super(email);</span>
+<span class="cstat-no" title="statement not covered" >    this.email = email;</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  ad</span>dFavorites(name, sourceId, sourceName) {
@@ -183,6 +207,18 @@ class Favourites extends Collections {
     const isMatch = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>esult) =&gt; { <span class="cstat-no" title="statement not covered" >return re.test(result.id); </span>};</span>
     const searchFav = <span class="cstat-no" title="statement not covered" >_.filter(this.getCollection(name), isMatch);</span>
 <span class="cstat-no" title="statement not covered" >    return searchFav.length &gt; 0;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  in</span>Favourites(sourceId) {
+    // Search through all collection
+    const collection = <span class="cstat-no" title="statement not covered" >this.getCollections();</span>
+    let result = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >    collection.forEach(<span class="fstat-no" title="function not covered" >(c</span>ol) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.hasFavourite(col, sourceId)) {</span>
+<span class="cstat-no" title="statement not covered" >        result = true;</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    return result;</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  re</span>moveFavourite(name, sourceId) {
@@ -217,7 +253,7 @@ export default Favourites;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 03 2017 17:23:13 GMT+0100 (WAT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 04 2017 11:11:31 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

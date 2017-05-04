@@ -28,6 +28,18 @@ class Favourites extends Collections {
     return searchFav.length > 0;
   }
 
+  inFavourites(sourceId) {
+    // Search through all collection
+    const collection = this.getCollections();
+    let result = false;
+    collection.forEach((col) => {
+      if (this.hasFavourite(col, sourceId)) {
+        result = true;
+      }
+    });
+    return result;
+  }
+
   removeFavourite(name, sourceId) {
     if (this.hasCollection(name)) {
       const index = this.favAt(this.getCollection(name), sourceId);

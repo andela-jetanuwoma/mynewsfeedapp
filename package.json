@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "coveralls": "^2.13.1",
     "flux": "^3.1.2",
     "history": "^4.6.1",
     "js-cookie": "^2.1.4",
@@ -12,6 +13,7 @@
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
     "react-router-dom": "^4.1.1",
+    "react-share": "^1.13.2",
     "request": "^2.81.0",
     "semantic-ui-react": "^0.68.2"
   },
