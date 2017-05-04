@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "coveralls": "^2.13.1",
+    "enzyme": "^2.8.2",
+    "expect": "^1.20.2",
     "flux": "^3.1.2",
     "history": "^4.6.1",
     "js-cookie": "^2.1.4",
@@ -14,11 +16,13 @@
     "react-google-login": "^2.8.9",
     "react-router-dom": "^4.1.1",
     "react-share": "^1.13.2",
+    "react-test-renderer": "^15.5.4",
     "request": "^2.81.0",
-    "semantic-ui-react": "^0.68.2"
+    "semantic-ui-react": "^0.68.2",
+    "sinon": "^2.2.0"
   },
   "devDependencies": {
-    "ajv": "^5.0.1",
+    "ajv": "^5.0.1-beta.2",
     "coveralls": "^2.13.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",

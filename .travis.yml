@@ -3,6 +3,9 @@ node_js:
   - 6.10.1
 before_script:
   - npm install
+warnings_are_errors: false
+env:
+  - CI:false
 cache:
   directories:
     - node_modules
