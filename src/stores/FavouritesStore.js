@@ -5,7 +5,7 @@ import AppConstants from '../constants/AppConstants';
 
 const CHANGE_EVENT = 'change';
 const FavouritesStore = assign({}, EventEmitter.prototype, {
-  news: [],
+  favourites: [],
   getAll() {
     return this.favourites;
   },
@@ -26,6 +26,7 @@ const FavouritesStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register((payload) => {
   switch (payload.eventName) {
     case AppConstants.GET_FAVOURITES:
+    console.log("emitted");
       FavouritesStore.emitChange();
       break;
     default:

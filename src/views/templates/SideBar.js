@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import { Grid, List } from 'semantic-ui-react';
 import FavouritesStore from '../../stores/FavouritesStore';
 import User from '../../models/user';
@@ -39,10 +39,10 @@ class SideBar extends React.Component {
           <List>
             {favourites.getCollections().map((value, index) => {
               return (
-                <List.Item key={index}>
+                <List.Item key={index} >
                   <List.Icon name="bookmark" />
                   <List.Content>
-                    <List.Header>{value}</List.Header>
+                    <List.Header><Link to={`/collection/${value}`} >{value}</Link></List.Header>
                     <List.List>
                       {favourites.fetchAll()[value].map((fav, i) => {
                         return (

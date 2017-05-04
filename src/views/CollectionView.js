@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   Image,
+  Card,
   Grid,
   Dropdown } from 'semantic-ui-react';
 import createHistory from 'history/createBrowserHistory';
@@ -10,7 +11,6 @@ import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
-import ArticleItem from './templates/ArticleItem';
 
 const history = createHistory({
   forceRefresh: true,
@@ -39,12 +39,12 @@ const buildSortTypes = (type) => {
   return option;
 };
 
-class ArticlesView extends Component {
+class CollectionView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       favourites: User.favourites(),
-      news: [],
+      name: this.props.match.params.id,
     };
     this.onChange = this.onChange.bind(this);
     this.getItemsState = this.getItemsState.bind(this);
@@ -55,7 +55,7 @@ class ArticlesView extends Component {
     if (!User.isLogin) {
       history.push('/');
     }
-    AppActions.getNews(this.props.match.params.id);
+     AppActions.getCollectionNews(this.state.name);
   }
 
   componentDidMount() {
@@ -93,28 +93,17 @@ class ArticlesView extends Component {
         <Image avatar src={User.imageUrl} /> {User.name}
       </span>
     );
-    const sorttypes = buildSortTypes(this.props.location.search);
-    const { favourites } = this.state;
+    const { favourites, name } = this.state;
     return (
       <div>
         <AppBar trigger={trigger} options={options} />
         <Grid>
-          <SideBar favourites={favourites} />
-          <Grid.Column width={12} className="middleColumn">
+          <Grid.Column width={16} className="middleColumn">
             <div className="main">
               <p className="contentType">
-                <span className="news_name">News Feed</span>
-                <Dropdown
-                  options={sorttypes}
-                  onChange={this.handleChange}
-                  inline
-                />
+                <span className="news_name">{name}</span>
               </p>
-              <Grid className="sources">
-                {this.state.news.map((article, index) => {
-                  return (<ArticleItem article={article} key={index} />)
-                })}
-              </Grid>
+              <Card.Group itemsPerRow={3} className="container" items={this.state.news} />
             </div>
           </Grid.Column>
         </Grid>
@@ -123,4 +112,4 @@ class ArticlesView extends Component {
   }
 }
 
-export default ArticlesView;
+export default CollectionView;

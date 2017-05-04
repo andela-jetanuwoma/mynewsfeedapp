@@ -1,14 +1,40 @@
 import React, { Component } from 'react';
 import { Card, Button, Grid, Popup } from 'semantic-ui-react';
 import FavActions from './FavActions';
+import User from '../../models/user';
+import FavouritesStore from '../../stores/FavouritesStore';
 
 class SourceItem extends Component {
+  constructor() {
+    super();
+    this.state = {
+      favourites: User.favourites(),
+    };
+    this.onChange = this.onChange.bind(this);
+    this.getItemsState = this.getItemsState.bind(this);
+  }
 
+  componentDidMount() {
+    FavouritesStore.addChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.getItemsState();
+  }
+
+  getItemsState() {
+    this.setState({ favourites: User.favourites() });
+  }
+
+  componentWillUnMount() {
+    FavouritesStore.removeChangeListener(this.onChange);
+  }
   render() {
     const { source } = this.props;
+    const { favourites } = this.state;
     return (
       <Grid.Column width={5} >
-        <Card>
+        <Card href={source.href}>
           <Card.Content>
             <Card.Header>
               {source.title}
@@ -18,25 +44,43 @@ class SourceItem extends Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div className="ui two buttons">
-              <Popup
-                trigger={<Button
-                  color="teal"
-                  content=""
-                  icon="heart"
-                  label={{ as: 'a', basic: true, content: 'add' }}
-                  labelPosition="right"
-                />}
-                flowing
-                hoverable
-              >
-                <FavActions id={source.id} name={source.title} />
-              </Popup>
-            </div>
+            {(() => {
+              if (favourites.inFavourites(source.id)) {
+                return (
+                  <div className="ui buttons">
+                    <Button
+                      color="green"
+                      content=""
+                      icon="heart"
+                      labelPosition="right"
+                      fluid
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="ui buttons">
+                    <Popup
+                      trigger={<Button
+                        color="teal"
+                        content=""
+                        icon="heart"
+                        fluid
+                        labelPosition="right"
+                      />}
+                      flowing
+                      hoverable
+                    >
+                      <FavActions id={source.id} name={source.title} />
+                    </Popup>
+                  </div>
+                );
+              }
+            })()}
           </Card.Content>
         </Card>
       </Grid.Column>
-    )
+    );
   }
 }
 

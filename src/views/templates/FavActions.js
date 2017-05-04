@@ -7,7 +7,7 @@ import AppConstants from '../../constants/AppConstants';
 class FavActions extends Component {
   constructor() {
     super()
-    this.state = { collection: '' }
+    this.state = { collection: '', newCollection: '' }
     this.formData = this.formData.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -17,14 +17,14 @@ class FavActions extends Component {
   }
 
   onChange(e, { name, value }) {
-    this.setState({ collection: value });
+    this.setState({[name]: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const { name, id } = this.props;
-    const { collection } = this.state;
-    User.favourites().addFavorites(collection, id, name);
+    const { collection, newCollection } = this.state;
+    User.favourites().addFavorites(collection === ''? newCollection: collection, id, name);
     AppDispatcher.dispatch({
       eventName: AppConstants.GET_FAVOURITES,
     });
@@ -42,9 +42,15 @@ class FavActions extends Component {
     })
     return (
       <Form onSubmit={this.handleSubmit}>
+        <Form.Input
+         type="text"
+         name="newCollection"
+         label="Create A Collection"
+         onChange={this.onChange}
+        />
         <Form.Select
           onChange={this.onChange}
-          name="collections" label="Choose A Collection"
+          name="collection" label="Choose A Collection"
           options={options} placeholder="Select Existing"
         />
         <Form.Input type="hidden" value={id} />
