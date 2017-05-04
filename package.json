@@ -16,6 +16,7 @@
     "semantic-ui-react": "^0.68.2"
   },
   "devDependencies": {
+    "ajv": "^5.0.1",
     "coveralls": "^2.13.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -35,6 +36,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "coverage": "npm run test -- --coverage | ./node_modules/.bin/coveralls"
+    "coverage": "npm test -- --coverage | ./node_modules/.bin/coveralls"
   }
 }

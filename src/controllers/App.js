@@ -7,18 +7,26 @@ import Logout from '../views/Logout';
 import User from '../models/user';
 import '../assets/style/App.css';
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <Route exact path="/" render={() => <HomeView user={User} />} />
-        <Route exact path="/discover" render={() => <SourcesView user={User} />} />
-        <Route exact path="/articles/:id" component={ArticlesView} />
-        <Route exact path="/logout" render={()=><Logout user={User} />} />
-      </div>
-    </Router>
-  );
-};
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { favourites: User.favourites() };
+  }
+
+  render() {
+    const { favourites } = this.state;
+    return (
+      <Router >
+        <div>
+          <Route exact path="/" render={() => <HomeView user={User} />} />
+          <Route exact path="/discover" render={() => <SourcesView user={User} favourites={favourites} />} />
+          <Route exact path="/articles/:id" component={ArticlesView} />
+          <Route exact path="/logout" render={() => <Logout user={User} />} />
+        </div>
+      </Router>
+    );
+  }
+}
 
 
 export default App;

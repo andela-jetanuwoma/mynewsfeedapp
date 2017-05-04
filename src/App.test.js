@@ -2,17 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './controllers/App';
 import User from './models/user';
-import API from './models/API';
 import NewsArticle from './models/news';
 import NewsSources from './models/sources';
 
-const uservalue = {name: "jude peter", email: "wapjude@gmail.com", imageUrl: "some_picture.jpg"};
+const uservalue = { name: "jude peter", email: "wapjude@gmail.com", imageUrl: "some_picture.jpg"};
 User.Login(uservalue);
 
 it('should log user in when values is supplied and store it', () => {
-
     expect(User.isLoggedIn()).toBe(true);
-
 });
 
 it('should return jude peter as the name of the logged in user', () => {
@@ -41,7 +38,7 @@ it('should be undefined for user email', () => {
 it('should be undefined for user imageUrl', () => {
     expect(User.imageUrl).toBe("");
 });
-//test for news sources
+
 const sources = new NewsSources();
 sources.add("abc-news", "The ABC of all kiddo news", "Want to learn how to read here you go", ["top"]);
 sources.add("tech-crunch", "technology saga", ["top", "latest"]);

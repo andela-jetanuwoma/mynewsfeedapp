@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import createHistory from 'history/createBrowserHistory';
-import { Segment, Menu, Image, Icon, Header, Card, Search, Dropdown } from 'semantic-ui-react';
+import { Image, Icon, Search, Grid } from 'semantic-ui-react';
 import NewsSourcesStore from '../stores/NewsSourcesStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
-import '../App.css';
+import AppBar from './templates/AppBar';
+import SideBar from './templates/SideBar';
+import SourceItem from './templates/SourceItem';
 
 const history = createHistory({
   forceRefresh: true,
@@ -24,6 +26,7 @@ class SourcesView extends Component {
     super(props);
     this.state = {
       activepage: 'discover',
+      sources: NewsSourcesStore.getAll(),
     };
     this.onChange = this.onChange.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -35,6 +38,7 @@ class SourcesView extends Component {
     if (!User.isLogin) {
       history.push('/');
     }
+    AppActions.getSources();
   }
 
   componentDidMount() {
@@ -75,7 +79,7 @@ class SourcesView extends Component {
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
-      const isMatch = (result) => { re.test(result.header); };
+      const isMatch = (result) => { return re.test(result.header); };
       this.setState({
         isLoading: false,
         results: _.filter(this.state.sources, isMatch),
@@ -86,11 +90,11 @@ class SourcesView extends Component {
 
   render() {
     const {
-      activepage,
       isLoading,
       value,
        results,
      } = this.state;
+    const { favourites } = this.props;
     const trigger = (
       <span>
         <Image avatar src={User.imageUrl} /> {User.name}
@@ -98,34 +102,34 @@ class SourcesView extends Component {
     );
     return (
       <div>
-        <div onLoad={AppActions.getSources()}>
-          <Menu pointing>
-            <Menu.Item name={activepage} active={activepage === 'discover'} />
-            <Menu.Item name="Feeds" active={activepage === 'feeds'} />
-            <Menu.Menu position="right">
-              <Menu.Item>
-                <Dropdown trigger={trigger} options={options} pointing="top left" icon={null} />
-              </Menu.Item>
-            </Menu.Menu>
-          </Menu>
-          <Segment basic>
-            <div className="container">
-              <Header as="h2" icon>
-                <Icon name="rss" color="teal" />
-            News Sources
-           </Header>
-              <Search
-                className="container"
-                loading={isLoading}
-                onResultSelect={this.handleResultSelect}
-                onSearchChange={this.handleSearchChange}
-                results={results}
-                value={value}
-                fluid
-              />
-              <Card.Group itemsPerRow={4} className="container" items={this.state.sources} />
-            </div>
-          </Segment>
+        <div>
+          <AppBar trigger={trigger} options={options} />
+          <Grid>
+            <SideBar favourites={favourites} />
+            <Grid.Column width={12} className="middleColumn">
+              <div className="main">
+                <p className="contentType">
+                  <Icon name="rss" color="teal" />
+                  Choose The News Source Want To Read
+               </p>
+                <Search
+                  loading={isLoading}
+                  onResultSelect={this.handleResultSelect}
+                  onSearchChange={this.handleSearchChange}
+                  results={results}
+                  value={value}
+                  fluid
+                  className="search_sources"
+                />
+
+                <Grid className="sources">
+                  {this.state.sources.map((source, index) => {
+                    return (<SourceItem source={source} key={index} />)
+                  })}
+                </Grid>
+              </div>
+            </Grid.Column>
+          </Grid>
         </div>
       </div>
     );
