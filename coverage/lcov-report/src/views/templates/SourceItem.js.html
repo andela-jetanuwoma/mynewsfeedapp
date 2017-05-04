@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>0/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/14</span>
       </div>
     </div>
   </div>
@@ -86,7 +86,91 @@
 41
 42
 43
-44</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -103,6 +187,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -130,44 +218,88 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { Card, Button, Grid, Popup, Form } from 'semantic-ui-react';
+import { Card, Button, Grid, Popup } from 'semantic-ui-react';
 import FavActions from './FavActions';
+import User from '../../models/user';
 import FavouritesStore from '../../stores/FavouritesStore';
 &nbsp;
 class SourceItem extends Component {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor() {
+<span class="cstat-no" title="statement not covered" >    super();</span>
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+      favourites: User.favourites(),
+    };
+<span class="cstat-no" title="statement not covered" >    this.onChange = this.onChange.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >    this.getItemsState = this.getItemsState.bind(this);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
+<span class="cstat-no" title="statement not covered" >    FavouritesStore.addChangeListener(this.onChange);</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>Change() {
+<span class="cstat-no" title="statement not covered" >    this.getItemsState();</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ge</span>tItemsState() {
+<span class="cstat-no" title="statement not covered" >    this.setState({ favourites: User.favourites() });</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  co</span>mponentWillUnMount() {
+<span class="cstat-no" title="statement not covered" >    FavouritesStore.removeChangeListener(this.onChange);</span>
+  }
 <span class="fstat-no" title="function not covered" >  re</span>nder() {
     const { source } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const { favourites } = <span class="cstat-no" title="statement not covered" >this.state;</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
-     &lt;Grid.Column width={5} &gt;
-      &lt;Card&gt;
-    &lt;Card.Content&gt;
-      &lt;Card.Header&gt;
-        {source.title}
-      &lt;/Card.Header&gt;
-      &lt;Card.Description&gt;
-        {source.description}
-      &lt;/Card.Description&gt;
-    &lt;/Card.Content&gt;
-    &lt;Card.Content extra&gt;
-      &lt;div className='ui two buttons'&gt;
-          &lt;Popup
-            trigger={&lt;Button
-              color="teal"
-              content=''
-              icon='heart'
-              label={{ as: 'a', basic: true, content: 'add' }}
-              labelPosition='right'
-            /&gt;}
-            flowing
-            hoverable
-          &gt;
-            &lt;FavActions id={source.id} name={source.title} /&gt;
-          &lt;/Popup&gt;
-      &lt;/div&gt;
-    &lt;/Card.Content&gt;
-      &lt;/Card&gt;
-     &lt;/Grid.Column&gt;
-    )
+      &lt;Grid.Column width={5} &gt;
+        &lt;Card href={source.href}&gt;
+          &lt;Card.Content&gt;
+            &lt;Card.Header&gt;
+              {source.title}
+            &lt;/Card.Header&gt;
+            &lt;Card.Description&gt;
+              {source.description}
+            &lt;/Card.Description&gt;
+          &lt;/Card.Content&gt;
+          &lt;Card.Content extra&gt;
+            {(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >              if (favourites.inFavourites(source.id)) {</span>
+<span class="cstat-no" title="statement not covered" >                return (</span>
+                  &lt;div className="ui buttons"&gt;
+                    &lt;Button
+                      color="green"
+                      content=""
+                      icon="heart"
+                      labelPosition="right"
+                      fluid
+                    /&gt;
+                  &lt;/div&gt;
+                );
+              } else {
+<span class="cstat-no" title="statement not covered" >                return (</span>
+                  &lt;div className="ui buttons"&gt;
+                    &lt;Popup
+                      trigger={&lt;Button
+                        color="teal"
+                        content=""
+                        icon="heart"
+                        fluid
+                        labelPosition="right"
+                      /&gt;}
+                      flowing
+                      hoverable
+                    &gt;
+                      &lt;FavActions id={source.id} name={source.title} /&gt;
+                    &lt;/Popup&gt;
+                  &lt;/div&gt;
+                );
+              }
+            })()}
+          &lt;/Card.Content&gt;
+        &lt;/Card&gt;
+      &lt;/Grid.Column&gt;
+    );
   }
 }
 &nbsp;
@@ -178,7 +310,7 @@ export default SourceItem;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 03 2017 17:23:13 GMT+0100 (WAT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 04 2017 11:11:31 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

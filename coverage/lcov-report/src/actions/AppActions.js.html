@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.55% </span>
+        <span class="strong">2.86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/22</span>
+        <span class='fraction'>1/35</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.55% </span>
+        <span class="strong">2.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/22</span>
+        <span class='fraction'>1/35</span>
       </div>
     </div>
   </div>
@@ -103,7 +103,38 @@
 58
 59
 60
-61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,6 +193,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import request from 'request';
 import AppDispatcher from '../dispatcher/AppDispatcher';
@@ -169,6 +229,7 @@ import AppConstants from '../constants/AppConstants';
 import API from '../models/API';
 import SourcesContainer from '../models/sources';
 import NewsContainer from '../models/news';
+import User from '../models/user';
 &nbsp;
 const AppActions = {
   getNews: <span class="fstat-no" title="function not covered" >(s</span>ource, sortType = <span class="branch-0 cbranch-no" title="branch not covered" >null)</span> =&gt; {
@@ -220,6 +281,35 @@ const AppActions = {
       }
     });
   },
+&nbsp;
+  getCollectionNews: <span class="fstat-no" title="function not covered" >(n</span>ame) =&gt; {
+    const newsfeeds = <span class="cstat-no" title="statement not covered" >new NewsContainer();</span>
+    const usersFavorites = <span class="cstat-no" title="statement not covered" >User.favourites();</span>
+    const collectionFavorites = <span class="cstat-no" title="statement not covered" >usersFavorites.fetchAll()[name];</span>
+<span class="cstat-no" title="statement not covered" >    collectionFavorites.forEach(<span class="fstat-no" title="function not covered" >(f</span>av) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      API.clearQuery();</span>
+<span class="cstat-no" title="statement not covered" >      API.addQuery('source', fav.id);</span>
+<span class="cstat-no" title="statement not covered" >      request(API.getLink(), <span class="fstat-no" title="function not covered" >(e</span>rror, response, body) =&gt; {</span>
+        const bodyResult = <span class="cstat-no" title="statement not covered" >JSON.parse(body);</span>
+<span class="cstat-no" title="statement not covered" >        if (response.statusCode === 200) {</span>
+          const articles = <span class="cstat-no" title="statement not covered" >bodyResult.articles;</span>
+<span class="cstat-no" title="statement not covered" >          articles.forEach(<span class="fstat-no" title="function not covered" >(a</span>rticle) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            newsfeeds.add(</span>
+            article.title,
+            article.description,
+            article.author,
+            article.url,
+            article.urlToImage,
+          );
+          });
+<span class="cstat-no" title="statement not covered" >          AppDispatcher.dispatch({</span>
+            eventName: AppConstants.GET_NEWS,
+            news: newsfeeds.get(),
+          });
+        }
+      });
+    });
+  },
 };
 &nbsp;
 export default AppActions;
@@ -229,7 +319,7 @@ export default AppActions;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 03 2017 17:23:13 GMT+0100 (WAT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 04 2017 11:11:31 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
