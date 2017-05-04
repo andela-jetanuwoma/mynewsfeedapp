@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import {
   Image,
   Card,
-  Grid,
-  Dropdown } from 'semantic-ui-react';
+  Grid
+} from 'semantic-ui-react';
 import createHistory from 'history/createBrowserHistory';
 import '../App.css';
 import NewsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
-import SideBar from './templates/SideBar';
 
 const history = createHistory({
   forceRefresh: true,
@@ -23,21 +22,6 @@ const options = [
     href: '/logout',
   },
 ];
-
-const buildSortTypes = (type) => {
-  const types = type.substr(6, type.length - 1).split(',');
-  const option = [];
-  let inc = 1;
-  types.forEach((sort) => {
-    option.push({
-      key: inc,
-      text: sort,
-      value: sort,
-    });
-    inc += 1;
-  });
-  return option;
-};
 
 class CollectionView extends Component {
   constructor(props) {
@@ -93,7 +77,7 @@ class CollectionView extends Component {
         <Image avatar src={User.imageUrl} /> {User.name}
       </span>
     );
-    const { favourites, name } = this.state;
+    const { name } = this.state;
     return (
       <div>
         <AppBar trigger={trigger} options={options} />
