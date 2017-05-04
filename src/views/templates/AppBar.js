@@ -4,7 +4,7 @@ import { Menu, Dropdown } from 'semantic-ui-react';
 class AppBar extends React.Component {
   render() {
     return (
-      <Menu pointing inverted>
+      <Menu pointing inverted color="green">
         <Menu.Item name="NewsFeed" href="/discover" active={true} />
         <Menu.Menu position="right">
           <Menu.Item>
