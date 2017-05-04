@@ -3,7 +3,6 @@ node_js:
   - 6.10.1
 before_script:
   - npm install
-warnings_are_errors: false
 env:
   - CI:false
 cache:
@@ -11,5 +10,4 @@ cache:
     - node_modules
 script:
   - npm test
-  - npm run build
 after_success: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"

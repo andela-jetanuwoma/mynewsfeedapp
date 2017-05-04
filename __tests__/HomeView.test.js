@@ -27,8 +27,5 @@ describe('if component will mount function exists',() => {
   it('componentWillMount exists', () => {
     expect(HomeView.prototype.componentWillMount.calledOnce).toExist;
   });
-  xit(' componentWillMount mounted', () => {
-    console.log(HomeView.prototype.componentWillMount);
-    expect(HomeView.prototype.componentWillMount).toEqual(true);
-  });
+
 })
