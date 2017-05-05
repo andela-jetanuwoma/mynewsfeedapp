@@ -21,9 +21,6 @@ it('should return true for searching if abc-news is in Tech ', () => {
 it('should return true for searching if abc-news is in any of the collection ', () => {
     expect(fav.inFavourites("abc-news")).toBe(true);
 });
-it('should return 0  for searching if abc-news is in any of the collection ', () => {
-    expect(fav.inFavourites("abc-news")).toBe(true);
-});
 it('should return -1  for searching for the index of abc-newsd  in Tech collection', () => {
     expect(fav.favAt(fav.fetchAll()["Tech"],"abc-newsd")).toBe(-1);
 });

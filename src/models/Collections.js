@@ -49,7 +49,9 @@ class Collections {
     if (this.hasCollection(name)) {
       this.db.delete(name);
       this.updateDB();
+      return true;
     }
+    return false;
   }
 
   updateDB() {
