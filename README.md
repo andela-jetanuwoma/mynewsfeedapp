@@ -1,6 +1,4 @@
 # News Headlines
-[![bitHound Overall Score](https://www.bithound.io/github/gotwarlost/istanbul/badges/score.svg)](https://www.bithound.io/github/gotwarlost/istanbul)
-
 [![Build Status](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp.svg?branch=master)](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp)
 News Headlines.
 ### What the project does
