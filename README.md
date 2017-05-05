@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp.svg?branch=master)](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp)
 # News Headlines
 [![bitHound Overall Score](https://www.bithound.io/github/gotwarlost/istanbul/badges/score.svg)](https://www.bithound.io/github/gotwarlost/istanbul)
 
+[![Build Status](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp.svg?branch=master)](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp)
 News Headlines.
 ### What the project does
   - This app gives you the global view of news by fetching news sources. User selects source and have the headlines listed.
