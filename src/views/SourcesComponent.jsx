@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { Image, Icon, Search, Grid } from 'semantic-ui-react';
-import newsSourcesStore  from '../stores/NewsSourcesStore ';
+import newsSourcesStore  from '../stores/NewsSourcesStore';
 import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
