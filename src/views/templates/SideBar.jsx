@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, List } from 'semantic-ui-react';
-import FavouritesStore from '../../stores/FavouritesStore';
+import favouritesStore from '../../stores/favouritesStore';
 import User from '../../models/user';
 
 class SideBar extends React.Component {
@@ -18,7 +18,7 @@ class SideBar extends React.Component {
   }
 
   componentDidMount() {
-    FavouritesStore.addChangeListener(this.onChange);
+    favouritesStore.addChangeListener(this.onChange);
   }
 
   onChange() {
@@ -30,7 +30,7 @@ class SideBar extends React.Component {
   }
 
   componentWillUnMount() {
-    FavouritesStore.removeChangeListener(this.onChange);
+    favouritesStore.removeChangeListener(this.onChange);
   }
 
   render() {

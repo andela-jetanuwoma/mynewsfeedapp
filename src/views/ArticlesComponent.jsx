@@ -5,7 +5,7 @@ import {
   Dropdown, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import NewsStore from '../stores/NewsStore';
+import newsStore from '../stores/newsStore';
 import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
@@ -50,7 +50,7 @@ class ArticlesComponent extends BaseApp {
   }
 
   componentDidMount() {
-    NewsStore.addChangeListener(this.onChange);
+    newsStore.addChangeListener(this.onChange);
   }
 
 
@@ -60,7 +60,7 @@ class ArticlesComponent extends BaseApp {
 
   setItemsState() {
     this.setState({
-      news: NewsStore.getAll(),
+      news: newsStore.getAll(),
       activepage: 'feeds',
       sorttypes: [],
     });
@@ -75,7 +75,7 @@ class ArticlesComponent extends BaseApp {
   }
 
   componentWillUnMount() {
-    NewsStore.removeChangeListener(this.onChange);
+    newsStore.removeChangeListener(this.onChange);
   }
 
   render() {

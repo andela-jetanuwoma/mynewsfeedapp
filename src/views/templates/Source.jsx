@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button, Grid, Popup } from 'semantic-ui-react';
 import FavActions from './FavActions';
 import User from '../../models/user';
-import FavouritesStore from '../../stores/FavouritesStore';
+import favouritesStore from '../../stores/favouritesStore';
 
 class SourceItem extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class SourceItem extends Component {
   }
 
   componentDidMount() {
-    FavouritesStore.addChangeListener(this.onChange);
+    favouritesStore.addChangeListener(this.onChange);
   }
 
   onChange() {
@@ -27,7 +27,7 @@ class SourceItem extends Component {
   }
 
   componentWillUnMount() {
-    FavouritesStore.removeChangeListener(this.onChange);
+    favouritesStore.removeChangeListener(this.onChange);
   }
   render() {
     const { source } = this.props;

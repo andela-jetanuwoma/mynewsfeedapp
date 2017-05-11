@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import NewsStore from '../stores/NewsStore';
+import newsStore from '../stores/newsStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
@@ -37,7 +37,7 @@ class CollectionComponent extends Component {
 
   componentDidMount() {
     AppActions.getCollectionNews(this.state.name);
-    NewsStore.addChangeListener(this.onChange);
+    newsStore.addChangeListener(this.onChange);
   }
 
 
@@ -47,14 +47,14 @@ class CollectionComponent extends Component {
 
   getItemsState() {
     this.setState({
-      news: NewsStore.getAll(),
+      news: newsStore.getAll(),
       activepage: 'feeds',
       sorttypes: [],
     });
   }
 
   componentWillUnMount() {
-    NewsStore.removeChangeListener(this.onChange);
+    newsStore.removeChangeListener(this.onChange);
   }
 
   render() {
