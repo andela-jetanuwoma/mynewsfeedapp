@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import newsStore from '../stores/NewsStore';
+import newsStore from '../stores/newsStore';
 import AppActions from '../actions/AppActions';
 import User from '../models/user';
 import AppBar from './templates/AppBar';
