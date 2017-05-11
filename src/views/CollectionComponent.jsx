@@ -32,7 +32,7 @@ class CollectionComponent extends Component {
 
 
     this.onChange = this.onChange.bind(this);
-    this.getItemsState = this.getItemsState.bind(this);
+    this.setItemsState = this.setItemsState.bind(this);
   }
 
   componentDidMount() {
@@ -42,7 +42,7 @@ class CollectionComponent extends Component {
 
 
   onChange() {
-    this.getItemsState();
+    this.setItemsState();
   }
 
   getItemsState() {
