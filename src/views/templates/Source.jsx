@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button, Grid, Popup } from 'semantic-ui-react';
 import FavActions from './FavActions';
 import User from '../../models/user';
-import favouritesStore from '../../stores/favouritesStore';
+import favouritesStore from '../../stores/FavouritesStore';
 
 class SourceItem extends Component {
   constructor() {
