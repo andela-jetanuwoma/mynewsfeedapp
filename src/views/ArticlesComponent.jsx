@@ -5,7 +5,7 @@ import {
   Dropdown, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import newsStore from '../stores/newsStore';
+import newsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
