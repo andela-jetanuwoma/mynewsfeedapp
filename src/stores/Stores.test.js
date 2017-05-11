@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import newsStore from './newsStore';
+import newsStore from './NewsStore';
 import newsSourcesStore from './NewsSourcesStore';
 import favouritesStore from './FavouritesStore';
 import AppConstants from '../constants/AppConstants';

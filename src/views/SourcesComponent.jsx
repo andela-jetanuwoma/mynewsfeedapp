@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { Image, Icon, Search, Grid } from 'semantic-ui-react';
-import newsSourcesStore from '../stores/newsSourcesStore';
+import NewsSourcesStore  from '../stores/NewsSourcesStore ';
 import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
@@ -13,7 +13,7 @@ class SourcesView extends BaseApp {
     super(props);
 
     this.state = {
-      sources: newsSourcesStore.getAll(),
+      sources: NewsSourcesStore .getAll(),
     };
 
 
@@ -24,7 +24,7 @@ class SourcesView extends BaseApp {
 
   componentDidMount() {
     AppActions.getSources();
-    newsSourcesStore.addChangeListener(this.onChange);
+    NewsSourcesStore .addChangeListener(this.onChange);
   }
 
 
@@ -35,19 +35,19 @@ class SourcesView extends BaseApp {
 
   setItemsState() {
     this.setState({
-      sources: newsSourcesStore.getAll(),
+      sources: NewsSourcesStore .getAll(),
     });
   }
 
   componentWillUnMount() {
-    newsSourcesStore.removeChangeListener(this.onChange);
+    NewsSourcesStore .removeChangeListener(this.onChange);
   }
 
   resetComponent() {
     this.setState({
       isLoading: false,
       results: [],
-      sources: newsSourcesStore.getAll(),
+      sources: NewsSourcesStore .getAll(),
       value: '',
     });
   }
