@@ -111,13 +111,57 @@
 66
 67
 68
-69</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,6 +179,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -143,14 +192,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,6 +221,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,13 +245,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash';
 import Collections from './Collections';
-&nbsp;
+/**
+* Storing user favourites to collection
+*/
 class Favourites extends Collections {
+/**
+* Set users unique mail for storing favourites
+* @param {string} email
+*/
   constructor(email) {
     super(email);
     this.email = email;
   }
-&nbsp;
+/**
+* Add favourites to collection provided
+* @param {string} name Collection name to add favorites to
+* @param {string} sourceId Unique sourceId for getting article headlines
+* @param {string} sourceName Source name of the favorite
+* @return {boolean}
+*/
   addFavorites(name, sourceId, sourceName) {
     if (this.hasCollection(name)) {
       if (!this.hasFavourite(name, sourceId)) {
@@ -201,14 +277,23 @@ class Favourites extends Collections {
     }
     return false;
   }
-&nbsp;
+/**
+* Check if a favorite is already contained in a collection
+* @param {string} name Collection name
+* @param {string} sourceId Article source id
+* @return {boolean}
+*/
   hasFavourite(name, sourceId) {
     const re = new RegExp(_.escapeRegExp(sourceId), 'i');
     const isMatch = (result) =&gt; { return re.test(result.id); };
     const searchFav = _.filter(this.getCollection(name), isMatch);
     return searchFav.length &gt; 0;
   }
-&nbsp;
+/**
+*Check if a favorite is all ready contained in any of the collection
+* @param {string} sourceId Article source id
+* @return {boolean}
+*/
   inFavourites(sourceId) {
     // Search through all collection
     const collection = this.getCollections();
@@ -220,7 +305,12 @@ class Favourites extends Collections {
     });
     return result;
   }
-&nbsp;
+/**
+* Removes favourites from collection
+* @param {string} name Collection name
+* @param {sourceId} the news source to be removed
+* @return {boolean}
+*/
   removeFavourite(name, sourceId) {
     <span class="missing-if-branch" title="else path not taken" >E</span>if (this.hasCollection(name)) {
       const index = this.favAt(this.fetchAll()[name], sourceId);
@@ -233,11 +323,17 @@ class Favourites extends Collections {
     return false;
   }
 &nbsp;
-  favAt(arr, val) {
+/**
+* Check the index of a favorite in all collections
+* @param {array} collections Array of all collections
+* @param {string} source News source to search for
+* @return {number}
+*/
+  favAt(collections, source) {
     let index = 0;
     let charAt = -1;
-    arr.forEach((item) =&gt; {
-      if (item.id === val) {
+    collections.forEach((item) =&gt; {
+      if (item.id === source) {
         charAt = index;
       }
       index += 1;
@@ -253,7 +349,7 @@ export default Favourites;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri May 05 2017 10:46:55 GMT+0100 (WAT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 11 2017 06:47:26 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

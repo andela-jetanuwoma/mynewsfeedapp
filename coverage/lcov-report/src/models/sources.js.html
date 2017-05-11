@@ -76,11 +76,63 @@
 31
 32
 33
-34</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -94,13 +146,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,11 +179,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash';
 &nbsp;
-class NewsSources {
+/**
+ * A Model class that stores all Retreived news sources from Api
+ */
+class Sources {
+&nbsp;
+  /**
+   * constructor - Sources constructor
+   *
+   * @return {void}  set news initially to empty array
+   */
   constructor() {
     this.sources = [];
   }
 &nbsp;
+  /**
+   * add - description
+   *
+   * @param  {string} id   The source ID
+   * @param  {string} name the source name
+   * @param  {string} desc the source description
+   * @param  {string} sort the source available sort types
+   * @return {void}
+   */
   add(id, name, desc, sort) {
     this.sources.push({
       href: `/articles/${id}?sort=${sort}`,
@@ -126,29 +212,45 @@ class NewsSources {
     });
   }
 &nbsp;
+  /**
+   * search - Searches for sources from the lists of sources added
+   *
+   * @param  {string} name Source title
+   * @return {array}      Search results
+   */
 <span class="fstat-no" title="function not covered" >  se</span>arch(name) {
     const re = <span class="cstat-no" title="statement not covered" >new RegExp(_.escapeRegExp(name), 'i');</span>
     const isMatch = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>esult) =&gt; { <span class="cstat-no" title="statement not covered" >re.test(result.header); </span>};</span>
 <span class="cstat-no" title="statement not covered" >    return _.filter(this.sources, isMatch);</span>
   }
 &nbsp;
+  /**
+   * get - Get the total of news sources added
+   *
+   * @return {array}
+   */
   get() {
     return this.sources;
   }
 &nbsp;
+  /**
+   * total - Total number of news
+   *
+   * @return {Number}  Total news added
+   */
   total() {
     return this.sources.length;
   }
 &nbsp;
 }
-export default NewsSources;
+export default Sources;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri May 05 2017 10:46:55 GMT+0100 (WAT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 11 2017 06:47:26 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

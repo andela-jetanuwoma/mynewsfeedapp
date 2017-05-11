@@ -1,8 +1,14 @@
 import Cookies from 'js-cookie';
 import _ from 'lodash';
 import User from './user';
-
+/**
+* Collections class that holds favourite
+*/
 class Collections {
+/**
+* Set user unique email for storing favourite
+* @param {string} email
+*/
   constructor(email) {
     this.email = email;
     this.db = new Map();
@@ -16,6 +22,10 @@ class Collections {
       }
     }
   }
+/**
+* Copy user favourites and collection to cookies and Map
+* @return void
+*/
   copyToDb() {
     const db = JSON.parse(this.existing);
     const collections = Object.keys(db);
@@ -24,17 +34,36 @@ class Collections {
     });
     this.existing = db;
   }
+  /**
+  * Check if user already create a collections
+  * @param {string} name
+  * @return {boolean}
+  */
   hasCollection(name) {
     return this.db.has(name);
   }
 
+/**
+* Retreives user saved collection
+* @return {array}
+*/
   getCollections() {
     return Object.keys(this.fetchAll());
   }
-
+/**
+* Retreives favourites stored under a collection
+* @param {string} name
+* @return {array}
+*/
   getCollection(name) {
     return this.db.get(name);
   }
+
+/**
+* Add to users collection
+* @param {string} name Collection name to be added
+* @return {boolean}
+*/
 
   addCollection(name) {
     if (!this.hasCollection(name)) {
@@ -44,7 +73,11 @@ class Collections {
     }
     return false;
   }
-
+/**
+* Removes from users Collections and deleting users favourites under it
+* @param {string} name
+* @return {boolean}
+*/
   deleteCollection(name) {
     if (this.hasCollection(name)) {
       this.db.delete(name);
@@ -53,7 +86,10 @@ class Collections {
     }
     return false;
   }
-
+/**
+* Add modified collections to cookies for storages
+* @return {void}
+*/
   updateDB() {
     const val = {};
     this.db.forEach((value, key) => {
@@ -62,10 +98,16 @@ class Collections {
     Cookies.set(this.email, val);
     this.existing = val;
   }
+/**
+* Retreives All collections and favourites associated to a user
+* @return {array}
+*/
   fetchAll() {
     return this.existing;
   }
-
+/**
+* Display all collections
+*/
   toString() {
     return this.db.keys();
   }

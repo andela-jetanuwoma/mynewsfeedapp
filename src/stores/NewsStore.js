@@ -4,7 +4,7 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 
 const CHANGE_EVENT = 'change';
-const NewsStore = assign({}, EventEmitter.prototype, {
+const newsStore = assign({}, EventEmitter.prototype, {
   news: [],
   getAll() {
     return this.news;
@@ -26,8 +26,8 @@ const NewsStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register((payload) => {
   switch (payload.eventName) {
     case AppConstants.GET_NEWS:
-      NewsStore.news = payload.news;
-      NewsStore.emitChange();
+      newsStore.news = payload.news;
+      newsStore.emitChange();
       break;
     default:
       break;
@@ -36,4 +36,4 @@ AppDispatcher.register((payload) => {
   return true;
 });
 
-export default NewsStore;
+export default newsStore;

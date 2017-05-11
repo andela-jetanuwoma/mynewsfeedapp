@@ -74,6 +74,20 @@ body {
   width: 65%;
   margin-bottom: 30px; }
 
+@media only screen and (max-width: 600px) {
+  .site_nav .site_name h2 {
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 20px; }
+  .site_description header h1 {
+    font-weight: 300;
+    width: 90%;
+    font-size: 18px; }
+  .site_description header h2 {
+    font-weight: 200;
+    width: 100%;
+    font-size: 15px; } }
+
 .footer_text {
   font-size: 12px;
   margin-top: 20px; }
@@ -114,7 +128,7 @@ body {
 .main {
   padding: 40px; }
   .main .contentType {
-    color: #757575;
+    color: #21ba45;
     font-size: 2.25rem;
     font-weight: 300px; }
 
