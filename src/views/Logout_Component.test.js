@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import Logout from '../src/views/Logout';
+import Logout from './Logout';
 
 describe('Logout Wrapper component', () => {
   sinon.spy(Logout.prototype, 'componentWillMount');

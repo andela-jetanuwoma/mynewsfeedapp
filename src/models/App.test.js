@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../src/controllers/App';
-import User from '../src/models/user';
-import NewsArticle from '../src/models/news';
-import NewsSources from '../src/models/sources';
+import User from './user';
+import NewsArticle from './news';
+import NewsSources from './sources';
 
 const uservalue = { name: "jude peter", email: "wapjude@gmail.com", imageUrl: "some_picture.jpg"};
 User.Login(uservalue);

@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import ArticlesComponent from '../src/views/ArticlesComponent';
+import ArticlesComponent from './ArticlesComponent';
 
 const allItems =
 {

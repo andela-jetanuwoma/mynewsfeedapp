@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import API from '../src/models/API';
+import API from './API';
 
 it('should return api link for all sources as https://newsapi.org/v1/sources?language=en', () =>{
   expect(API.apilink).toEqual("https://newsapi.org/v1/sources?language=en");

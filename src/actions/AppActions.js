@@ -6,7 +6,7 @@ import Sources from '../models/sources';
 import NewsArticles from '../models/news';
 import User from '../models/user';
 /** Perform api call and return api result appropiately*/
-const AppActions = {
+const appActions = {
   /**
   * Get news from the api
   * @param {string} source
@@ -104,4 +104,4 @@ const AppActions = {
   },
 };
 
-export default AppActions;
+export default appActions;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Favourites from '../src/models/Favourites';
-import User from '../src/models/user';
+import Favourites from './Favourites';
+import User from './user';
 //Log user in
 User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
 const fav = User.favourites();

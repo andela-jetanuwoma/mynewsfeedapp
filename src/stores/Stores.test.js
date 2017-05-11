@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import newsStore from '../src/stores/newsStore';
-import newsSourcesStore from '../src/stores/newsSourcesStore';
-import FavouritesStore from '../src/stores/FavouritesStore';
-import AppConstants from '../src/constants/AppConstants';
-import AppDispatcher from '../src/dispatcher/AppDispatcher';
-import User from '../src/models/user';
+import newsStore from '../stores/newsStore';
+import newsSourcesStore from './newsSourcesStore';
+import FavouritesStore from './FavouritesStore';
+import AppConstants from '../constants/AppConstants';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import User from '../models/user';
 //Log user in
 User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
 const fav = User.favourites();
 
-jest.mock('../src/dispatcher/AppDispatcher');
-jest.dontMock('../src/stores/NewsStore');
-jest.dontMock('../src/stores/NewsSourcesStore');
+jest.mock('../dispatcher/AppDispatcher');
+jest.dontMock('./NewsStore');
+jest.dontMock('./NewsSourcesStore');
 jest.dontMock('object-assign');
 
 describe('NewsStore', () => {
