@@ -96,12 +96,12 @@ describe('FavouritesStore', () => {
   });
 
   test('The store initializes with no data', () => {
-    const all = FavouritesStore.getAll().length;
+    const all = favouritesStore.getAll().length;
     expect(all).toBe(0);
   });
   test('dispatch the news', () => {
     callback(favAction);
-    const all = FavouritesStore.getAll();
+    const all = favouritesStore.getAll();
     const keys = Object.keys(all);
     expect(keys.length).toBe(2);
     expect(keys[0]).toEqual('Tech');
