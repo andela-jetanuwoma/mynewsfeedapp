@@ -21,7 +21,7 @@ const options = [
   },
 ];
 
-class CollectionComponent extends Component {
+class Collection extends Component {
   constructor(props) {
     super(props);
 
@@ -45,7 +45,7 @@ class CollectionComponent extends Component {
     this.setItemsState();
   }
 
-  getItemsState() {
+  setItemsState() {
     this.setState({
       news: newsStore.getAll(),
       activepage: 'feeds',
@@ -86,4 +86,4 @@ class CollectionComponent extends Component {
   }
 }
 
-export default CollectionComponent;
+export default Collection;

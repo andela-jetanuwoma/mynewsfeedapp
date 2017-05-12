@@ -9,7 +9,7 @@ const history = createHistory({
   forceRefresh: true,
 });
 
-class HomeComponent extends React.Component {
+class Home extends React.Component {
   componentWillMount() {
     if (User.isLoggedIn()) {
       history.push('/discover');
@@ -69,4 +69,4 @@ class HomeComponent extends React.Component {
   }
 }
 
-export default HomeComponent;
+export default Home;

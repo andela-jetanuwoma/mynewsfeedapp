@@ -10,7 +10,7 @@ import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
 import Article from './templates/Article';
-import BaseApp from './BaseApp';
+import BaseApp from './baseapp';
 
 const buildSortTypes = (type) => {
   const types = type.substr(6, type.length - 1).split(',');
@@ -27,7 +27,7 @@ const buildSortTypes = (type) => {
   return option;
 };
 
-class ArticlesComponent extends BaseApp {
+class Articles extends BaseApp {
   constructor(props) {
     super(props);
 
@@ -118,4 +118,4 @@ class ArticlesComponent extends BaseApp {
   }
 }
 
-export default ArticlesComponent;
+export default Articles;
