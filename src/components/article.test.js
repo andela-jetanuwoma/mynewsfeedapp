@@ -3,7 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import ArticlesComponent from './ArticlesComponent';
+import Articles from './articles';
 
 const allItems =
 {
@@ -29,19 +29,19 @@ const allItems =
     }
   ],
 };
-describe('ArticlesComponent wrapper', () => {
- const wrapper = shallow(<ArticlesComponent match={{ params: { id: 'abc-news' } }} location={{ search: '?sort=top,latest' }} />);
+describe('Articleswrapper', () => {
+ const wrapper = shallow(<Articles match={{ params: { id: 'abc-news' } }} location={{ search: '?sort=top,latest' }} />);
   it('should contain a wrapper `div`', () => {
     expect(wrapper.find('AppBar').length).toBe(1);
   });
 });
-sinon.spy(ArticlesComponent.prototype, 'componentWillMount');
-sinon.spy(ArticlesComponent.prototype, 'componentDidMount');
+sinon.spy(Articles.prototype, 'componentWillMount');
+sinon.spy(Articles.prototype, 'componentDidMount');
 describe('if component will mount function exists', () => {
   it('componentWillMount exists', () => {
-    expect(ArticlesComponent.prototype.componentWillMount.calledOnce).toExist;
+    expect(Articles.prototype.componentWillMount.calledOnce).toExist;
   });
   it('componentDidMount exists', () => {
-    expect(ArticlesComponent.prototype.componentDidMount.calledOnce).toExist;
+    expect(Articles.prototype.componentDidMount.calledOnce).toExist;
   });
 });

@@ -3,16 +3,16 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import SourcesComponent from './SourcesComponent';
+import Sources from './sources';
 
-describe('SourcesComponent', () => {
+describe('Sources', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<SourcesComponent />);
+    wrapper = mount(<Sources />);
   });
 
-  it('SourcesComponent renders Input', () => {
+  it('Sources renders Input', () => {
     const input = wrapper.find('input').first();
     expect(input.length).toEqual(1);
   });
@@ -23,7 +23,7 @@ describe('SourcesComponent', () => {
   });
 
   it('should render The AppBar ', () => {
-    const component = shallow(<SourcesComponent />);
+    const component = shallow(<Sources />);
     expect(component.find('AppBar').length).toBe(1);
   })
 });
@@ -43,7 +43,7 @@ describe('Sources should be displayed', () => {
 }
   ];
   beforeEach(() => {
-    wrapper = mount(<SourcesComponent  />);
+    wrapper = mount(<Sources  />);
   });
   it('Should allow us to set props', () => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseApp from './BaseApp';
+import BaseApp from './baseapp';
 
 class Logout extends BaseApp {
   componentWillMount() {

@@ -6,14 +6,14 @@ import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
 import Source from './templates/Source';
-import BaseApp from './BaseApp';
+import BaseApp from './baseapp';
 
 class SourcesView extends BaseApp {
   constructor(props) {
     super(props);
 
     this.state = {
-      sources: newsSourcesStore .getAll(),
+      sources: newsSourcesStore.getAll(),
     };
 
 
@@ -24,7 +24,7 @@ class SourcesView extends BaseApp {
 
   componentDidMount() {
     AppActions.getSources();
-    newsSourcesStore .addChangeListener(this.onChange);
+    newsSourcesStore.addChangeListener(this.onChange);
   }
 
 
@@ -35,19 +35,19 @@ class SourcesView extends BaseApp {
 
   setItemsState() {
     this.setState({
-      sources: newsSourcesStore .getAll(),
+      sources: newsSourcesStore.getAll(),
     });
   }
 
   componentWillUnMount() {
-    newsSourcesStore .removeChangeListener(this.onChange);
+    newsSourcesStore.removeChangeListener(this.onChange);
   }
 
   resetComponent() {
     this.setState({
       isLoading: false,
       results: [],
-      sources: newsSourcesStore .getAll(),
+      sources: newsSourcesStore.getAll(),
       value: '',
     });
   }
@@ -105,7 +105,7 @@ class SourcesView extends BaseApp {
                   results={results}
                   value={value}
                   fluid
-                  className="search_sources"
+                  className="search-sources"
                 />
 
                 <Grid className="sources">
