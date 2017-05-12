@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp.svg?branch=develop)](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp)
-
+[![Coverage Status](https://coveralls.io/repos/github/andela-jetanuwoma/mynewsfeedapp/badge.svg?branch=implement-feedback)](https://coveralls.io/github/andela-jetanuwoma/mynewsfeedapp?branch=implement-feedback)
 # News Headlines
 
 ## Description
