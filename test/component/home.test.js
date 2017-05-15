@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import sinon from 'sinon'
 import expect from 'expect';
-import Home from './home';
+import Home from '../../src/components/home';
 
 
 const home = shallow(<Home />);

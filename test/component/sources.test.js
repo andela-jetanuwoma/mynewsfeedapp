@@ -3,7 +3,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import Sources from './sources';
+import Sources from '../../src/components/sources';
 
 describe('Sources', () => {
   let wrapper;

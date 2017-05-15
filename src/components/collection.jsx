@@ -5,7 +5,6 @@ import {
   Grid,
   Icon
 } from 'semantic-ui-react';
-import '../App.css';
 import { Link } from 'react-router-dom';
 import newsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';

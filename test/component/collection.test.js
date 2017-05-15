@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import expect from 'expect';
-import Collection from './collection';
+import Collection from '../../src/components/collection';
 
 describe("Collection Wrapper component", () => {
  const wrapper = shallow(<Collection match={{ params: { id: 'Tech' } }} />)

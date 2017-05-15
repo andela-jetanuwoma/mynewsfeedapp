@@ -1,4 +1,4 @@
-import appActions from './AppActions';
+import appActions from '../../src/actions/AppActions';
 
 describe('AppActions', () => {
   it('should return false for supplying undefined to Get news', () => {
