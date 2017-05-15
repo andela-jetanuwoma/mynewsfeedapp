@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import Favourites from '../../src/models/Favourites';
 import User from '../../src/models/user';
 //Log user in
+User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
+const fav = User.favourites();
 
 describe("Adding to collection", () => {
-  User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
-  const fav = User.favourites();
-
   it('should return true for adding Tech to collection', () => {
       expect(fav.addCollection("Tech")).toBe(true);
   });

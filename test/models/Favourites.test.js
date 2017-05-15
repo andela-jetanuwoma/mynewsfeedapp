@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import Favourites from '../../src/models/Favourites';
 import User from '../../src/models/user';
 //Log user in
+User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
+const fav = User.favourites();
 
 describe('Favourites model test', () =>{
-  User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
-  const fav = User.favourites();
-
   it('should return true for adding favourite to Tech ', () => {
       expect(fav.addFavorites("Tech","abc-news","Abc News")).toBe(true);
   });
