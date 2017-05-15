@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Collections from './Collections';
+
 /**
 * Storing user favourites to collection
 */
@@ -38,12 +39,14 @@ class Favourites extends Collections {
 * @param {string} sourceId Article source id
 * @return {boolean}
 */
+
   hasFavourite(name, sourceId) {
     const re = new RegExp(_.escapeRegExp(sourceId), 'i');
     const isMatch = (result) => { return re.test(result.id); };
     const searchFav = _.filter(this.getCollection(name), isMatch);
     return searchFav.length > 0;
   }
+
 /**
 *Check if a favorite is all ready contained in any of the collection
 * @param {string} sourceId Article source id

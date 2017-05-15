@@ -11,7 +11,12 @@ import '../assets/style/index.scss';
 * @description Wrapper Component for all Site Components
 */
 class App extends React.Component {
-/** Set Route path and their respective Component*/
+
+  /**
+   * render - Set Route path and their respective Component
+   *
+   * @return {type}  description
+   */
   render() {
 
     return (

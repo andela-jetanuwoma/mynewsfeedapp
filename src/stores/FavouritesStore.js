@@ -11,18 +11,26 @@ const CHANGE_EVENT = 'change';
  */
 const favouritesStore = assign({}, EventEmitter.prototype, {
   favourites: [],
+  /* Get all favourite*/
+
   getAll() {
     return this.favourites;
   },
-
+/* Anounce Change */
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
-
+  /**
+  * Register callback
+  * @param {function} callback
+  */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },
-
+  /**
+  * Remove callback
+  * @param {function} callback
+  */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },

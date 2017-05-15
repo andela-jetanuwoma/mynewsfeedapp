@@ -9,18 +9,39 @@ const history = createHistory({
   forceRefresh: true,
 });
 
+/**
+ * The landing page component
+ * @extends React.Component
+ */
 class Home extends React.Component {
+
+  /**
+   * componentWillMount - redirect user to sources if logged in Articleswrapper
+   *
+   * @return {void}
+   */
   componentWillMount() {
     if (User.isLoggedIn()) {
       history.push('/discover');
     }
   }
 
+  /**
+   * responseGoogle - retrieves login user details from google login api
+   *
+   * @param  {object} response user details
+   * @return {void}
+   */
   responseGoogle(response) {
     User.Login(response.profileObj);
     history.push('/discover');
   }
 
+  /**
+   * render - rendered the landing page
+   *
+   * @return {void}  
+   */
   render() {
     return (
       <div className="wrapper" >
