@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp.svg?branch=develop)](https://travis-ci.org/andela-jetanuwoma/mynewsfeedapp)
-
+[![Coverage Status](https://coveralls.io/repos/github/andela-jetanuwoma/mynewsfeedapp/badge.svg?branch=implement-feedback)](https://coveralls.io/github/andela-jetanuwoma/mynewsfeedapp?branch=implement-feedback)
 # News Headlines
 
 ## Description
@@ -16,23 +16,23 @@ It also enables you save your favorites news sources for easy checkout
 
 This project uses a host of modern technologies. The core ones are:
 
-- ECMAScript 6: Also known as ES2015, this is the newest version of Javascript with next-generation features like arrow functions, generators, enhanced object literals, 
+- ECMAScript 6: Also known as ES2015, this is the newest version of Javascript with next-generation features like arrow functions, generators, enhanced object literals,
 spread operators and more. See [this link](https://en.wikipedia.org/wiki/ECMAScript) for details.
 
-- [NodeJS](https://nodejs.org): NodeJS is a server-side JavaScript runtime engine built 
+- [NodeJS](https://nodejs.org): NodeJS is a server-side JavaScript runtime engine built
 on Chrome's V8 JavaScript engine. It is lightweight, efficient and greatly used in building web apps. Please visit [this link](https://nodejs.org) for more details.
 
-- [React](https://facebook.github.io/react/) and [ReactDOM](https://facebook.github.io/react/docs/react-dom.html): 
+- [React](https://facebook.github.io/react/) and [ReactDOM](https://facebook.github.io/react/docs/react-dom.html):
 These were developed by Facebook and are used for building web pages that are structured as a collection of components. These components are kept as independent as possible. See [this link](https://facebook.github.io/react/).
 
-- [The Flux architecture](https://facebook.github.io/flux/): This is a design architecture for building stable web apps with, among other things, a unidirectional flow of data. See [this link](https://facebook.github.io/flux/) 
+- [The Flux architecture](https://facebook.github.io/flux/): This is a design architecture for building stable web apps with, among other things, a unidirectional flow of data. See [this link](https://facebook.github.io/flux/)
 for details.
 
 
 ## Installation and setup
 
 Here are the steps you need to follow to run this project on your computer:
-- **Install NodeJS**: You may visit [this link](https://nodejs.org/en/download/) for complete 
+- **Install NodeJS**: You may visit [this link](https://nodejs.org/en/download/) for complete
 instructions on installing NodeJS on your computer.
 
 - **Open a terminal/command prompt** on your computer and `cd` into your preferred path/location.
@@ -50,14 +50,14 @@ npm install
 ```
 Note: `npm` is a component of NodeJS that serves as its package manager. So, it comes along with installing NodeJS.
 
-- **Build the project**: This will compile all the project's source code into HTML, CSS and JS files. In 
+- **Build the project**: This will compile all the project's source code into HTML, CSS and JS files. In
 the terminal/command prompt, enter the following command:
 
 ``` bash
 npm run build
 ```
 
-- **Run the project**: This will run the project on your computer so that you can browse it yourself. In the 
+- **Run the project**: This will run the project on your computer so that you can browse it yourself. In the
 terminal/command prompt, enter the following command:
 
 ``` bash
@@ -78,7 +78,7 @@ terminal/command prompt, enter the following command:
  ``` bash
 npm install grunt -g
 ```
-- **Generate the documentation**: From your terminal/command prompt, 
+- **Generate the documentation**: From your terminal/command prompt,
 enter the following command:
  ``` bash
 grunt jsdoc
@@ -97,9 +97,9 @@ Follow the instructions below to contribute.
 
 - Make your change
 
-- Commit your change to your forked repository 
+- Commit your change to your forked repository
 
-- Provide a detailed commit description 
+- Provide a detailed commit description
 
 - Create a pull request
 
