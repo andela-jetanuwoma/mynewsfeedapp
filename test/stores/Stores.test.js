@@ -11,8 +11,8 @@ User.Login({name:"Jude Peter",email:"wapjude@gmail.com", imageUrl:""});
 const fav = User.favourites();
 
 jest.mock('../../src/dispatcher/AppDispatcher');
-jest.dontMock('../../src/stores/newsStore');
-jest.dontMock('../../src/stores/newsSourcesStore');
+jest.dontMock('../../src/stores/NewsStore');
+jest.dontMock('../../src/stores/NewsSourcesStore');
 jest.dontMock('object-assign');
 
 describe('NewsStore', () => {
