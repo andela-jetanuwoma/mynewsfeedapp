@@ -5,13 +5,18 @@ import Sources from './sources';
 import Articles from './articles';
 import Collection from './collection';
 import Logout from './logout';
-import '../assets/style/App.css';
+import '../assets/style/index.scss';
 
 /**
 * @description Wrapper Component for all Site Components
 */
 class App extends React.Component {
-/** Set Route path and their respective Component*/
+
+  /**
+   * render - Set Route path and their respective Component
+   *
+   * @return {type}  description
+   */
   render() {
 
     return (

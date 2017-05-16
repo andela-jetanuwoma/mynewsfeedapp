@@ -12,7 +12,10 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
+coverage
 
+#netbean project folder
+netbean
 # nyc test coverage
 .nyc_output
 
@@ -21,7 +24,6 @@ lib-cov
 
 # documentation folder
 doc
-build
 # node-waf configuration
 .lock-wscript
 

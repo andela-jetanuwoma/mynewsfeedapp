@@ -6,18 +6,26 @@ import AppConstants from '../constants/AppConstants';
 const CHANGE_EVENT = 'change';
 const newsStore = assign({}, EventEmitter.prototype, {
   news: [],
+  /* Get all news */
   getAll() {
     return this.news;
   },
-
+/* Anounce Change */
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
+  /**
+  * Register callback
+  * @param {function} callback
+  */
 
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },
-
+  /**
+  * Remove callback
+  * @param {function} callback
+  */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },

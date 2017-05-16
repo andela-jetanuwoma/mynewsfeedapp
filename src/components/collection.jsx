@@ -5,7 +5,6 @@ import {
   Grid,
   Icon
 } from 'semantic-ui-react';
-import '../App.css';
 import { Link } from 'react-router-dom';
 import newsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
@@ -21,7 +20,18 @@ const options = [
   },
 ];
 
+/**
+ * displayed  all favourites articles save in all collection
+ */
 class Collection extends Component {
+
+
+  /**
+   * constructor - Set default state values
+   *
+   * @param  {object} props passed props into this component
+   * @return {void}
+   */
   constructor(props) {
     super(props);
 
@@ -35,16 +45,32 @@ class Collection extends Component {
     this.setItemsState = this.setItemsState.bind(this);
   }
 
+  /**
+   * componentDidMount - get favourites articles from saved collections and add a change listener
+   * to know when articles has been added
+   *
+   * @return {void}
+   */
   componentDidMount() {
     AppActions.getCollectionNews(this.state.name);
     newsStore.addChangeListener(this.onChange);
   }
 
 
+  /**
+   * onChange - listened to changes to aritcles
+   *
+   * @return {void}
+   */
   onChange() {
     this.setItemsState();
   }
 
+  /**
+   * setItemsState - set default items values
+   *
+   * @return {void}
+   */
   setItemsState() {
     this.setState({
       news: newsStore.getAll(),
@@ -53,9 +79,18 @@ class Collection extends Component {
     });
   }
 
+  /**
+   * componentWillUnMount - remove change listener
+   *
+   * @return {void}
+   */
   componentWillUnMount() {
     newsStore.removeChangeListener(this.onChange);
   }
+
+  /**
+   *   displayed rendered favourite articles
+   */
 
   render() {
 

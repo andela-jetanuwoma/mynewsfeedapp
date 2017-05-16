@@ -8,7 +8,17 @@ import SideBar from './templates/SideBar';
 import Source from './templates/Source';
 import BaseApp from './baseapp';
 
+/**
+ * components to display list of sources reterieved from the api
+ */
 class SourcesView extends BaseApp {
+
+  /**
+   * constructor - set default state values
+   *
+   * @param  {object} props
+   * @return {void}
+   */
   constructor(props) {
     super(props);
 
@@ -22,43 +32,58 @@ class SourcesView extends BaseApp {
     this.setItemsState = this.setItemsState.bind(this);
   }
 
+  /**
+   * componentDidMount - Make a call to the action for getting the ources
+   *  Add change listener
+   * @return {void}  description
+   */
   componentDidMount() {
     AppActions.getSources();
     newsSourcesStore.addChangeListener(this.onChange);
   }
 
 
+  /**
+   * onChange - Called when there is a changed to sources rertrieved from the api
+   *
+   * @return {voi}
+   */
   onChange() {
     this.setItemsState();
   }
 
-
+/**
+ * set default state values
+ */
   setItemsState() {
     this.setState({
       sources: newsSourcesStore.getAll(),
     });
   }
 
+  /**
+   * componentWillUnMount - remove change listener
+   *
+   * @return {void}
+   */
   componentWillUnMount() {
     newsSourcesStore.removeChangeListener(this.onChange);
   }
 
-  resetComponent() {
-    this.setState({
-      isLoading: false,
-      results: [],
-      sources: newsSourcesStore.getAll(),
-      value: '',
-    });
-  }
 
+
+  /**
+   * handleChange - handles filtering news sources
+   *
+   * @param  {event} e
+   * @param  {string} val type value
+   * @return {void}
+   */
   handleSearchChange(e, val) {
     this.setState({
       isLoading: true,
       value: val,
     });
-
-    setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
       const isMatch = (result) => { return re.test(result.header); };
@@ -66,10 +91,11 @@ class SourcesView extends BaseApp {
         isLoading: false,
         sources:_.filter(this.state.sources, isMatch),
       });
-      return true;
-    }, 500);
   }
 
+  /**
+   * render -  rendered the sources page
+   */
   render() {
 
     const {

@@ -9,7 +9,7 @@ class User {
   /**
    * constructor - Setting users default values
    *
-   * @return {void}  description
+   * @return {void}
    */
   constructor() {
     this.userDetails = Cookies.get('mynewsapp') === undefined ? undefined : JSON.parse(Cookies.get('mynewsapp'));
@@ -84,7 +84,7 @@ class User {
   /**
    * favourites - Returns users favouritesand collections
    *
-   * @return {Favourites}  a new instance of the Favourites class   
+   * @return {Favourites}  a new instance of the Favourites class
    */
   favourites() {
     return new Favourites(this.email);

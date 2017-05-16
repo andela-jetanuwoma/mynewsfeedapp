@@ -4,7 +4,6 @@ import {
   Grid,
   Dropdown, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import '../App.css';
 import newsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
@@ -12,6 +11,9 @@ import SideBar from './templates/SideBar';
 import Article from './templates/Article';
 import BaseApp from './baseapp';
 
+/**
+ * extract news sort types from the url
+ */
 const buildSortTypes = (type) => {
   const types = type.substr(6, type.length - 1).split(',');
   const option = [];
@@ -27,7 +29,18 @@ const buildSortTypes = (type) => {
   return option;
 };
 
+/**
+ * @description This class lists all articles of a specfic source
+ * @extends BaseApp
+ */
 class Articles extends BaseApp {
+
+  /**
+   * constructor - set default states
+   *
+   * @param  {object} props
+   * @return {void}
+   */
   constructor(props) {
     super(props);
 
@@ -43,21 +56,35 @@ class Articles extends BaseApp {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  /**
+   * componentWillMount - make a call to super componentWillMount
+   * to redirect the user to welcome page if not logged in
+   * @return {void}
+   */
   componentWillMount() {
     super.componentWillMount();
-
-    AppActions.getNews(this.props.match.params.id);
   }
 
+  /**
+   * componentDidMount - add change listener
+   *  And make a call to the
+   * @return {void}
+   */
   componentDidMount() {
+    AppActions.getNews(this.props.match.params.id);
     newsStore.addChangeListener(this.onChange);
   }
 
-
+/* Called when news change to set the new news state*/
   onChange() {
     this.setItemsState();
   }
 
+  /**
+   * setItemsState - Set the default state
+   *
+   * @return {void}
+   */
   setItemsState() {
     this.setState({
       news: newsStore.getAll(),
@@ -66,18 +93,38 @@ class Articles extends BaseApp {
     });
   }
 
+  /**
+   * getNewsId - Return the news source id
+   *
+   * @return {string}  news source id
+   */
   getNewsId() {
     return this.props.match.params.id;
   }
 
+  /**
+   * handleChange - handles sort type changes and fetch accordingly
+   *
+   * @param  {event} e
+   * @param  {string} { value } Sort type value
+   * @return {void}
+   */
   handleChange(e, { value }) {
     AppActions.getNews(this.props.match.params.id, value);
   }
 
+  /**
+   * componentWillUnMount - removes change listener
+   *
+   * @return {void}
+   */
   componentWillUnMount() {
     newsStore.removeChangeListener(this.onChange);
   }
 
+  /**
+   * render - displayed the articles
+   */
   render() {
 
     const trigger = (

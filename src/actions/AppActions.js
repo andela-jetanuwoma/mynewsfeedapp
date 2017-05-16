@@ -11,6 +11,7 @@ const appActions = {
   * Get news from the api
   * @param {string} source
   * @param {string} sortType
+  * @return {void}
   */
   getNews: (source, sortType = null) => {
     if(source !== undefined){
@@ -47,6 +48,7 @@ const appActions = {
   },
 /**
 * Get news sources from the API
+* @return {void}
 */
   getSources: () => {
     const feedSources = new Sources();
