@@ -24,7 +24,6 @@ netbean
 
 # documentation folder
 doc
-build
 # node-waf configuration
 .lock-wscript
 
