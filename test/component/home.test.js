@@ -1,10 +1,10 @@
 /* global describe it expect*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import sinon from 'sinon'
 import expect from 'expect';
-import Home from '../../src/components/home';
+import Home from '../../src/components/Home';
 
 
 const home = shallow(<Home />);

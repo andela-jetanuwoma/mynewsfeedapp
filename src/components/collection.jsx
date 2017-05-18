@@ -74,8 +74,8 @@ class Collection extends Component {
   setItemsState() {
     this.setState({
       news: newsStore.getAll(),
-      activepage: 'feeds',
-      sorttypes: [],
+      activepage: 'collection',
+      name: this.props.match.params.id,
     });
   }
 
@@ -109,7 +109,6 @@ class Collection extends Component {
           <Grid.Column width={16} className="middleColumn">
             <div className="main">
               <p className="contentType">
-              <Link to="/discover" >  <Icon name='arrow circle left' size="big"  /> </Link>
                 <span className="news_name">{name}</span>
               </p>
               <Card.Group itemsPerRow={3} className="container" items={this.state.news} />

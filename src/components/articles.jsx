@@ -3,7 +3,6 @@ import {
   Image,
   Grid,
   Dropdown, Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import newsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
@@ -89,7 +88,7 @@ class Articles extends BaseApp {
     this.setState({
       news: newsStore.getAll(),
       activepage: 'feeds',
-      sorttypes: [],
+      sortTypes: [],
     });
   }
 
@@ -133,9 +132,8 @@ class Articles extends BaseApp {
       </span>
     );
 
-    const sorttypes = buildSortTypes(this.props.location.search);
+    const sortTypes = buildSortTypes(this.props.location.search);
     const { favourites } = this.state;
-
     return (
       <div>
         <AppBar trigger={trigger} options={this.menuOptions} />
@@ -144,10 +142,9 @@ class Articles extends BaseApp {
           <Grid.Column width={12} className="middleColumn">
             <div className="main">
               <p className="contentType">
-                <Link to="/discover" >  <Icon name='arrow circle left' size="big"  /> </Link>
                 <span className="news_name">News Feed</span>
                 <Dropdown
-                  options={sorttypes}
+                  options={sortTypes}
                   onChange={this.handleChange}
                   inline
                 />
