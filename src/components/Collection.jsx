@@ -8,7 +8,7 @@ import {
 import { Link } from 'react-router-dom';
 import newsStore from '../stores/NewsStore';
 import AppActions from '../actions/AppActions';
-import User from '../models/user';
+import User from '../models/User';
 import AppBar from './templates/AppBar';
 
 const options = [

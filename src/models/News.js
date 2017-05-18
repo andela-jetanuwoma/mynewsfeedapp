@@ -2,7 +2,7 @@ import _ from 'lodash';
 /**
 * A Model class that stores all Retreived news from Api
 */
-class NewsArticle {
+class News {
   /**
   * Set news to empty array
   */
@@ -48,11 +48,11 @@ search(title) {
   /**
    * get - Returns total news
    *
-   * @return {array}  total news added  
+   * @return {array}  total news added
    */
   get() {
     return this.news;
   }
 }
 
-export default NewsArticle;
+export default News;

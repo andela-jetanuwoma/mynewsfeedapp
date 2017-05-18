@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 import expect from 'expect';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Collection from '../../src/components/Collection';
-import User from '../../src/models/user';
+import User from '../../src/models/User';
 
 describe('Collection Wrapper component', () => {
   User.Login({ name: 'Jude Peter', email: 'wapjude@gmail.com', imageUrl: '' });

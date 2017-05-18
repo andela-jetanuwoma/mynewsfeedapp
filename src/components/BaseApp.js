@@ -1,6 +1,6 @@
 import React from 'react';
 import createHistory from 'history/createBrowserHistory';
-import User from '../models/user';
+import User from '../models/User';
 
 
 /**
@@ -19,8 +19,9 @@ class BaseApp extends React.Component {
 
 
     this.history = createHistory({
-      forceRefresh:true,
-    })
+      forceRefresh: true,
+    });
+
     this.user = User;
 
     this.menuOptions = [
@@ -31,7 +32,6 @@ class BaseApp extends React.Component {
         href: '/logout',
       },
     ];
-
   }
 
   /**

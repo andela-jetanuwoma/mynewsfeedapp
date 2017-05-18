@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { Button } from 'semantic-ui-react';
 import createHistory from 'history/createBrowserHistory';
-import User from '../models/user';
+import User from '../models/User';
 import siteLogo from '../assets/images/rss.png';
 
 const history = createHistory({
@@ -40,7 +40,7 @@ class Home extends React.Component {
   /**
    * render - rendered the landing page
    *
-   * @return {void}  
+   * @return {void}
    */
   render() {
     return (

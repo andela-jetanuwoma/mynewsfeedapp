@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import User from '../../models/user';
+import User from '../../models/User';
 import appDispatcher from '../../dispatcher/AppDispatcher';
 import AppConstants from '../../constants/AppConstants';
 

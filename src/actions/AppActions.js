@@ -2,9 +2,9 @@ import request from 'request';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import API from '../models/API';
-import Sources from '../models/sources';
-import NewsArticles from '../models/news';
-import User from '../models/user';
+import Sources from '../models/Sources';
+import NewsArticles from '../models/News';
+import User from '../models/User';
 /** Perform api call and return api result appropiately*/
 const appActions = {
   /**

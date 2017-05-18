@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, List } from 'semantic-ui-react';
 import favouritesStore from '../../stores/FavouritesStore';
-import User from '../../models/user';
+import User from '../../models/User';
 
 class SideBar extends React.Component {
   constructor() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseApp from './baseapp';
+import BaseApp from './BaseApp';
 
 
 /**

@@ -3,7 +3,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import FavActions from './FavActions';
+import FavActions from '../../src/components/templates/FavActions';
 
 describe('FavActions', () => {
   let wrapper;

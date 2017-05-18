@@ -8,7 +8,7 @@ import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
 import Article from './templates/Article';
-import BaseApp from './baseapp';
+import BaseApp from './BaseApp';
 
 /**
  * extract news sort types from the url

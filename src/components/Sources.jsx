@@ -6,7 +6,7 @@ import AppActions from '../actions/AppActions';
 import AppBar from './templates/AppBar';
 import SideBar from './templates/SideBar';
 import Source from './templates/Source';
-import BaseApp from './baseapp';
+import BaseApp from './BaseApp';
 
 /**
  * components to display list of sources reterieved from the api
@@ -48,6 +48,7 @@ class SourcesView extends BaseApp {
    *
    * @return {voi}
    */
+
   onChange() {
     this.setItemsState();
   }
