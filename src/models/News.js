@@ -16,6 +16,7 @@ class News {
 * @param {string} author Article author
 * @param {string} link Aritcle link to the main article
 * @param {string} image Articel default images returned from the Api link
+* @return {void}
 */
   add(title, description, author, link, image) {
     this.news.push({
@@ -41,9 +42,8 @@ class News {
   }
 
   /**
-   * get - Returns total news
-   *
-   * @return {array}  total news added
+   * get - Returns total news in the news array
+   * @return {array}  all the news added to the news array
    */
   get() {
     return this.news;
