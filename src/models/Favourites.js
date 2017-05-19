@@ -66,8 +66,8 @@ class Favourites extends Collections {
 /**
 * Removes favourites from collection
 * @param {string} name Collection name
-* @param {sourceId} the news source to be removed
-* @return {boolean}
+* @param {string} sourceId news source to be removed
+* @return {boolean} return true if it was added successfully otherwise it returns false
 */
   removeFavourite(name, sourceId) {
     if (this.hasCollection(name)) {
@@ -85,7 +85,7 @@ class Favourites extends Collections {
 * Check the index of a favorite in all collections
 * @param {array} collections Array of all collections
 * @param {string} source News source to search for
-* @return {number}
+* @return {number} returns the index the favourites is in the list of collection available
 */
   getFavoriteIndex(collections, source) {
     let index = 0;
