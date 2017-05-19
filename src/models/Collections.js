@@ -27,8 +27,8 @@ class Collections {
     }
   }
 /**
-* Copy user favourites and collection to cookies and Map
-* @return void
+* Copy user favourites and collection from cookies to Map
+* @return {void}
 */
   copyToCollection() {
     const db = JSON.parse(this.saveCollection);
@@ -40,7 +40,7 @@ class Collections {
   }
   /**
   * Check if user already create a collections
-  * @param {string} name
+  * @param {string} name name of the collection to Search
   * @return {boolean} true if there is a collection existing
   */
   hasCollection(name) {
@@ -48,13 +48,13 @@ class Collections {
   }
 
 /**
-* @return {array} Retreives user saved collection
+* @return {array} Retreives all user saved collections
 */
   getCollections() {
     return Object.keys(this.fetchAll());
   }
 /**
-* @param {string} name
+* @param {string} name name of the collection to get its favourites
 * @return {array} retreives favourites stored under a collection
 */
   getCollection(name) {
@@ -64,7 +64,7 @@ class Collections {
 /**
 * Add to users collection
 * @param {string} name Collection name to be added
-* @return {boolean}
+* @return {boolean} returns true if the value added to the cookies successfully
 */
   addCollection(name) {
     if (!this.hasCollection(name)) {
