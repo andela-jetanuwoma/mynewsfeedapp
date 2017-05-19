@@ -76,8 +76,9 @@ class Collections {
   }
 /**
 * Removes from users Collections and deleting users favourites under it
-* @param {string} name
-* @return {boolean}
+* @param {string} name name of collection to be deleted
+* @return {boolean} returns true if collection and its favourites were successfully
+* deleted
 */
   deleteCollection(name) {
     if (this.hasCollection(name)) {
@@ -89,6 +90,7 @@ class Collections {
   }
 /**
 * Add modified collections to cookies for storage
+* It stores all the added collections and favourites under it
 * @return {void}
 */
   updateCollection() {
