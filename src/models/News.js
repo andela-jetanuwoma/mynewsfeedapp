@@ -15,6 +15,7 @@ class News {
 * @param {string} description Article short description of the article
 * @param {string} author Article author
 * @param {string} link Aritcle link to the main article
+* @param {string} image Articel default images returned from the Api link
 */
   add(title, description, author, link, image) {
     this.news.push({
@@ -28,7 +29,7 @@ class News {
 
 
 /**
- * search - Search for news Article
+ * search - Search for news Article and returns the results
  *
  * @param  {string} title Search news by title
  * @return {array} array of searches that meet criteria
