@@ -11,7 +11,7 @@ class BaseApp extends React.Component {
   /**
    * constructor - set default values for app header
    *
-   * @param  {object} props
+   * @param  {object} props props received from parent component
    * @return {void}
    */
   constructor (props) {

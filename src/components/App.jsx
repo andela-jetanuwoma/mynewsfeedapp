@@ -15,7 +15,7 @@ class App extends React.Component {
   /**
    * render - Set Route path and their respective Component
    *
-   * @return {type}  description
+   * @return {void}  display the NewsFeeds with their respective component
    */
   render() {
 

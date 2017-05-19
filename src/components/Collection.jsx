@@ -57,8 +57,8 @@ class Collection extends Component {
 
 
   /**
-   * update - listened to changes to aritcles
-   *
+   * update - listens to changes on news store
+   * and update the states value
    * @return {void}
    */
   update() {
@@ -70,7 +70,7 @@ class Collection extends Component {
   }
 
   /**
-   * componentWillUnMount - remove change listener
+   * componentWillUnMount - remove change listener when component unmounts
    *
    * @return {void}
    */
@@ -79,9 +79,8 @@ class Collection extends Component {
   }
 
   /**
-   *   displayed rendered favourite articles
+   *  displayed rendered favourite articles
    */
-
   render() {
 
     const trigger = (

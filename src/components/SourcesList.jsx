@@ -10,13 +10,14 @@ import BaseApp from './BaseApp';
 
 /**
  * components to display list of sources reterieved from the api
+ * Each of those sources has a Collection Form where the user can add their Collection
  */
 class SourcesList extends BaseApp {
 
   /**
    * constructor - set default state values
    *
-   * @param  {object} props
+   * @param  {object} props received from the parent component
    * @return {void}
    */
   constructor(props) {
@@ -32,8 +33,8 @@ class SourcesList extends BaseApp {
   }
 
   /**
-   * componentDidMount - Make a call to the action for getting the ources
-   *  Add change listener
+   * componentDidMount - Make a call to the action for getting the sources
+   *  Add change listener to update the sources
    * @return {void}  description
    */
   componentDidMount() {
@@ -44,8 +45,8 @@ class SourcesList extends BaseApp {
 
   /**
    * update - Called when there is a changed to sources rertrieved from the api
-   *
-   * @return {voi}
+   * And it is rendered accordingly
+   * @return {void}
    */
 
   update() {
@@ -55,8 +56,7 @@ class SourcesList extends BaseApp {
   }
 
   /**
-   * componentWillUnMount - remove change listener
-   *
+   * componentWillUnMount - remove change listener component unmounts
    * @return {void}
    */
   componentWillUnMount() {
@@ -68,8 +68,8 @@ class SourcesList extends BaseApp {
   /**
    * handleChange - handles filtering news sources
    *
-   * @param  {event} e
-   * @param  {string} val type value
+   * @param  {event} e Search onChange event
+   * @param  {string} val  value to filter sources by
    * @return {void}
    */
   handleSearchChange(e, val) {
@@ -88,7 +88,7 @@ class SourcesList extends BaseApp {
   }
 
   /**
-   * render -  rendered the sources page
+   * render -  rendered the sources page Displays all the entire sources
    */
   render() {
 

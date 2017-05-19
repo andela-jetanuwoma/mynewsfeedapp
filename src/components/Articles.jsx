@@ -12,6 +12,7 @@ import BaseApp from './BaseApp';
 
 /**
  * extract news sort types from the url
+ * @param {string} type  GET parameters to extracts the sort types from
  */
 const buildSortTypes = (type) => {
   const types = type.substr(6, type.length - 1).split(',');
@@ -94,7 +95,7 @@ class Articles extends BaseApp {
   /**
    * handleChange - handles sort type changes and fetch accordingly
    *
-   * @param  {event} e
+   * @param  {event} e Dropdown onChange event
    * @param  {string} { value } Sort type value
    * @return {void}
    */
@@ -103,7 +104,7 @@ class Articles extends BaseApp {
   }
 
   /**
-   * componentWillUnMount - removes change listener
+   * componentWillUnMount - removes change listener when component unmounts
    *
    * @return {void}
    */

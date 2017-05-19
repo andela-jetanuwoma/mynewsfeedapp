@@ -8,9 +8,9 @@ import User from '../models/User';
 /** Perform api call and return api result appropiately*/
 const actions = {
   /**
-  * Get news from the api
-  * @param {string} source
-  * @param {string} sortType
+  * Get news from the api and dispatches it to the News Stores
+  * @param {string} source News Sources to fetch
+  * @param {string} sortType Sort by value
   * @return {void}
   */
   getNews: (source, sortType = null) => {
@@ -46,7 +46,7 @@ const actions = {
   },
 
 /**
-* Get news sources from the API
+* Get news sources from the Api and dispatch it to the SourcesStore
 * @return {void}
 */
   getSources: () => {
@@ -77,8 +77,9 @@ const actions = {
     });
   },
 /**
-* Get users saved collection and respective favorite
-* @param {string} name
+* Get users saved collection and respective favorite then dispatch it to the collection store
+* @param {string} name collection name that holds the favourites
+* @return {void}
 */
   getCollectionNews: (name) => {
     const feeds = new News();
