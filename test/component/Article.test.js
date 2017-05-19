@@ -30,20 +30,21 @@ const allItems =
       },
   ];
 const sorts = ['top','latest'];
+
 describe('Articleswrapper should mount', () => {
- const wrapper = mount(<Articles match={{ params: { id: 'abc-news' } }} location={{ search: '?sort=top,latest' }} />);
-     wrapper.instance().setState({news: allItems, sortTypes: sorts});
-     const renderedHtml = wrapper.render().html();
+  const wrapper = mount(<Articles match={{ params: { id: 'abc-news' } }} location={{ search: '?sort=top,latest' }} />);
+  wrapper.instance().setState({news: allItems, sortTypes: sorts});
+  const renderedHtml = wrapper.render().html();
 
  it('should return abc-news as news id', () => {
    const id = wrapper.instance().getNewsId();
    expect(id).toBe('abc-news');
  });
 
-
  it('should return the total number of news articles as 3', () => {
   expect(wrapper.instance().state.news.length).toBe(3);
  });
+
  it('should return the rendered first sort type', () => {
    expect(renderedHtml.includes('<span class="text">top</span>')).toBe(true);
  });

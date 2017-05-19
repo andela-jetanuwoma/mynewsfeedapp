@@ -1,11 +1,11 @@
 /** @description Api helpper class for newsapi.org*/
-class API {
+class Api {
   /** Set default api link to newsapi.ord*/
   constructor() {
     this.linkString = `https://newsapi.org/v1/articles?apiKey=${process.env.REACT_APP_API_KEY}`;
     this.apilink = 'https://newsapi.org/v1/sources?language=en';
     this.link = this.linkString;
-    
+
   }
 /**
 * Add dynamic get parameters to Api link
@@ -31,4 +31,4 @@ class API {
   }
 }
 
-export default new API();
+export default new Api();

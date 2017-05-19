@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import newsStore from '../stores/NewsStore';
-import AppActions from '../actions/AppActions';
+import appActions from '../actions/AppActions';
 import User from '../models/User';
 import AppBar from './templates/AppBar';
 
@@ -52,7 +52,7 @@ class Collection extends Component {
    * @return {void}
    */
   componentDidMount() {
-    AppActions.getCollectionNews(this.state.name);
+    appActions.getCollectionNews(this.state.name);
     newsStore.addChangeListener(this.onChange);
   }
 

@@ -11,7 +11,7 @@ import BaseApp from './BaseApp';
 /**
  * components to display list of sources reterieved from the api
  */
-class SourcesView extends BaseApp {
+class Sources extends BaseApp {
 
   /**
    * constructor - set default state values
@@ -85,6 +85,7 @@ class SourcesView extends BaseApp {
       isLoading: true,
       value: val,
     });
+
       if (this.state.value.length < 1) return this.resetComponent();
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
       const isMatch = (result) => { return re.test(result.header); };
@@ -150,4 +151,4 @@ class SourcesView extends BaseApp {
 
 }
 
-export default SourcesView;
+export default Sources;

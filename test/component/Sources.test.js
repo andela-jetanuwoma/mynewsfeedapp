@@ -19,7 +19,6 @@ describe('Sources', () => {
 
   it('Should allow us get state', () => {
     expect(wrapper.node.state.sources).toEqual([]);
-
   });
 
   it('should render The AppBar ', () => {
@@ -42,15 +41,14 @@ describe('Sources should be displayed', () => {
   id: 'cnn-news'
 }
   ];
+
   beforeEach(() => {
     wrapper = mount(<Sources  />);
   });
-  it('Should allow us to set props', () => {
 
+  it('Should allow us to set props', () => {
     wrapper.setState({ sources: sources });
     expect(wrapper.node.state.sources.length).toEqual(2);
-
   });
-
 
 });

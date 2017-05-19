@@ -6,7 +6,7 @@ import Collection from '../../src/components/Collection';
 import User from '../../src/models/User';
 
 describe('Collection Wrapper component', () => {
-  User.Login({ name: 'Jude Peter', email: 'wapjude@gmail.com', imageUrl: '' });
+  User.login({ name: 'Jude Peter', email: 'wapjude@gmail.com', imageUrl: '' });
 
   const fav = User.favourites();
   fav.addFavorites('Tech', 'abc-news', 'Abc News');
@@ -20,7 +20,6 @@ describe('Collection Wrapper component', () => {
   });
 
   it('should return Tech as the collection name', () => {
-    console.log(wrapper.node.BrowserRouter);
     expect(wrapper.instance().props.match.params.id).toBe('Tech');
   });
 

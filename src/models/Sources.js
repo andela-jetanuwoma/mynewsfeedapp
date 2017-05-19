@@ -29,7 +29,7 @@ class Sources {
       header: name,
       description: desc,
       title: name,
-      id: id,
+      id,
     });
   }
 
@@ -41,7 +41,7 @@ class Sources {
    */
   search(name) {
     const re = new RegExp(_.escapeRegExp(name), 'i');
-    const isMatch = (result) => { re.test(result.header); };
+    const isMatch = (result) => { return re.test(result.header); };
     return _.filter(this.sources, isMatch);
   }
 

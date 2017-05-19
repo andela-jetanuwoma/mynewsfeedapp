@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "coveralls": "^2.13.1",

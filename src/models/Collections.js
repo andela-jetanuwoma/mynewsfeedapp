@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import _ from 'lodash';
-import User from './user';
+import User from './User';
 /**
 * Collections class that holds favourite
 */
@@ -13,6 +13,7 @@ class Collections {
     this.email = email;
     this.db = new Map();
     this.existing = Cookies.get(this.email);
+
     if (this.existing === undefined) {
        // Incase if account has been created before the feature was added
       Cookies.set(this.email, {});
@@ -64,7 +65,6 @@ class Collections {
 * @param {string} name Collection name to be added
 * @return {boolean}
 */
-
   addCollection(name) {
     if (!this.hasCollection(name)) {
       this.db.set(name, []);

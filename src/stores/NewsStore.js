@@ -1,6 +1,6 @@
 import assign from 'object-assign';
 import { EventEmitter } from 'events';
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import appDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 
 const CHANGE_EVENT = 'change';
@@ -31,7 +31,7 @@ const newsStore = assign({}, EventEmitter.prototype, {
   },
 
 });
-AppDispatcher.register((payload) => {
+appDispatcher.register((payload) => {
   switch (payload.eventName) {
     case AppConstants.GET_NEWS:
       newsStore.news = payload.news;

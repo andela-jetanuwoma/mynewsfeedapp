@@ -33,7 +33,7 @@ class Home extends React.Component {
    * @return {void}
    */
   responseGoogle(response) {
-    User.Login(response.profileObj);
+    User.login(response.profileObj);
     history.push('/discover');
   }
 

@@ -59,7 +59,7 @@ class User {
    * @param  {object} context User values returned from google Api
    * @return {void}
    */
-  Login(context) {
+  login(context) {
     Cookies.set('mynewsapp', { name: context.name, email: context.email, imageUrl: context.imageUrl });
     if (Cookies.get(context.email) === undefined) {
       Cookies.set(context.email, {});

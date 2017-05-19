@@ -8,25 +8,29 @@ import Home from '../../src/components/Home';
 
 
 const home = shallow(<Home />);
-it('renders without crashing', () => {
-  shallow(<Home />);
-});
-
 
 describe('Home component', () => {
+
+  it('renders without crashing', () => {
+    shallow(<Home />);
+  });
+
   it('it should render div elements', () => {
     expect(home.find('div')).toExist;
-  })
+  });
+
   it('it should render a h1 element for title', () => {
     expect(home.find('h1')).toExist
-  })
+  });
+
 });
 
 sinon.spy(Home.prototype, 'componentWillMount');
 
 describe('if component will mount function exists',() => {
+
   it('componentWillMount exists', () => {
     expect(Home.prototype.componentWillMount.calledOnce).toExist;
   });
 
-})
+});

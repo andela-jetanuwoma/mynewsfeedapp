@@ -39,7 +39,6 @@ class Favourites extends Collections {
 * @param {string} sourceId Article source id
 * @return {boolean}
 */
-
   hasFavourite(name, sourceId) {
     const re = new RegExp(_.escapeRegExp(sourceId), 'i');
     const isMatch = (result) => { return re.test(result.id); };

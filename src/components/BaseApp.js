@@ -40,7 +40,7 @@ class BaseApp extends React.Component {
    * @return {void}
    */
   componentWillMount() {
-    if (!this.user.isLogin) {
+    if (!this.user.isLoggedIn()) {
       this.history.push('/');
     }
   }

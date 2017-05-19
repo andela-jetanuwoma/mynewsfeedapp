@@ -25,6 +25,7 @@ class News {
       image: img,
     });
   }
+
   /**
    * Get the total number of news stored
    * @return {number}
@@ -39,7 +40,7 @@ class News {
  * @param  {string} title Search news by title
  * @return {array} array of searches that meet criteria
  */
-search(title) {
+  search(title) {
     const re = new RegExp(_.escapeRegExp(title), 'i');
     const isMatch = (result) => { return re.test(result.header); };
     return _.filter(this.news, isMatch);

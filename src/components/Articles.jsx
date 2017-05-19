@@ -87,7 +87,7 @@ class Articles extends BaseApp {
   setItemsState() {
     this.setState({
       news: newsStore.getAll(),
-      activepage: 'feeds',
+      activePage: 'feeds',
       sortTypes: [],
     });
   }

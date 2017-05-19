@@ -7,7 +7,7 @@ import AppConstants from '../../constants/AppConstants';
 class FavActions extends Component {
   constructor() {
     super()
-    this.state = { collection: '', newCollection: '' }
+    this.state = { collection: '', newCollection: '', collections: User.favourites().getCollections(), }
 
 
     this.handleSubmit = this.handleSubmit.bind(this);

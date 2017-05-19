@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Card, Button, Grid, Popup } from 'semantic-ui-react';
 import FavActions from './FavActions';
-import User from '../../models/user';
+import User from '../../models/User';
 import favouritesStore from '../../stores/FavouritesStore';
 
 class SourceItem extends Component {
   constructor() {
     super();
+
     this.state = {
       favourites: User.favourites(),
     };
+
     this.onChange = this.onChange.bind(this);
-    this.getItemsState = this.getItemsState.bind(this);
+    this.setItemsState = this.setItemsState.bind(this);
   }
 
   componentDidMount() {
@@ -19,10 +21,10 @@ class SourceItem extends Component {
   }
 
   onChange() {
-    this.getItemsState();
+    this.setItemsState();
   }
 
-  getItemsState() {
+  setItemsState() {
     this.setState({ favourites: User.favourites() });
   }
 

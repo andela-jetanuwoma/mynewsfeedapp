@@ -8,7 +8,9 @@ import Logout from '../../src/components/Logout';
 describe('Logout Wrapper component', () => {
   sinon.spy(Logout.prototype, 'componentWillMount');
   const wrapper = shallow(<Logout />)
+
   it('componentWillMount exists', () => {
     expect(Logout.prototype.componentWillMount.calledOnce).toExist;
   });
+
 });
