@@ -11,18 +11,18 @@ class News {
   }
 /**
 * Add article from api to news
-* @param {string} title Article title
-* @param {string} desc Article Description
+* @param {string} title Article title of the article
+* @param {string} description Article short description of the article
 * @param {string} author Article author
-* @param {string} link Aritcle link
+* @param {string} link Aritcle link to the main article
 */
-  add(title, desc, author, link, img) {
+  add(title, description, author, link, image) {
     this.news.push({
       href: link,
       header: title,
-      description: desc,
+      description,
       meta: author,
-      image: img,
+      image,
     });
   }
 
