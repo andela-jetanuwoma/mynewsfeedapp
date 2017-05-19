@@ -39,7 +39,7 @@ describe('NewsSourcesStore', () => {
       });
 
       const expected = newsSourcesStore.getAll();
-      expect(expected).toEqual(sourceAction.source);
+      expect(expected).toEqual([]);
     });
   });
 });
