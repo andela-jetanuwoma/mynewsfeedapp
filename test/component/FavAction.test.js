@@ -59,6 +59,6 @@ describe("FavActions render", () => {
     expect(renderHtml.includes('<span class="text">Tech</span>')).toBe(true);
     expect(renderHtml.includes('<span class="text">Science</span>')).toBe(true);
     expect(renderHtml.includes('<span class="text">Education</span>')).toBe(true);
-    expect(renderHtmml.includes('<span class="text">Events</span>')).toBe(true);
+    expect(renderHtml.includes('<span class="text">Events</span>')).toBe(true);
   });
 });

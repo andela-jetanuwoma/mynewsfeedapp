@@ -5,7 +5,7 @@ import newsSourcesStore from '../../src/stores/NewsSourcesStore';
 import AppConstants from '../../src/constants/AppConstants';
 import appDispatcher from '../../src/dispatcher/AppDispatcher';
 
-jest.mock('../../src/dispatcher/appDispatcher');
+jest.mock('../../src/dispatcher/AppDispatcher');
 jest.dontMock('../../src/stores/NewsSourcesStore');
 jest.dontMock('object-assign');
 
