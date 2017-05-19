@@ -11,31 +11,39 @@ const CHANGE_EVENT = 'change';
  */
 const favouritesStore = assign({}, EventEmitter.prototype, {
   favourites: [],
-  /* Get all favourite*/
-
+  /**
+  * Get all favourite
+   * @return {array} users favourite
+   * */
   getAll() {
     return this.favourites;
   },
-/* Anounce Change */
+
+/** Anounce if there is a change in the users favourites so that  it will be rendered
+* @return {void}
+ */
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
+
   /**
-  * Register callback
-  * @param {function} callback
+  * Call the callback provided if a change has occurred
+  * @param {callback} callback callback supplied
   */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },
+
   /**
   * Remove callback
-  * @param {function} callback
+  * @param {function} callback callback supplied to listen to any changes
   */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
 });
+/* Dispatches any changes that occurred to users favourites*/
 Dispatcher.register((payload) => {
   switch (payload.eventName) {
     case constants.GET_FAVOURITES:
