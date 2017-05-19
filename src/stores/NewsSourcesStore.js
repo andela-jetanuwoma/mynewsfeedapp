@@ -13,7 +13,7 @@ const newsSourcesStore = assign({}, EventEmitter.prototype, {
 
   /**
    * getAll - returns the sources reterieved from the Api
-   * @return {sources}  news sources from the Api
+   * @return {array}  news sources from the Api
    */
   getAll() {
     return this.sources;
@@ -29,13 +29,14 @@ const newsSourcesStore = assign({}, EventEmitter.prototype, {
   /**
   * Call the callback provided if a change has occurred
   * @param {callback} callback callback supplied
+  * @return {void}
   */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },
 
   /**
-  * Remove callback
+  * Remove callback to unregister emitting changes
   * @param {function} callback callback supplied to listen to any changes
   */
   removeChangeListener(callback) {
