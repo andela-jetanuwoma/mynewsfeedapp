@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "coveralls": "^2.13.1",
@@ -17,6 +18,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
+    "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-share": "^1.13.2",
     "react-test-renderer": "^15.5.4",
@@ -39,15 +41,18 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.3.0",
     "node-sass": "^4.5.2",
+    "node-sass-chokidar": "0.0.1",
+    "npm-run-all": "^4.0.2",
     "nyc": "^10.2.0",
     "react-scripts": "0.9.5",
     "semantic-ui": "^2.2.10"
   },
   "scripts": {
-    "build-css": "node-sass src/assets/style -o src/assets/style",
-    "watch-css": "npm run build-css && node-sass src/assets/style -o src/ --watch --recursive",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/assets/style -o src/assets/style",
+    "watch-css": "npm run build-css && node-sass-chokidar src/assets/style -o src/ --watch --recursive",
+    "start": "npm-run-all -p watch-css start-js",
+    "start-js": "react-scripts start",
+    "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"

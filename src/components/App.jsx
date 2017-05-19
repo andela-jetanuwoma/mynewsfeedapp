@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './home';
-import Sources from './sources';
-import Articles from './articles';
-import Collection from './collection';
-import Logout from './logout';
+import Home from './Home';
+import Sources from './Sources';
+import Articles from './Articles';
+import Collection from './Collection';
+import Logout from './Logout';
 import '../assets/style/index.scss';
 
 /**
@@ -20,7 +20,7 @@ class App extends React.Component {
   render() {
 
     return (
-      <Router >
+      <Router>
         <div>
           <Route exact path="/" component={Home} />
           <Route exact path="/discover" component={Sources} />
