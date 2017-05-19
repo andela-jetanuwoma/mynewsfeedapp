@@ -2,11 +2,14 @@ import Cookies from 'js-cookie';
 import _ from 'lodash';
 import User from './User';
 /**
-* Collections class that holds favourite
+* Collections class that holds Collections and allows favourites to be stored
+* in each collection
 */
 class Collections {
 /**
-* Set user unique email for storing favourite
+* Set user unique email for storing favourite if there is an active favourites
+* and Collections stored in the cookies it is copied to collection for the users to see
+*
 * @param {string} email
 */
   constructor(email) {
