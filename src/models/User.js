@@ -7,7 +7,7 @@ import Favourites from './Favourites';
 class User {
 
   /**
-   * constructor - Setting users default values
+   * constructor - Set users default values if it is stored in cookies already
    *
    * @return {void}
    */
