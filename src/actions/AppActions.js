@@ -3,7 +3,7 @@ import appDispatcher from '../dispatcher/AppDispatcher';
 import AppConstants from '../constants/AppConstants';
 import Api from '../models/API';
 import Sources from '../models/Sources';
-import NewsArticles from '../models/News';
+import News from '../models/News';
 import User from '../models/User';
 /** Perform api call and return api result appropiately*/
 const appActions = {
@@ -19,7 +19,7 @@ const appActions = {
     }
     return axios.get(Api.getLink())
       .then((response) => {
-        const feeds = new NewsArticles();
+        const feeds = new News();
         const body = response.data;
         if (response.status === 200) {
           const articles = body.articles;
@@ -81,7 +81,7 @@ const appActions = {
 * @param {string} name
 */
   getCollectionNews: (name) => {
-    const feeds = new NewsArticles();
+    const feeds = new News();
     const usersFavorites = User.favourites();
     const collectionFavorites = usersFavorites.fetchAll()[name];
 
