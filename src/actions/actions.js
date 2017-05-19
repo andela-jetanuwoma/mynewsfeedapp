@@ -1,12 +1,12 @@
 import axios from 'axios';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import constants from '../constants/constants';
 import Api from '../models/API';
 import Sources from '../models/Sources';
 import News from '../models/News';
 import User from '../models/User';
 /** Perform api call and return api result appropiately*/
-const appActions = {
+const actions = {
   /**
   * Get news from the api
   * @param {string} source
@@ -32,14 +32,14 @@ const appActions = {
             article.urlToImage,
           );
           });
-          appDispatcher.dispatch({
-            eventName: AppConstants.GET_NEWS,
+          Dispatcher.dispatch({
+            eventName: constants.GET_NEWS,
             news: feeds.get(),
           });
         }
       }).catch((errors) => {
-        appDispatcher.dispatch({
-          eventName: AppConstants.GET_ERROR,
+        Dispatcher.dispatch({
+          eventName: constants.GET_ERROR,
           error: errors,
         });
       });
@@ -64,14 +64,14 @@ const appActions = {
             source.description,
             source.sortBysAvailable.join(','));
         });
-        appDispatcher.dispatch({
-          eventName: AppConstants.GET_SOURCES,
+        Dispatcher.dispatch({
+          eventName: constants.GET_SOURCES,
           sources: sourcesList.get(),
         });
       }
     }).catch((errors) => {
-      appDispatcher.dispatch({
-        eventName: AppConstants.GET_ERROR,
+      Dispatcher.dispatch({
+        eventName: constants.GET_ERROR,
         error: errors,
       });
     });
@@ -101,14 +101,14 @@ const appActions = {
             article.urlToImage,
           );
           });
-          appDispatcher.dispatch({
-            eventName: AppConstants.GET_NEWS,
+          Dispatcher.dispatch({
+            eventName: constants.GET_NEWS,
             news: feeds.get(),
           });
         }
       }).catch((errors) => {
-        appDispatcher.dispatch({
-          eventName: AppConstants.GET_ERROR,
+        Dispatcher.dispatch({
+          eventName: constants.GET_ERROR,
           error: errors,
         });
       });
@@ -116,4 +116,4 @@ const appActions = {
   },
 };
 
-export default appActions;
+export default actions;

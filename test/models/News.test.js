@@ -9,7 +9,7 @@ newsModel.add('Bayo displaces Mark', 'the new andela faciltator out ran the face
 
 describe('news model', () => {
   it('should return total number of news as 3', () => {
-    expect(newsModel.total()).toEqual(3);
+    expect(newsModel.news.length).toEqual(3);
   });
 
   it('should return obasanjo join barcelona as the first news title', () => {

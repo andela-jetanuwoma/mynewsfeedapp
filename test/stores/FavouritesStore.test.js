@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import favouritesStore from '../../src/stores/FavouritesStore';
-import AppConstants from '../../src/constants/AppConstants';
-import appDispatcher from '../../src/dispatcher/AppDispatcher';
+import constants from '../../src/constants/constants';
+import Dispatcher from '../../src/dispatcher/AppDispatcher';
 import User from '../../src/models/User';
 
 User.login({ name: 'Jude Peter', email: 'wapjude@gmail.com', imageUrl: '' });
@@ -17,17 +17,17 @@ describe('FavouritesStore', () => {
   fav.addCollection('Science');
 
   const favAction = {
-    eventName: AppConstants.GET_FAVOURITES
+    eventName: constants.GET_FAVOURITES
   };
 
   let callback;
 
   beforeEach(() => {
-    callback = appDispatcher.register.mock.calls[0][0];
+    callback = Dispatcher.register.mock.calls[0][0];
   });
 
   test('registers a callback with the dispatcher', () => {
-    expect(appDispatcher.register.mock.calls.length).toBe(1);
+    expect(Dispatcher.register.mock.calls.length).toBe(1);
   });
 
   test('The store initializes with no data', () => {

@@ -1,7 +1,7 @@
 import assign from 'object-assign';
 import { EventEmitter } from 'events';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import constants from '../constants/constants';
 import User from '../models/User';
 const CHANGE_EVENT = 'change';
 
@@ -36,9 +36,9 @@ const favouritesStore = assign({}, EventEmitter.prototype, {
   },
 
 });
-appDispatcher.register((payload) => {
+Dispatcher.register((payload) => {
   switch (payload.eventName) {
-    case AppConstants.GET_FAVOURITES:
+    case constants.GET_FAVOURITES:
       favouritesStore.favourites = User.favourites().fetchAll();
       favouritesStore.emitChange();
       break;

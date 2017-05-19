@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Card, Button, Grid, Popup } from 'semantic-ui-react';
-import FavActions from './FavActions';
+import CollectionForm from './CollectionForm';
 import User from '../../models/User';
 import favouritesStore from '../../stores/FavouritesStore';
 
-class SourceItem extends Component {
+class Source extends Component {
   constructor() {
     super();
 
@@ -12,15 +12,15 @@ class SourceItem extends Component {
       favourites: User.favourites(),
     };
 
-    this.onChange = this.onChange.bind(this);
+    this.update = this.update.bind(this);
     this.setItemsState = this.setItemsState.bind(this);
   }
 
   componentDidMount() {
-    favouritesStore.addChangeListener(this.onChange);
+    favouritesStore.addChangeListener(this.update);
   }
 
-  onChange() {
+  update() {
     this.setItemsState();
   }
 
@@ -29,7 +29,7 @@ class SourceItem extends Component {
   }
 
   componentWillUnMount() {
-    favouritesStore.removeChangeListener(this.onChange);
+    favouritesStore.removeChangeListener(this.update);
   }
   render() {
     const { source } = this.props;
@@ -73,7 +73,7 @@ class SourceItem extends Component {
                       flowing
                       hoverable
                     >
-                      <FavActions id={source.id} name={source.title} />
+                      <CollectionForm id={source.id} name={source.title} />
                     </Popup>
                   </div>
                 );
@@ -86,4 +86,4 @@ class SourceItem extends Component {
   }
 }
 
-export default SourceItem;
+export default Source;

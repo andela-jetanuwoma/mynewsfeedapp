@@ -16,10 +16,10 @@ const GooglePlusIcon = generateShareIcon('google');
 const LinkedinIcon = generateShareIcon('linkedin');
 const TwitterIcon = generateShareIcon('twitter');
 
-class Source extends Component {
+class Article extends Component {
   render() {
     const { article } = this.props;
-    
+
     return (
       <Grid.Column width={5} >
         <Card href={article.href}>
@@ -64,4 +64,4 @@ class Source extends Component {
   }
 }
 
-export default Source;
+export default Article;

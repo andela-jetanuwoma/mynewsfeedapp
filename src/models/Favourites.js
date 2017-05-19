@@ -24,7 +24,7 @@ class Favourites extends Collections {
     if (this.hasCollection(name)) {
       if (!this.hasFavourite(name, sourceId)) {
         this.getCollection(name).push({ id: sourceId, title: sourceName });
-        this.updateDB();
+        this.updateCollection();
         return true;
       }
     } else {
@@ -70,10 +70,10 @@ class Favourites extends Collections {
 */
   removeFavourite(name, sourceId) {
     if (this.hasCollection(name)) {
-      const index = this.favAt(this.fetchAll()[name], sourceId);
+      const index = this.getFavoriteIndex(this.fetchAll()[name], sourceId);
       if (index !== -1) {
         this.getCollection(name).splice(index, 1);
-        this.updateDB();
+        this.updateCollection();
         return true;
       }
     }
@@ -86,7 +86,7 @@ class Favourites extends Collections {
 * @param {string} source News source to search for
 * @return {number}
 */
-  favAt(collections, source) {
+  getFavoriteIndex(collections, source) {
     let index = 0;
     let charAt = -1;
     collections.forEach((item) => {

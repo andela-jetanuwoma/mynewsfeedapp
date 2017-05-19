@@ -15,8 +15,8 @@ describe('Collection Wrapper component', () => {
   const wrapper = mount(<Collection match={{ params: { id: 'Tech' } }} />);
   const tempRender = render(<Collection match={{ params: { id: 'Tech' } }} />);
 
- it('should render successfully and load the AppBar', () => {
-     expect(wrapper.find('AppBar').length).toBe(1);
+ it('should render successfully and load the NavBar', () => {
+     expect(wrapper.find('NavBar').length).toBe(1);
   });
 
   it('should return Tech as the collection name', () => {
@@ -24,7 +24,7 @@ describe('Collection Wrapper component', () => {
   });
 
   it('Should set active page to be collection', () => {
-    wrapper.instance().setItemsState();
+    wrapper.instance().update();
     expect(wrapper.instance().state.activepage).toBe("collection");
   });
 
@@ -35,7 +35,7 @@ describe('Collection Wrapper component', () => {
   });
 
  it('should reset state values', () => {
-   wrapper.instance().onChange();
+   wrapper.instance().update();
    wrapper.instance().componentWillUnMount();
    expect(wrapper.instance().state.name).toBe("Tech");
  });

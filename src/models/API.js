@@ -1,33 +1,35 @@
 /** @description Api helpper class for newsapi.org*/
+
+const apiArticleLink = `https://newsapi.org/v1/articles?apiKey=${process.env.REACT_APP_API_KEY}`;
+
 class Api {
   /** Set default api link to newsapi.ord*/
   constructor() {
-    this.linkString = `https://newsapi.org/v1/articles?apiKey=${process.env.REACT_APP_API_KEY}`;
-    this.apilink = 'https://newsapi.org/v1/sources?language=en';
-    this.link = this.linkString;
-
+    this.articlesUrl = apiArticleLink;
+    this.newsApiUrl = 'https://newsapi.org/v1/sources?language=en';
   }
 /**
 * Add dynamic get parameters to Api link
 * @param {string} type
 * @param {string} value
-* @return {string}
+* @return {void}
 */
   addQuery(type, value) {
-    this.link += `&${type}=${value}`;
+    this.articlesUrl += `&${type}=${value}`;
   }
 /**
 * @description Remove Dynamic get parameters and reset link to default link to api
+* @return {void}
 */
   clearQuery() {
-    this.link = this.linkString;
+    this.articlesUrl = apiArticleLink;
   }
 /**
 * Get Api link
-* @return {string}
+* @return {string} Article Url
 */
   getLink() {
-    return this.link;
+    return this.apiArticleLink;
   }
 }
 

@@ -1,7 +1,7 @@
 import assign from 'object-assign';
 import { EventEmitter } from 'events';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import constants from '../constants/constants';
 
 const CHANGE_EVENT = 'change';
 const newsSourcesStore = assign({}, EventEmitter.prototype, {
@@ -32,9 +32,9 @@ const newsSourcesStore = assign({}, EventEmitter.prototype, {
 });
 
 
-appDispatcher.register((payload) => {
+Dispatcher.register((payload) => {
   switch (payload.eventName) {
-    case AppConstants.GET_SOURCES:
+    case constants.GET_SOURCES:
       newsSourcesStore.sources = payload.sources;
       newsSourcesStore.emitChange();
       break;

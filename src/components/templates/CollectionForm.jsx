@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import User from '../../models/User';
-import appDispatcher from '../../dispatcher/AppDispatcher';
-import AppConstants from '../../constants/AppConstants';
+import Dispatcher from '../../dispatcher/AppDispatcher';
+import constants from '../../constants/constants';
 
-class FavActions extends Component {
+class CollectionForm extends Component {
   constructor() {
     super()
     this.state = { collection: '', newCollection: '', collections: User.favourites().getCollections(), }
@@ -25,8 +25,8 @@ class FavActions extends Component {
 
     User.favourites().addFavorites(collection === ''? newCollection: collection, id, name);
 
-    appDispatcher.dispatch({
-      eventName: AppConstants.GET_FAVOURITES,
+    Dispatcher.dispatch({
+      eventName: constants.GET_FAVOURITES,
     });
   }
 
@@ -61,4 +61,4 @@ class FavActions extends Component {
   }
 }
 
-export default FavActions;
+export default CollectionForm;

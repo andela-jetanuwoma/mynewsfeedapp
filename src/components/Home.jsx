@@ -32,7 +32,7 @@ class Home extends React.Component {
    * @param  {object} response user details
    * @return {void}
    */
-  responseGoogle(response) {
+  googleAuth(response) {
     User.login(response.profileObj);
     history.push('/discover');
   }
@@ -64,8 +64,8 @@ class Home extends React.Component {
               <GoogleLogin
                 clientId={process.env.REACT_APP_GOOGLE_SECRET}
                 buttonText="Login With Google"
-                onSuccess={this.responseGoogle}
-                onFailure={this.responseGoogle}
+                onSuccess={this.googleAuth}
+                onFailure={this.googleAuth}
               />
             </div>
           </div>

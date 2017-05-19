@@ -26,13 +26,6 @@ class News {
     });
   }
 
-  /**
-   * Get the total number of news stored
-   * @return {number}
-   */
-  total() {
-    return this.news.length;
-  }
 
 /**
  * search - Search for news Article

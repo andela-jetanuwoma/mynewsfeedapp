@@ -11,15 +11,15 @@ class Collections {
 */
   constructor(email) {
     this.email = email;
-    this.db = new Map();
-    this.existing = Cookies.get(this.email);
+    this.collection = new Map();
+    this.saveCollection = Cookies.get(this.email);
 
-    if (this.existing === undefined) {
+    if (this.saveCollection === undefined) {
        // Incase if account has been created before the feature was added
       Cookies.set(this.email, {});
     } else {
       if (User.isLoggedIn()) {
-        this.copyToDb();
+        this.copyToCollection();
       }
     }
   }
@@ -27,37 +27,35 @@ class Collections {
 * Copy user favourites and collection to cookies and Map
 * @return void
 */
-  copyToDb() {
-    const db = JSON.parse(this.existing);
+  copyToCollection() {
+    const db = JSON.parse(this.saveCollection);
     const collections = Object.keys(db);
     collections.forEach((item) => {
-      this.db.set(item, db[item]);
+      this.collection.set(item, db[item]);
     });
-    this.existing = db;
+    this.saveCollection = db;
   }
   /**
   * Check if user already create a collections
   * @param {string} name
-  * @return {boolean}
+  * @return {boolean} true if there is a collection existing
   */
   hasCollection(name) {
-    return this.db.has(name);
+    return this.collection.has(name);
   }
 
 /**
-* Retreives user saved collection
-* @return {array}
+* @return {array} Retreives user saved collection
 */
   getCollections() {
     return Object.keys(this.fetchAll());
   }
 /**
-* Retreives favourites stored under a collection
 * @param {string} name
-* @return {array}
+* @return {array} retreives favourites stored under a collection
 */
   getCollection(name) {
-    return this.db.get(name);
+    return this.collection.get(name);
   }
 
 /**
@@ -67,8 +65,8 @@ class Collections {
 */
   addCollection(name) {
     if (!this.hasCollection(name)) {
-      this.db.set(name, []);
-      this.updateDB();
+      this.collection.set(name, []);
+      this.updateCollection();
       return true;
     }
     return false;
@@ -80,8 +78,8 @@ class Collections {
 */
   deleteCollection(name) {
     if (this.hasCollection(name)) {
-      this.db.delete(name);
-      this.updateDB();
+      this.collection.delete(name);
+      this.updateCollection();
       return true;
     }
     return false;
@@ -90,26 +88,26 @@ class Collections {
 * Add modified collections to cookies for storages
 * @return {void}
 */
-  updateDB() {
-    const val = {};
-    this.db.forEach((value, key) => {
-      val[key] = value;
+  updateCollection() {
+    const list = {};
+    this.collection.forEach((value, key) => {
+      list[key] = value;
     });
-    Cookies.set(this.email, val);
-    this.existing = val;
+    Cookies.set(this.email, list);
+    this.saveCollection = list;
   }
 /**
-* Retreives All collections and favourites associated to a user
-* @return {array}
+* @return {array}  Retreives All collections and favourites associated to a user
 */
   fetchAll() {
-    return this.existing;
+    return this.saveCollection;
   }
 /**
 * Display all collections
+* @return {string} list of collection
 */
   toString() {
-    return this.db.keys();
+    return this.collection.keys().join(',');
   }
 
 }

@@ -69,8 +69,8 @@ describe('Articleswrapper should mount', () => {
    expect(renderedHtml.includes('<div class="header">Martial in the building</div>')).toBe(true);
  });
 
- it('should reset state values when onChange is called', () => {
-   wrapper.instance().onChange();
+ it('should reset state values when update is called', () => {
+   wrapper.instance().update();
    wrapper.instance().componentWillUnMount();
    expect(wrapper.instance().state.news.length).toBe(0);
  });

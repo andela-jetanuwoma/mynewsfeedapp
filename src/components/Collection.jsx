@@ -7,9 +7,9 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import newsStore from '../stores/NewsStore';
-import appActions from '../actions/AppActions';
+import actions from '../actions/actions';
 import User from '../models/User';
-import AppBar from './templates/AppBar';
+import NavBar from './templates/NavBar';
 
 const options = [
   {
@@ -41,8 +41,7 @@ class Collection extends Component {
     };
 
 
-    this.onChange = this.onChange.bind(this);
-    this.setItemsState = this.setItemsState.bind(this);
+    this.update = this.update.bind(this);
   }
 
   /**
@@ -52,26 +51,17 @@ class Collection extends Component {
    * @return {void}
    */
   componentDidMount() {
-    appActions.getCollectionNews(this.state.name);
-    newsStore.addChangeListener(this.onChange);
+    actions.getCollectionNews(this.state.name);
+    newsStore.addChangeListener(this.update);
   }
 
 
   /**
-   * onChange - listened to changes to aritcles
+   * update - listened to changes to aritcles
    *
    * @return {void}
    */
-  onChange() {
-    this.setItemsState();
-  }
-
-  /**
-   * setItemsState - set default items values
-   *
-   * @return {void}
-   */
-  setItemsState() {
+  update() {
     this.setState({
       news: newsStore.getAll(),
       activepage: 'collection',
@@ -85,7 +75,7 @@ class Collection extends Component {
    * @return {void}
    */
   componentWillUnMount() {
-    newsStore.removeChangeListener(this.onChange);
+    newsStore.removeChangeListener(this.update);
   }
 
   /**
@@ -104,7 +94,7 @@ class Collection extends Component {
 
     return (
       <div>
-        <AppBar trigger={trigger} options={options} />
+        <NavBar trigger={trigger} options={options} />
         <Grid>
           <Grid.Column width={16} className="middleColumn">
             <div className="main">
