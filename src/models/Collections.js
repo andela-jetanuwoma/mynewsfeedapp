@@ -85,7 +85,7 @@ class Collections {
     return false;
   }
 /**
-* Add modified collections to cookies for storages
+* Add modified collections to cookies for storage
 * @return {void}
 */
   updateCollection() {
@@ -104,7 +104,7 @@ class Collections {
   }
 /**
 * Display all collections
-* @return {string} list of collection
+* @return {string} list of collection in readable string formats
 */
   toString() {
     return this.collection.keys().join(',');
