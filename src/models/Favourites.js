@@ -14,11 +14,12 @@ class Favourites extends Collections {
     this.email = email;
   }
 /**
-* Add favourites to collection provided
+* Add favourites to collection provided it makes a recursive call to create a collection
+* if it has not been created and afterwards add the collection to it
 * @param {string} name Collection name to add favorites to
 * @param {string} sourceId Unique sourceId for getting article headlines
 * @param {string} sourceName Source name of the favorite
-* @return {boolean}
+* @return {boolean} return true if the operation was successful otherwise it returns false
 */
   addFavorites(name, sourceId, sourceName) {
     if (this.hasCollection(name)) {
