@@ -82,9 +82,9 @@ class User {
   }
 
   /**
-   * favourites - Returns users favouritesand collections
+   * favourites - Returns users favourites and collections
    *
-   * @return {Favourites}  a new instance of the Favourites class
+   * @return {Favourites}  a new instance of the Favourites class that contains their favourites
    */
   favourites() {
     return new Favourites(this.email);
