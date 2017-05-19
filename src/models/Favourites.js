@@ -38,7 +38,7 @@ class Favourites extends Collections {
 * Check if a favorite is already contained in a collection
 * @param {string} name Collection name
 * @param {string} sourceId Article source id
-* @return {boolean}
+* @return {boolean} returns true if the favourites have been existing in the collection
 */
   hasFavourite(name, sourceId) {
     const re = new RegExp(_.escapeRegExp(sourceId), 'i');
@@ -48,9 +48,9 @@ class Favourites extends Collections {
   }
 
 /**
-*Check if a favorite is all ready contained in any of the collection
+*Check if a favorite is in already contained in any of the collection that has been created
 * @param {string} sourceId Article source id
-* @return {boolean}
+* @return {boolean} Return true if it exists in any of the created collections
 */
   inFavourites(sourceId) {
     // Search through all collection
