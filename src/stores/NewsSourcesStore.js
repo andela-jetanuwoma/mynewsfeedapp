@@ -5,25 +5,38 @@ import constants from '../constants/constants';
 
 const CHANGE_EVENT = 'change';
 const newsSourcesStore = assign({}, EventEmitter.prototype, {
+
+  /**
+   * Sources array that holds all the sources from the Api
+   */
   sources: [],
-  /* Get all sources */
+
+  /**
+   * getAll - returns the sources reterieved from the Api
+   * @return {sources}  news sources from the Api
+   */
   getAll() {
     return this.sources;
   },
-  /* Anounce Change */
+
+  /** Anounce if there is any changes in the news sources so that  it will be rendered
+  * @return {void}
+   */
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
+
   /**
-  * Register callback
-  * @param {function} callback
+  * Call the callback provided if a change has occurred
+  * @param {callback} callback callback supplied
   */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },
+
   /**
   * Remove callback
-  * @param {function} callback
+  * @param {function} callback callback supplied to listen to any changes
   */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
@@ -31,7 +44,7 @@ const newsSourcesStore = assign({}, EventEmitter.prototype, {
 
 });
 
-
+/* Dispatches any changes on the news sources*/
 Dispatcher.register((payload) => {
   switch (payload.eventName) {
     case constants.GET_SOURCES:
