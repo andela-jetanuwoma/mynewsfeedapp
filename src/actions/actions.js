@@ -11,7 +11,7 @@ const actions = {
   * Get news from the api and dispatches it to the News Stores
   * @param {string} source News Sources to fetch
   * @param {string} sortType Sort by value
-  * @return {void}
+  * @return {func} axios call
   */
   getNews: (source, sortType = null) => {
     if (sortType !== null) {
@@ -47,7 +47,7 @@ const actions = {
 
 /**
 * Get news sources from the Api and dispatch it to the SourcesStore
-* @return {void}
+* @return {func} return axios call
 */
   getSources: () => {
     return axios.get(Api.getLink())
@@ -79,7 +79,7 @@ const actions = {
 /**
 * Get users saved collection and respective favorite then dispatch it to the collection store
 * @param {string} name collection name that holds the favourites
-* @return {void}
+* @return {func} return axios call
 */
   getCollectionNews: (name) => {
     const feeds = new News();

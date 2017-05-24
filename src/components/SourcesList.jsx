@@ -9,7 +9,7 @@ import Source from './templates/Source';
 import BaseApp from './BaseApp';
 
 /**
- * components to display list of sources reterieved from the api
+ * components to display list of sources retrieved from the api
  * Each of those sources has a Collection Form where the user can add their Collection
  */
 class SourcesList extends BaseApp {

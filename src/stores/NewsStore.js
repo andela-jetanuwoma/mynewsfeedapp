@@ -8,7 +8,7 @@ const newsStore = assign({}, EventEmitter.prototype, {
   news: [],
 
   /**
-   * getAll - returns the articles reterieved from the Api
+   * getAll - returns the articles retrieved from the Api
    * @return {array}  news sources from the Api
    */
   getAll() {

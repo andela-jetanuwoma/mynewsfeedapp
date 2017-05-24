@@ -12,7 +12,7 @@ const newsSourcesStore = assign({}, EventEmitter.prototype, {
   sources: [],
 
   /**
-   * getAll - returns the sources reterieved from the Api
+   * getAll - returns the sources retrieved from the Api
    * @return {array}  news sources from the Api
    */
   getAll() {

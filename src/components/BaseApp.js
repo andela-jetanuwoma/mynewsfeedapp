@@ -4,7 +4,7 @@ import User from '../models/User';
 
 
 /**
- * Base component for components rquiring authentication
+ * Base component for components requiring authentication
  */
 class BaseApp extends React.Component {
 

@@ -30,12 +30,12 @@ describe('FavouritesStore', () => {
     expect(Dispatcher.register.mock.calls.length).toBe(1);
   });
 
-  test('The store initializes with no data', () => {
+  test('initializes with no favourites', () => {
     const all = favouritesStore.getAll().length;
     expect(all).toBe(0);
   });
 
-  test('dispatch the news', () => {
+  test('dispatch the favourites', () => {
     callback(favAction);
     const all = favouritesStore.getAll();
     const keys = Object.keys(all);

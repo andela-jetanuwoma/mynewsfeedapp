@@ -32,7 +32,7 @@ describe('NewsStore', () => {
     expect(Dispatcher.register.mock.calls.length).toBe(1);
   });
 
-  test('The store initializes with no data', () => {
+  test('initializes with no news', () => {
     const all = newsStore.getAll().length;
     expect(all).toBe(0);
   });

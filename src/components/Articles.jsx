@@ -13,6 +13,7 @@ import BaseApp from './BaseApp';
 /**
  * extract news sort types from the url
  * @param {string} type  GET parameters to extracts the sort types from
+ * @return {array} sort types
  */
 const buildSortTypes = (type) => {
   const types = type.substr(6, type.length - 1).split(',');
@@ -30,7 +31,7 @@ const buildSortTypes = (type) => {
 };
 
 /**
- * @description This class lists all articles of a specfic source
+ * @description This class lists all articles of a specific source
  * @extends BaseApp
  */
 class Articles extends BaseApp {
