@@ -13,15 +13,15 @@ class SideBar extends React.Component {
     };
 
 
-    this.onChange = this.onChange.bind(this);
+    this.update = this.update.bind(this);
     this.setItemsState = this.setItemsState.bind(this);
   }
 
   componentDidMount() {
-    favouritesStore.addChangeListener(this.onChange);
+    favouritesStore.addChangeListener(this.update);
   }
 
-  onChange() {
+  update() {
     this.setItemsState();
   }
 
@@ -30,7 +30,7 @@ class SideBar extends React.Component {
   }
 
   componentWillUnMount() {
-    favouritesStore.removeChangeListener(this.onChange);
+    favouritesStore.removeChangeListener(this.update);
   }
 
   render() {

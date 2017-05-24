@@ -4,14 +4,14 @@ import User from '../models/User';
 
 
 /**
- * Base component for components rquiring authentication
+ * Base component for components requiring authentication
  */
 class BaseApp extends React.Component {
 
   /**
    * constructor - set default values for app header
    *
-   * @param  {object} props
+   * @param  {object} props props received from parent component
    * @return {void}
    */
   constructor (props) {

@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import newsStore from '../../src/stores/NewsStore';
-import AppConstants from '../../src/constants/AppConstants';
-import appDispatcher from '../../src/dispatcher/AppDispatcher';
+import constants from '../../src/constants/constants';
+import Dispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
 jest.dontMock('../../src/stores/NewsStore');
@@ -12,7 +12,7 @@ jest.dontMock('object-assign');
 describe('NewsStore', () => {
   const newsAction = {
 
-    eventName: AppConstants.GET_NEWS,
+    eventName: constants.GET_NEWS,
     news: [{
       title: 'Checkpoint Defence rigged',
       description: 'The waiting police at the Checkpoint failed to catch the thief because they took a flight above the police car',
@@ -25,14 +25,14 @@ describe('NewsStore', () => {
   let callback;
 
   beforeEach(() => {
-    callback = appDispatcher.register.mock.calls[0][0];
+    callback = Dispatcher.register.mock.calls[0][0];
   });
 
   test('registers a callback with the dispatcher', () => {
-    expect(appDispatcher.register.mock.calls.length).toBe(1);
+    expect(Dispatcher.register.mock.calls.length).toBe(1);
   });
 
-  test('The store initializes with no data', () => {
+  test('initializes with no news', () => {
     const all = newsStore.getAll().length;
     expect(all).toBe(0);
   });

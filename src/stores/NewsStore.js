@@ -1,29 +1,38 @@
 import assign from 'object-assign';
 import { EventEmitter } from 'events';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import constants from '../constants/constants';
 
 const CHANGE_EVENT = 'change';
 const newsStore = assign({}, EventEmitter.prototype, {
   news: [],
-  /* Get all news */
+
+  /**
+   * getAll - returns the articles retrieved from the Api
+   * @return {array}  news sources from the Api
+   */
   getAll() {
     return this.news;
   },
-/* Anounce Change */
+
+  /** Anounce if there is any changes in the news Articles so that  it will be rendered
+  * @return {void}
+   */
   emitChange() {
     this.emit(CHANGE_EVENT);
   },
-  /**
-  * Register callback
-  * @param {function} callback
-  */
 
+  /**
+  * Call the callback provided if a change has occurred
+  * @param {callback} callback callback supplied
+  * @return {void}
+  */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
   },
+
   /**
-  * Remove callback
+  * Remove callback to unregister emitting changes
   * @param {function} callback
   */
   removeChangeListener(callback) {
@@ -31,9 +40,11 @@ const newsStore = assign({}, EventEmitter.prototype, {
   },
 
 });
-appDispatcher.register((payload) => {
+
+/* Dispatches any changes on the news Articles*/
+Dispatcher.register((payload) => {
   switch (payload.eventName) {
-    case AppConstants.GET_NEWS:
+    case constants.GET_NEWS:
       newsStore.news = payload.news;
       newsStore.emitChange();
       break;

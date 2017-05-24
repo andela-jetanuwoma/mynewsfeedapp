@@ -1,17 +1,17 @@
 import axios from 'axios';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import constants from '../constants/constants';
 import Api from '../models/API';
 import Sources from '../models/Sources';
 import News from '../models/News';
 import User from '../models/User';
 /** Perform api call and return api result appropiately*/
-const appActions = {
+const actions = {
   /**
-  * Get news from the api
-  * @param {string} source
-  * @param {string} sortType
-  * @return {void}
+  * Get news from the api and dispatches it to the News Stores
+  * @param {string} source News Sources to fetch
+  * @param {string} sortType Sort by value
+  * @return {func} axios call
   */
   getNews: (source, sortType = null) => {
     if (sortType !== null) {
@@ -32,22 +32,22 @@ const appActions = {
             article.urlToImage,
           );
           });
-          appDispatcher.dispatch({
-            eventName: AppConstants.GET_NEWS,
+          Dispatcher.dispatch({
+            eventName: constants.GET_NEWS,
             news: feeds.get(),
           });
         }
       }).catch((errors) => {
-        appDispatcher.dispatch({
-          eventName: AppConstants.GET_ERROR,
+        Dispatcher.dispatch({
+          eventName: constants.GET_ERROR,
           error: errors,
         });
       });
   },
 
 /**
-* Get news sources from the API
-* @return {void}
+* Get news sources from the Api and dispatch it to the SourcesStore
+* @return {func} return axios call
 */
   getSources: () => {
     return axios.get(Api.getLink())
@@ -64,21 +64,22 @@ const appActions = {
             source.description,
             source.sortBysAvailable.join(','));
         });
-        appDispatcher.dispatch({
-          eventName: AppConstants.GET_SOURCES,
+        Dispatcher.dispatch({
+          eventName: constants.GET_SOURCES,
           sources: sourcesList.get(),
         });
       }
     }).catch((errors) => {
-      appDispatcher.dispatch({
-        eventName: AppConstants.GET_ERROR,
+      Dispatcher.dispatch({
+        eventName: constants.GET_ERROR,
         error: errors,
       });
     });
   },
 /**
-* Get users saved collection and respective favorite
-* @param {string} name
+* Get users saved collection and respective favorite then dispatch it to the collection store
+* @param {string} name collection name that holds the favourites
+* @return {func} return axios call
 */
   getCollectionNews: (name) => {
     const feeds = new News();
@@ -101,14 +102,14 @@ const appActions = {
             article.urlToImage,
           );
           });
-          appDispatcher.dispatch({
-            eventName: AppConstants.GET_NEWS,
+          Dispatcher.dispatch({
+            eventName: constants.GET_NEWS,
             news: feeds.get(),
           });
         }
       }).catch((errors) => {
-        appDispatcher.dispatch({
-          eventName: AppConstants.GET_ERROR,
+        Dispatcher.dispatch({
+          eventName: constants.GET_ERROR,
           error: errors,
         });
       });
@@ -116,4 +117,4 @@ const appActions = {
   },
 };
 
-export default appActions;
+export default actions;

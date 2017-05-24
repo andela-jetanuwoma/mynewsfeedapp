@@ -3,16 +3,16 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import Sources from '../../src/components/Sources';
+import SourcesList from '../../src/components/SourcesList';
 
-describe('Sources', () => {
+describe('SourcesList', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<Sources />);
+    wrapper = mount(<SourcesList />);
   });
 
-  it('Sources renders Input', () => {
+  it('SourcesList renders Input', () => {
     const input = wrapper.find('input').first();
     expect(input.length).toEqual(1);
   });
@@ -21,15 +21,15 @@ describe('Sources', () => {
     expect(wrapper.node.state.sources).toEqual([]);
   });
 
-  it('should render The AppBar ', () => {
-    const component = shallow(<Sources />);
-    expect(component.find('AppBar').length).toBe(1);
+  it('should render The NavBar ', () => {
+    const component = shallow(<SourcesList />);
+    expect(component.find('NavBar').length).toBe(1);
   })
 });
 
-describe('Sources should be displayed', () => {
+describe('SourcesList should be displayed', () => {
   let wrapper;
-  const sources= [
+  const sources = [
     { title: 'Abc news',
     description: 'The best News so far',
     href: 'http://abcnews.net',
@@ -43,7 +43,7 @@ describe('Sources should be displayed', () => {
   ];
 
   beforeEach(() => {
-    wrapper = mount(<Sources  />);
+    wrapper = mount(<SourcesList  />);
   });
 
   it('Should allow us to set props', () => {

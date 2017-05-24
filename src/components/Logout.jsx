@@ -3,7 +3,7 @@ import BaseApp from './BaseApp';
 
 
 /**
- * Logout component to logged the user out
+ * Logout component to logged the user out and terminate the sessions
  * @extends BaseApp
  */
 class Logout extends BaseApp {
@@ -24,7 +24,6 @@ class Logout extends BaseApp {
 /**
  * Renders logged out message if redirection is not successful
  */
-
   render() {
    return (<div>Logged Out</div>)
   }

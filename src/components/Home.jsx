@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import createHistory from 'history/createBrowserHistory';
 import User from '../models/User';
 import siteLogo from '../assets/images/rss.png';
@@ -11,12 +11,13 @@ const history = createHistory({
 
 /**
  * The landing page component
+ * Displays the landing page and also allows user login in to the main page
  * @extends React.Component
  */
 class Home extends React.Component {
 
   /**
-   * componentWillMount - redirect user to sources if logged in Articleswrapper
+   * componentWillMount - redirect user to sources if logged in
    *
    * @return {void}
    */
@@ -27,19 +28,19 @@ class Home extends React.Component {
   }
 
   /**
-   * responseGoogle - retrieves login user details from google login api
-   *
+   * Retrieves User Profile details from their Google plus account
+   * And stores them in the cookies for persistency
    * @param  {object} response user details
    * @return {void}
    */
-  responseGoogle(response) {
+  googleAuth(response) {
     User.login(response.profileObj);
     history.push('/discover');
   }
 
   /**
    * render - rendered the landing page
-   *
+   * Displays the landing page with the google login
    * @return {void}
    */
   render() {
@@ -63,10 +64,12 @@ class Home extends React.Component {
               </header>
               <GoogleLogin
                 clientId={process.env.REACT_APP_GOOGLE_SECRET}
-                buttonText="Login With Google"
-                onSuccess={this.responseGoogle}
-                onFailure={this.responseGoogle}
-              />
+                onSuccess={this.googleAuth}
+                onFailure={this.googleAuth}
+              >
+              <Icon name="google plus"></Icon>
+               Login With Google
+              </GoogleLogin>
             </div>
           </div>
         </div>

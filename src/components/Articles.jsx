@@ -4,14 +4,16 @@ import {
   Grid,
   Dropdown, Icon } from 'semantic-ui-react';
 import newsStore from '../stores/NewsStore';
-import AppActions from '../actions/AppActions';
-import AppBar from './templates/AppBar';
+import actions from '../actions/actions';
+import NavBar from './templates/NavBar';
 import SideBar from './templates/SideBar';
 import Article from './templates/Article';
 import BaseApp from './BaseApp';
 
 /**
  * extract news sort types from the url
+ * @param {string} type  GET parameters to extracts the sort types from
+ * @return {array} sort types
  */
 const buildSortTypes = (type) => {
   const types = type.substr(6, type.length - 1).split(',');
@@ -29,7 +31,7 @@ const buildSortTypes = (type) => {
 };
 
 /**
- * @description This class lists all articles of a specfic source
+ * @description This class lists all articles of a specific source
  * @extends BaseApp
  */
 class Articles extends BaseApp {
@@ -50,8 +52,7 @@ class Articles extends BaseApp {
     };
 
 
-    this.onChange = this.onChange.bind(this);
-    this.setItemsState = this.setItemsState.bind(this);
+    this.update = this.update.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -70,21 +71,12 @@ class Articles extends BaseApp {
    * @return {void}
    */
   componentDidMount() {
-    AppActions.getNews(this.props.match.params.id);
-    newsStore.addChangeListener(this.onChange);
+    actions.getNews(this.props.match.params.id);
+    newsStore.addChangeListener(this.update);
   }
 
 /* Called when news change to set the new news state*/
-  onChange() {
-    this.setItemsState();
-  }
-
-  /**
-   * setItemsState - Set the default state
-   *
-   * @return {void}
-   */
-  setItemsState() {
+  update() {
     this.setState({
       news: newsStore.getAll(),
       activePage: 'feeds',
@@ -104,21 +96,21 @@ class Articles extends BaseApp {
   /**
    * handleChange - handles sort type changes and fetch accordingly
    *
-   * @param  {event} e
+   * @param  {event} e Dropdown onChange event
    * @param  {string} { value } Sort type value
    * @return {void}
    */
   handleChange(e, { value }) {
-    AppActions.getNews(this.props.match.params.id, value);
+    actions.getNews(this.props.match.params.id, value);
   }
 
   /**
-   * componentWillUnMount - removes change listener
+   * componentWillUnMount - removes change listener when component unmounts
    *
    * @return {void}
    */
   componentWillUnMount() {
-    newsStore.removeChangeListener(this.onChange);
+    newsStore.removeChangeListener(this.update);
   }
 
   /**
@@ -133,10 +125,10 @@ class Articles extends BaseApp {
     );
 
     const sortTypes = buildSortTypes(this.props.location.search);
-    const { favourites } = this.state;
+    const { favourites, news } = this.state;
     return (
       <div>
-        <AppBar trigger={trigger} options={this.menuOptions} />
+        <NavBar trigger={trigger} options={this.menuOptions} />
         <Grid>
           <SideBar favourites={favourites} />
           <Grid.Column width={12} className="middleColumn">
@@ -150,7 +142,7 @@ class Articles extends BaseApp {
                 />
               </p>
               <Grid className="sources">
-                {this.state.news.map((article, index) => {
+                {news.map((article, index) => {
                   return (<Article article={article} key={index} />)
                 })}
               </Grid>

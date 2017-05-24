@@ -26,11 +26,11 @@ describe('searching through favourite ', () => {
   });
 
   it('should return -1  for searching for the index of abc-newsd  in Tech collection', () => {
-    expect(fav.favAt(fav.fetchAll()['Tech'], 'abc-newsd')).toBe(-1);
+    expect(fav.getFavoriteIndex(fav.fetchAll()['Tech'], 'abc-newsd')).toBe(-1);
   });
 
   it('should return 0  for searching for the index of abc-news  in Tech collection', () => {
-    expect(fav.favAt(fav.fetchAll()['Tech'], 'abc-news')).toBe(0);
+    expect(fav.getFavoriteIndex(fav.fetchAll()['Tech'], 'abc-news')).toBe(0);
   });
 });
 

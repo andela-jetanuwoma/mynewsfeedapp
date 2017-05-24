@@ -2,21 +2,22 @@ import React from 'react';
 import _ from 'lodash';
 import { Image, Icon, Search, Grid } from 'semantic-ui-react';
 import newsSourcesStore  from '../stores/NewsSourcesStore';
-import AppActions from '../actions/AppActions';
-import AppBar from './templates/AppBar';
+import actions from '../actions/actions';
+import NavBar from './templates/NavBar';
 import SideBar from './templates/SideBar';
 import Source from './templates/Source';
 import BaseApp from './BaseApp';
 
 /**
- * components to display list of sources reterieved from the api
+ * components to display list of sources retrieved from the api
+ * Each of those sources has a Collection Form where the user can add their Collection
  */
-class Sources extends BaseApp {
+class SourcesList extends BaseApp {
 
   /**
    * constructor - set default state values
    *
-   * @param  {object} props
+   * @param  {object} props received from the parent component
    * @return {void}
    */
   constructor(props) {
@@ -27,48 +28,39 @@ class Sources extends BaseApp {
     };
 
 
-    this.onChange = this.onChange.bind(this);
+    this.update = this.update.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.setItemsState = this.setItemsState.bind(this);
   }
 
   /**
-   * componentDidMount - Make a call to the action for getting the ources
-   *  Add change listener
+   * componentDidMount - Make a call to the action for getting the sources
+   *  Add change listener to update the sources
    * @return {void}  description
    */
   componentDidMount() {
-    AppActions.getSources();
-    newsSourcesStore.addChangeListener(this.onChange);
+    actions.getSources();
+    newsSourcesStore.addChangeListener(this.update);
   }
 
 
   /**
-   * onChange - Called when there is a changed to sources rertrieved from the api
-   *
-   * @return {voi}
+   * update - Called when there is a changed to sources rertrieved from the api
+   * And it is rendered accordingly
+   * @return {void}
    */
 
-  onChange() {
-    this.setItemsState();
-  }
-
-/**
- * set default state values
- */
-  setItemsState() {
+  update() {
     this.setState({
       sources: newsSourcesStore.getAll(),
     });
   }
 
   /**
-   * componentWillUnMount - remove change listener
-   *
+   * componentWillUnMount - remove change listener component unmounts
    * @return {void}
    */
   componentWillUnMount() {
-    newsSourcesStore.removeChangeListener(this.onChange);
+    newsSourcesStore.removeChangeListener(this.update);
   }
 
 
@@ -76,8 +68,8 @@ class Sources extends BaseApp {
   /**
    * handleChange - handles filtering news sources
    *
-   * @param  {event} e
-   * @param  {string} val type value
+   * @param  {event} e Search onChange event
+   * @param  {string} val  value to filter sources by
    * @return {void}
    */
   handleSearchChange(e, val) {
@@ -96,7 +88,7 @@ class Sources extends BaseApp {
   }
 
   /**
-   * render -  rendered the sources page
+   * render -  rendered the sources page Displays all the entire sources
    */
   render() {
 
@@ -117,7 +109,7 @@ class Sources extends BaseApp {
     return (
       <div>
         <div>
-          <AppBar trigger={trigger} options={this.menuOptions} />
+          <NavBar trigger={trigger} options={this.menuOptions} />
           <Grid>
             <SideBar />
             <Grid.Column width={12} className="middleColumn">
@@ -128,7 +120,6 @@ class Sources extends BaseApp {
                </p>
                 <Search
                   loading={isLoading}
-                  onResultSelect={this.handleResultSelect}
                   onSearchChange={this.handleSearchChange}
                   results={results}
                   value={value}
@@ -151,4 +142,4 @@ class Sources extends BaseApp {
 
 }
 
-export default Sources;
+export default SourcesList;

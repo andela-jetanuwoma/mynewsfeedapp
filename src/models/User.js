@@ -7,7 +7,7 @@ import Favourites from './Favourites';
 class User {
 
   /**
-   * constructor - Setting users default values
+   * constructor - Set users default values if it is stored in cookies already
    *
    * @return {void}
    */
@@ -43,7 +43,7 @@ class User {
   }
 
   /**
-   * destroyUserValues - Reset users loggedin details
+   * destroyUserValues - Reset users loggedin details and clears the cookies
    *
    * @return {void}
    */
@@ -71,8 +71,8 @@ class User {
 
   /**
    * logOut - Delete user stored cookies and change user access state
-   *
-   * @return {bool}
+   * so that the user can be redirected back to the landing page
+   * @return {bool} return true if the users details have been successfully deleted
    */
   logOut() {
     this.isLogin = false;
@@ -82,9 +82,9 @@ class User {
   }
 
   /**
-   * favourites - Returns users favouritesand collections
+   * favourites - Returns users favourites and collections
    *
-   * @return {Favourites}  a new instance of the Favourites class
+   * @return {Favourites}  a new instance of the Favourites class that contains their favourites
    */
   favourites() {
     return new Favourites(this.email);

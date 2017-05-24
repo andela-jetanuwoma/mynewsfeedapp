@@ -11,31 +11,26 @@ class News {
   }
 /**
 * Add article from api to news
-* @param {string} title Article title
-* @param {string} desc Article Description
+* @param {string} title Article title of the article
+* @param {string} description Article short description of the article
 * @param {string} author Article author
-* @param {string} link Aritcle link
+* @param {string} link Aritcle link to the main article
+* @param {string} image Articel default images returned from the Api link
+* @return {void}
 */
-  add(title, desc, author, link, img) {
+  add(title, description, author, link, image) {
     this.news.push({
       href: link,
       header: title,
-      description: desc,
+      description,
       meta: author,
-      image: img,
+      image,
     });
   }
 
-  /**
-   * Get the total number of news stored
-   * @return {number}
-   */
-  total() {
-    return this.news.length;
-  }
 
 /**
- * search - Search for news Article
+ * search - Search for news Article and returns the results
  *
  * @param  {string} title Search news by title
  * @return {array} array of searches that meet criteria
@@ -47,9 +42,8 @@ class News {
   }
 
   /**
-   * get - Returns total news
-   *
-   * @return {array}  total news added
+   * get - Returns total news in the news array
+   * @return {array}  all the news added to the news array
    */
   get() {
     return this.news;

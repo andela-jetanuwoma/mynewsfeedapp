@@ -3,11 +3,11 @@ import React from 'react';
 import { mount, shallow, render } from 'enzyme';
 import expect from 'expect';
 import sinon from 'sinon';
-import FavActions from '../../src/components/templates/FavActions';
+import CollectionForm from '../../src/components/templates/CollectionForm';
 import User from '../../src/models/User';
 
-describe('FavActions', () => {
-  const wrapper = mount(<FavActions id='jac-news' />);
+describe('CollectionForm', () => {
+  const wrapper = mount(<CollectionForm id='jac-news' />);
   User.login({ name: 'Jude Peter', email: 'wapjude@gmail.com', imageUrl: '' });
 
   it('SourcesComponent renders Input', () => {
@@ -20,7 +20,7 @@ describe('FavActions', () => {
   });
 
   it('should render The Form for adding favourites', () => {
-    const component = shallow(<FavActions />);
+    const component = shallow(<CollectionForm />);
     expect(component.find('Form').length).toBe(1);
   })
 
@@ -33,7 +33,7 @@ describe('FavActions', () => {
     const fakeEvent = {
       preventDefault: () => {return null},
     };
-
+    expect(User.favourites().inFavourites("jac-news")).toBe(false);
     wrapper.instance().handleSubmit(fakeEvent);
     expect(User.favourites().inFavourites("jac-news")).toBe(true);
   });
@@ -47,9 +47,9 @@ fav.addCollection("Education");
 fav.addCollection("Events");
 
 
-describe("FavActions render", () => {
-  const renderHtml = render(<FavActions id='jac-news' />).html();
-  const wrapper = mount(<FavActions id='jac-news' />);
+describe("CollectionForm render", () => {
+  const renderHtml = render(<CollectionForm id='jac-news' />).html();
+  const wrapper = mount(<CollectionForm id='jac-news' />);
 
   it('should return 4 as list of favourites rendered', () => {
     expect(wrapper.instance().state.collections.length).toBe(4);

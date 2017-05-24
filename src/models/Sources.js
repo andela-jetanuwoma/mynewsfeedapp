@@ -15,11 +15,10 @@ class Sources {
   }
 
   /**
-   * add - description
-   *
-   * @param  {string} id   The source ID
+   * add - Add sources to the sources array
+   * @param  {string} id   The source id
    * @param  {string} name the source name
-   * @param  {string} desc the source description
+   * @param  {string} desc the source short description
    * @param  {string} sort the source available sort types
    * @return {void}
    */
@@ -46,18 +45,18 @@ class Sources {
   }
 
   /**
-   * get - Get the total of news sources added
+   * get - Get the all of the news sources added
    *
-   * @return {array}
+   * @return {array} list of all the sources
    */
   get() {
     return this.sources;
   }
 
   /**
-   * total - Total number of news
+   * total - returns the total number news sources added
    *
-   * @return {Number}  Total news added
+   * @return {Number}  total numbers news sources added
    */
   total() {
     return this.sources.length;

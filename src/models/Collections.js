@@ -2,114 +2,117 @@ import Cookies from 'js-cookie';
 import _ from 'lodash';
 import User from './User';
 /**
-* Collections class that holds favourite
+* Collections class that holds Collections and allows favourites to be stored
+* in each collection
 */
 class Collections {
 /**
-* Set user unique email for storing favourite
+* Set user unique email for storing favourite if there is an active favourites
+* and Collections stored in the cookies it is copied to collection for the users to see
+*
 * @param {string} email
 */
   constructor(email) {
     this.email = email;
-    this.db = new Map();
-    this.existing = Cookies.get(this.email);
+    this.collection = new Map();
+    this.saveCollection = Cookies.get(this.email);
 
-    if (this.existing === undefined) {
+    if (this.saveCollection === undefined) {
        // Incase if account has been created before the feature was added
       Cookies.set(this.email, {});
     } else {
       if (User.isLoggedIn()) {
-        this.copyToDb();
+        this.copyToCollection();
       }
     }
   }
 /**
-* Copy user favourites and collection to cookies and Map
-* @return void
+* Copy user favourites and collection from cookies to Map
+* @return {void}
 */
-  copyToDb() {
-    const db = JSON.parse(this.existing);
+  copyToCollection() {
+    const db = JSON.parse(this.saveCollection);
     const collections = Object.keys(db);
     collections.forEach((item) => {
-      this.db.set(item, db[item]);
+      this.collection.set(item, db[item]);
     });
-    this.existing = db;
+    this.saveCollection = db;
   }
   /**
   * Check if user already create a collections
-  * @param {string} name
-  * @return {boolean}
+  * @param {string} name name of the collection to Search
+  * @return {boolean} true if there is a collection existing
   */
   hasCollection(name) {
-    return this.db.has(name);
+    return this.collection.has(name);
   }
 
 /**
-* Retreives user saved collection
-* @return {array}
+* @return {array} Retreives all user saved collections
 */
   getCollections() {
     return Object.keys(this.fetchAll());
   }
 /**
-* Retreives favourites stored under a collection
-* @param {string} name
-* @return {array}
+* @param {string} name name of the collection to get its favourites
+* @return {array} retreives favourites stored under a collection
 */
   getCollection(name) {
-    return this.db.get(name);
+    return this.collection.get(name);
   }
 
 /**
 * Add to users collection
 * @param {string} name Collection name to be added
-* @return {boolean}
+* @return {boolean} returns true if the value added to the cookies successfully
 */
   addCollection(name) {
     if (!this.hasCollection(name)) {
-      this.db.set(name, []);
-      this.updateDB();
+      this.collection.set(name, []);
+      this.updateCollection();
       return true;
     }
     return false;
   }
 /**
 * Removes from users Collections and deleting users favourites under it
-* @param {string} name
-* @return {boolean}
+* @param {string} name name of collection to be deleted
+* @return {boolean} returns true if collection and its favourites were successfully
+* deleted
 */
   deleteCollection(name) {
     if (this.hasCollection(name)) {
-      this.db.delete(name);
-      this.updateDB();
+      this.collection.delete(name);
+      this.updateCollection();
       return true;
     }
     return false;
   }
 /**
-* Add modified collections to cookies for storages
+* Add modified collections to cookies for storage
+* It stores all the added collections and favourites under it
 * @return {void}
 */
-  updateDB() {
-    const val = {};
-    this.db.forEach((value, key) => {
-      val[key] = value;
+  updateCollection() {
+    const list = {};
+    this.collection.forEach((value, key) => {
+      list[key] = value;
     });
-    Cookies.set(this.email, val);
-    this.existing = val;
+    Cookies.set(this.email, list);
+    this.saveCollection = list;
   }
 /**
-* Retreives All collections and favourites associated to a user
-* @return {array}
+* @return {array}  Retreives All collections and favourites associated to a user
 */
   fetchAll() {
-    return this.existing;
+    return this.saveCollection;
   }
 /**
 * Display all collections
+* @return {string} list of collection in readable string formats
 */
   toString() {
-    return this.db.keys();
+    return this.collection.keys().join(',');
   }
 
 }

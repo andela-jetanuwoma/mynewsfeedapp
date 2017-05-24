@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home';
-import Sources from './Sources';
+import SourcesList from './SourcesList';
 import Articles from './Articles';
 import Collection from './Collection';
 import Logout from './Logout';
@@ -15,7 +15,7 @@ class App extends React.Component {
   /**
    * render - Set Route path and their respective Component
    *
-   * @return {type}  description
+   * @return {void}  display the NewsFeeds with their respective component
    */
   render() {
 
@@ -23,7 +23,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Route exact path="/" component={Home} />
-          <Route exact path="/discover" component={Sources} />
+          <Route exact path="/discover" component={SourcesList} />
           <Route exact path="/articles/:id" component={Articles} />
           <Route exact path="/collection/:id" component={Collection} />
           <Route exact path="/logout" component={Logout} />

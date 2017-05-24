@@ -14,17 +14,18 @@ class Favourites extends Collections {
     this.email = email;
   }
 /**
-* Add favourites to collection provided
+* Add favourites to collection provided it makes a recursive call to create a collection
+* if it has not been created and afterwards add the collection to it
 * @param {string} name Collection name to add favorites to
 * @param {string} sourceId Unique sourceId for getting article headlines
 * @param {string} sourceName Source name of the favorite
-* @return {boolean}
+* @return {boolean} return true if the operation was successful otherwise it returns false
 */
   addFavorites(name, sourceId, sourceName) {
     if (this.hasCollection(name)) {
       if (!this.hasFavourite(name, sourceId)) {
         this.getCollection(name).push({ id: sourceId, title: sourceName });
-        this.updateDB();
+        this.updateCollection();
         return true;
       }
     } else {
@@ -37,7 +38,7 @@ class Favourites extends Collections {
 * Check if a favorite is already contained in a collection
 * @param {string} name Collection name
 * @param {string} sourceId Article source id
-* @return {boolean}
+* @return {boolean} returns true if the favourites have been existing in the collection
 */
   hasFavourite(name, sourceId) {
     const re = new RegExp(_.escapeRegExp(sourceId), 'i');
@@ -47,9 +48,9 @@ class Favourites extends Collections {
   }
 
 /**
-*Check if a favorite is all ready contained in any of the collection
+*Check if a favorite is in already contained in any of the collection that has been created
 * @param {string} sourceId Article source id
-* @return {boolean}
+* @return {boolean} Return true if it exists in any of the created collections
 */
   inFavourites(sourceId) {
     // Search through all collection
@@ -65,15 +66,15 @@ class Favourites extends Collections {
 /**
 * Removes favourites from collection
 * @param {string} name Collection name
-* @param {sourceId} the news source to be removed
-* @return {boolean}
+* @param {string} sourceId news source to be removed
+* @return {boolean} return true if it was added successfully otherwise it returns false
 */
   removeFavourite(name, sourceId) {
     if (this.hasCollection(name)) {
-      const index = this.favAt(this.fetchAll()[name], sourceId);
+      const index = this.getFavoriteIndex(this.fetchAll()[name], sourceId);
       if (index !== -1) {
         this.getCollection(name).splice(index, 1);
-        this.updateDB();
+        this.updateCollection();
         return true;
       }
     }
@@ -84,9 +85,9 @@ class Favourites extends Collections {
 * Check the index of a favorite in all collections
 * @param {array} collections Array of all collections
 * @param {string} source News source to search for
-* @return {number}
+* @return {number} returns the index the favourites is in the list of collection available
 */
-  favAt(collections, source) {
+  getFavoriteIndex(collections, source) {
     let index = 0;
     let charAt = -1;
     collections.forEach((item) => {

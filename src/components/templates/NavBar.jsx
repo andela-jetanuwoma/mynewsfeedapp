@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Dropdown } from 'semantic-ui-react';
 
-class AppBar extends React.Component {
+class NavBar extends React.Component {
   render() {
     return (
       <Menu pointing inverted color="green">
@@ -20,4 +20,4 @@ class AppBar extends React.Component {
   }
 }
 
-export default AppBar;
+export default NavBar;
